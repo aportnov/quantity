@@ -2,8 +2,10 @@
 #Added functionality to compare array content regardless element order.
 class Array
     def contains?(other_array)
+      copy = dup
       other_array.each {|item| 
-        return false unless index(item)
+        return false unless i = copy.index(item)
+        copy[i] = nil
       }
       true
     end
@@ -52,7 +54,9 @@ module Unit
   
       attr_reader :unit, :coefficient, :based_on
   
-  	  def initialize (args)
+      EMPTY_UNIT = SimpleUnit.new()
+  
+  	  def initialize (args = {})
         @unit = args[:unit]
         @based_on = args[:based_on] || nil
         @coefficient = args[:coefficient] || 1
@@ -87,6 +91,14 @@ module Unit
       # The Hierarchy is the "based on" chain.
       def h_base
         derived? ? @based_on.h_base : self
+      end
+      
+      def dividend
+        @unit
+      end
+      
+      def divisor
+        EMPTY_UNIT
       end
       
       # Two Simple units are equal if they have same symbol, 

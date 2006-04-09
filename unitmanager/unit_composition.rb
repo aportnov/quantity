@@ -65,6 +65,16 @@ module Unit
       return @based_on
     end
     
+    def dividend
+      @dividend = ComposedUnit.new({:dividends => @dividends}) unless @dividend
+      @dividend
+    end
+    
+    def divisor
+      @divisor = ComposedUnit.new({:divisors => @divisors}) unless @divisor
+      @divisor
+    end
+    
     # This method allows to retrieve symbolic portions of the unit definition.
     # Supported values are:
     # 	:dividends - returns an array of symbols representing dividend part of 

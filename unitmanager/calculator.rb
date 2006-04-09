@@ -178,16 +178,10 @@ module Quantity
     def composed_conversion(target)
       convs, conv = [], Quantity.new(self, :unit => target, :value => 1)
       @conversions.each {|c|
-          if conv.unit.contains?(c.unit.dividend) # || conv.unit.contains?(c.unit.divisor)
+          if conv.unit.contains?(c.unit.dividend)
             convs << c; conv /= c 
           end
 
-#          if conv.unit.contains?(c.unit.divisor)
-#            convs << c; conv /= c 
-#          end
-  
-#          return conv if conv.unit.h_base == target.unit.h_base
-  
           if conv.unit[:dividends] == [] && conv.unit[:divisors] == []
               conv = 1
               convs.each {|c| conv *= c}

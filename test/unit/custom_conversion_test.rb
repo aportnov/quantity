@@ -73,4 +73,18 @@ class CustomUnitConversionTest < Test::Unit::TestCase
     assert_in_delta(0.016666667, qty.value, 0.0001)
     assert_equal([:sec], qty[:dividends])
   end
+  
+  
+  def test_default_configuration_conversions
+    calc = $configuration.calc
+    
+    assert_nothing_raised(RuntimeError) {
+      qty = calc.exp(:mm) {1.cu_in / 1.sq_cm}
+      
+      assert_in_delta(163.8706, qty.value, 0.0001)
+      assert_equal("mm", qty[:string])
+    }
+  
+    
+  end
 end  

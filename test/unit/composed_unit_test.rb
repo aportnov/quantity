@@ -143,5 +143,27 @@ class CompasedUnitTest < Test::Unit::TestCase
 
     assert_equal([:mm, :cm, :mm, :cm, :lb], sample)
   end
+  
+  def test_array_contains
+     assert_equal(false, [:mm, :sq_cm].contains?([:mm, :mm]))
+  end
+
+  def test_contains
+    @units[:L] = SimpleUnit.new(:unit => :L)
+    @units[:cu_in] = SimpleUnit.new(:unit => :cu_in, :based_on => @units[:L], :coefficient => 0.016387064)    
+  
+    @units[:sq_mm] = SimpleUnit.new(:unit => :sq_mm)
+    @units[:sq_cm] = SimpleUnit.new(:unit => :sq_cm, :based_on => @units[:sq_mm], :coefficient => 100)
+
+    unit = ComposedUnit.new(
+      :dividends => [@units[:mm], @units[:sq_cm]],
+      :divisors => [@units[:cu_in]]
+    )
+    
+    other = ComposedUnit.new(:dividends => [@units[:mm], @units[:mm]] )
+    
+    assert_equal(false, unit.contains?(other))
+    
+  end
 
 end
