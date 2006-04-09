@@ -176,22 +176,24 @@ module Quantity
     end
     
     def composed_conversion(target)
-    
-      target_dividend = Unit::ComposedUnit.new({:dividends => target.dividends})
-      target_divisor = Unit::ComposedUnit.new({:divisors => target.divisors})
-
-      dividend = divisor = nil  
+      convs, conv = [], Quantity.new(self, :unit => target, :value => 1)
       @conversions.each {|c|
- 
-          dividend = c if c.unit.contains?(target_dividend.h_base)
-          divisor = c if c.unit.contains?(target_divisor.h_base)
-          
-          if dividend && divisor
-            conversion = exp {dividend * divisor}
-            return conversion if conversion.unit == target.h_base 
+          if conv.unit.contains?(c.unit.dividend) # || conv.unit.contains?(c.unit.divisor)
+            convs << c; conv /= c 
           end
+
+#          if conv.unit.contains?(c.unit.divisor)
+#            convs << c; conv /= c 
+#          end
+  
+#          return conv if conv.unit.h_base == target.unit.h_base
+  
+          if conv.unit[:dividends] == [] && conv.unit[:divisors] == []
+              conv = 1
+              convs.each {|c| conv *= c}
+              return conv
+          end 
       }
-      
       nil    
     end
   end
