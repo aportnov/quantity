@@ -1,0 +1,12 @@
+Project Plan:
+
+I want to convert (well,if I can think of something maybe extend it to) my existing quantity manager framework into Ruby.
+
+Minimum completion test: All my Java based test calculations should be working.
+
+Full completion: 
+1.Minimum is satisfied.
+2.Ruby style is incorporated.
+3.Based on my Ruby knowledge code is re-factored and clean. (No smell!!!)
+4.Figure out RDoc.
+5.Consider creating gem lib.

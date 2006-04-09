@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>== (Unit::ComposedUnit)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File unitmanager/unit_composition.rb, line 102</span>
+102:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">other</span>)
+103:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">other</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span>
+104:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>)
+105:       
+106:       <span class="ruby-identifier">result</span> = (<span class="ruby-identifier">coefficient</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">coefficient</span>) <span class="ruby-operator">&amp;&amp;</span>
+107:        <span class="ruby-identifier">dividends</span>.<span class="ruby-identifier">same?</span>(<span class="ruby-identifier">other</span>.<span class="ruby-identifier">dividends</span>) <span class="ruby-operator">&amp;&amp;</span>
+108:        <span class="ruby-identifier">divisors</span>.<span class="ruby-identifier">same?</span>(<span class="ruby-identifier">other</span>.<span class="ruby-identifier">divisors</span>)
+109:       
+110:       <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">result</span>
+111:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

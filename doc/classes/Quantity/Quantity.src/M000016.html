@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>new (Quantity::Quantity)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>     <span class="ruby-comment cmt"># File unitmanager/quantity.rb, line 123</span>
+123:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">calc</span>, <span class="ruby-identifier">params</span>)
+124:       <span class="ruby-ivar">@calc</span> = <span class="ruby-identifier">calc</span>
+125:       <span class="ruby-ivar">@unit</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:unit</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">Unit</span><span class="ruby-operator">::</span><span class="ruby-constant">ComposedUnit</span>.<span class="ruby-identifier">new</span>({})
+126:       <span class="ruby-ivar">@value</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:value</span>] <span class="ruby-operator">||</span> <span class="ruby-value">0</span><span class="ruby-value">.0</span>
+127:     <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

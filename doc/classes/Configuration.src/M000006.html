@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>calc (Configuration)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre>    <span class="ruby-comment cmt"># File unitmanager/configuration.rb, line 16</span>
+16:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">calc</span>
+17:     <span class="ruby-identifier">calc</span> = <span class="ruby-constant">Quantity</span><span class="ruby-operator">::</span><span class="ruby-constant">Calculator</span>.<span class="ruby-identifier">new</span>({}.<span class="ruby-identifier">replace</span>(<span class="ruby-ivar">@default</span>.<span class="ruby-identifier">units</span>))
+18:     
+19:     <span class="ruby-ivar">@default</span>.<span class="ruby-identifier">conversions</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> 
+20:       <span class="ruby-identifier">calc</span>.<span class="ruby-identifier">conversions</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Quantity</span><span class="ruby-operator">::</span><span class="ruby-constant">Quantity</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">calc</span>, <span class="ruby-identifier">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">unit</span>, <span class="ruby-identifier">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">value</span>)
+21:     }
+22:     
+23:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">calc</span>    
+24:   <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

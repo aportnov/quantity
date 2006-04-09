@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>test_complex_conver_to (CalculatorTest)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File test/unit/calculator_test.rb, line 73</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_complex_conver_to</span>
+    <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">add_unit</span> <span class="ruby-identifier">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:km</span>, <span class="ruby-identifier">:based_on</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:m</span>, <span class="ruby-identifier">:coefficient</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1000</span>
+    <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">add_unit</span> <span class="ruby-identifier">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:in</span>, <span class="ruby-identifier">:based_on</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:cm</span>, <span class="ruby-identifier">:coefficient</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">2.54</span>
+    <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">add_unit</span> <span class="ruby-identifier">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:ft</span>, <span class="ruby-identifier">:based_on</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:in</span>, <span class="ruby-identifier">:coefficient</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">12</span>
+    <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">add_unit</span> <span class="ruby-identifier">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:yd</span>, <span class="ruby-identifier">:based_on</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:ft</span>, <span class="ruby-identifier">:coefficient</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">3</span>
+    <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">add_unit</span> <span class="ruby-identifier">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:mi</span>, <span class="ruby-identifier">:based_on</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:yd</span>, <span class="ruby-identifier">:coefficient</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1760</span>
+    <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">add_unit</span> <span class="ruby-identifier">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:min</span>, <span class="ruby-identifier">:based_on</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:sec</span>, <span class="ruby-identifier">:coefficient</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">60</span>
+    <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">add_unit</span> <span class="ruby-identifier">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:hour</span>, <span class="ruby-identifier">:based_on</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:min</span>, <span class="ruby-identifier">:coefficient</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">60</span>
+
+    <span class="ruby-identifier">qty</span> = <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">exp</span>(<span class="ruby-value">1</span>.<span class="ruby-identifier">km</span><span class="ruby-operator">/</span><span class="ruby-value">1</span>.<span class="ruby-identifier">hour</span>) {<span class="ruby-value">70</span>.<span class="ruby-identifier">mi</span> <span class="ruby-operator">/</span> <span class="ruby-value">1</span>.<span class="ruby-identifier">hour</span>}
+    <span class="ruby-identifier">assert_in_delta</span>(<span class="ruby-value">112.654</span>, <span class="ruby-identifier">qty</span>.<span class="ruby-identifier">value</span>, <span class="ruby-value">0</span><span class="ruby-value">.0001</span>)
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>
