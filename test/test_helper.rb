@@ -1,9 +1,7 @@
 require 'test/unit'
 require 'logger'
-require 'yaml'
 
-require File.dirname(__FILE__) + '/../quantity'
-#$: << './unitmanager'
+require File.dirname(__FILE__) + '/../lib/quantity'
 
 class Test::Unit::TestCase
   # Add more helper methods to be used by all tests here...

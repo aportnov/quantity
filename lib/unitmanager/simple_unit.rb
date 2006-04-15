@@ -54,7 +54,7 @@ module Unit
   
       attr_reader :unit, :coefficient, :based_on
   
-      EMPTY_UNIT = SimpleUnit.new()
+      @@EMPTY_UNIT = SimpleUnit.new()
   
   	  def initialize (args = {})
         @unit = args[:unit]
@@ -98,7 +98,7 @@ module Unit
       end
       
       def divisor
-        EMPTY_UNIT
+        @@EMPTY_UNIT
       end
       
       # Two Simple units are equal if they have same symbol, 
