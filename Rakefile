@@ -11,6 +11,7 @@ spec = Gem::Specification.new { |s|
   s.author = "Alexander A. Portnov"
   s.email = "alex.portnov@gmail.com"
   s.homepage = "http://rubyforge.org/projects/quantitymanager/"
+  s.rubyforge_project = "quantitymanager"
   s.platform = Gem::Platform::RUBY
   s.summary = "Unit of measure, quantity framework"
   s.files = FileList["{lib,test,doc}/**/*"].exclude("rdoc").to_a
