@@ -17,8 +17,46 @@ class Array
 
 end
 
-
 module Unit
+  
+  class BaseUnit
+
+    class << self
+
+      def once (*methods) #:nodoc:
+        methods.each {|method| 
+         
+          module_eval <<-"end;"
+            alias_method :__#{method.to_i}__ , :#{method.to_s}
+
+            def #{method.to_s}(*args, &block)
+              if defined? @__#{method.to_i}__ 
+                @__#{method.to_i}__ 
+              else
+                @__#{method.to_i}__ ||= __#{method.to_i}__(*args, &block)
+              end  
+            end
+            private :__#{method.to_i}__
+            
+          end;
+          
+        }
+      end
+      
+      private :once
+    end
+ 
+    # This method allows to retrieve symbolic portions of the unit definition.
+    # Supported values are:
+    # 	:dividends - returns an array of symbols representing dividend part of 
+    #                  unit definition.
+    # 	:divisors - returns an array of symbols representing divisor part of 
+    #                  unit definition.
+    # 	:string - string representation of the unit of measure. 
+    def [] (symbol)
+      unit_sym[symbol]
+    end
+  end
   
   # Adds comparing capabilities to  unit implementations
   module Comparable
@@ -48,14 +86,15 @@ module Unit
   # simple unit with linear coefficient.
   # Example:  :cm is based on :mm with coefficient equal 10.
   # In other words X cm = 10 * Y mm. 
-  class SimpleUnit
+  class SimpleUnit < BaseUnit
   
       include Unit::Comparable
+#      include Unit::Singleton
   
       attr_reader :unit, :coefficient, :based_on
   
       @@EMPTY_UNIT = SimpleUnit.new()
-  
+ 
   	  def initialize (args = {})
         @unit = args[:unit]
         @based_on = args[:based_on] || nil
@@ -74,19 +113,6 @@ module Unit
         value /= @coefficient
       end
       
-      # This method allows to retrieve symbolic portions of the unit definition.
-      # Supported values are:
-      # 	:dividends - returns an array of symbols representing dividend part of 
-	  #                  unit definition.
-      # 	:divisors - returns an array of symbols representing divisor part of 
-	  #                  unit definition.
-      # 	:string - string representation of the unit of measure. 
-      def [] (symbol)
-        @unit_sym = {:dividends => [@unit], :divisors => [], :string => @unit.to_s} unless @unit_sym
-        
-        @unit_sym[symbol]
-      end
-  
       # Returns unit representing hierarchy base for the given unit.
       # The Hierarchy is the "based on" chain.
       def h_base
@@ -119,6 +145,11 @@ module Unit
         @based_on != nil
       end
   
+      def unit_sym
+        {:dividends => [@unit], :divisors => [], :string => @unit.to_s}
+      end
+  
+  once :unit_sym    
   end
 
 end
