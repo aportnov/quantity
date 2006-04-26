@@ -30,11 +30,12 @@ module Unit
             alias_method :__#{method.to_i}__ , :#{method.to_s}
 
             def #{method.to_s}(*args, &block)
-              if defined? @__#{method.to_i}__ 
+              
+              def self.#{method.to_s}(*args, &block)
                 @__#{method.to_i}__ 
-              else
-                @__#{method.to_i}__ ||= __#{method.to_i}__(*args, &block)
-              end  
+              end
+            
+              @__#{method.to_i}__ = __#{method.to_i}__(*args, &block)
             end
             private :__#{method.to_i}__
             
