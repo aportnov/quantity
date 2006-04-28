@@ -1,4 +1,0 @@
-1. I should have an [] method on Quantity to return units, and value. Would be nice..
-2. Modify + and - to make use of convert_to. I think I will have a convert_to return a Hash, so I won't
-   create that many Quantities...
-
