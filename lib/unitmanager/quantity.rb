@@ -6,23 +6,15 @@ module Quantity
     end
   end  
     
-  module Calculable
+  module CalculationSupport
     include Quantifiable
     
-    def + (value)
-      perform_operation(value, :+)
-    end
-    
-    def - (value)
-      perform_operation(value, :-)
-    end
-
-    def * (value)
-      perform_operation(value, :*)
-    end
-
-    def / (value)
-      perform_operation(value, :/)
+    def method_missing(name, value)
+      if supported_operation? name
+        return perform_operation(value, name)
+      else
+        super.method_missing(name, value)
+      end
     end
  
     def == (other)
@@ -48,33 +40,21 @@ module Quantity
     end  
 
     def apply_operator(first_operand, second_operand, operation)
-      result = case operation
-                 when :+ then first_operand + second_operand
-                 when :- then first_operand - second_operand 
-                 when :* then first_operand * second_operand 
-                 when :/ then first_operand / second_operand 
-               end
-      return result                             
+      raise "Operation #{operation.to_s} is not supported" unless supported_operation? operation    
+
+      first_operand.send(operation, second_operand) 
+    end
+    
+    def supported_operation?(operation)
+      [:+, :-, :*, :/].include? operation 
     end
     
   end
 
 
-  # DSL (domain specific language) processing module. Mixin for Numeric class.		
-  module Measurable
-    
-    def method_missing (method_name)
-      QuantityInfo.new(self, method_name)
-    end
-    
-    def to_quantity (calc)
-      calc.quantity(self, nil)
-    end
-  end  
-  
   class QuantityInfo 
   
-    include Calculable
+    include CalculationSupport
     
     attr_reader :value, :unit_sym
     
@@ -90,14 +70,14 @@ module Quantity
   end
 
   class OperationInfo
-    include Calculable
+    include CalculationSupport
 
     attr_reader :first_operand, :second_operand, :operation
     
     def initialize(first_operand, second_operand, operation)
 
-      raise "Operand is not Quantifiable" unless quantifiable?(first_operand) && 
-          quantifiable?(second_operand)
+      raise "Operand #{first_operand.to_s} is not Quantifiable" unless quantifiable?(first_operand) 
+      raise "Operand #{second_operand.to_s} is not Quantifiable" unless quantifiable?(second_operand)
   
       @first_operand = first_operand
       @second_operand = second_operand
@@ -113,10 +93,21 @@ module Quantity
 
   end
 
+  # DSL (domain specific language) processing module. Mixin for Numeric class.		
+  module Measurable
+    
+    def method_missing (method_name)
+      QuantityInfo.new(self, method_name)
+    end
+    
+    def to_quantity (calc)
+      calc.quantity(self, nil)
+    end
+  end  
 
   class Quantity
 
-    include Calculable
+    include CalculationSupport
     
     attr_reader :calc, :value, :unit
     

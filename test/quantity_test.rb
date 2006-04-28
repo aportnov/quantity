@@ -76,4 +76,17 @@ class QuantityTest < Test::Unit::TestCase
     assert_equal("mm*lb", q[:string])
   end
 
+  def test_method_missing
+    
+    assert_nothing_raised(NoMethodError) {
+      10.lb + 5.kg
+      @calc.quantity(10, :mm) + 25.cm
+    }
+    assert_raise(NoMethodError) { 10.lb % 3.kg}
+
+    assert_raise(NoMethodError) { 
+      @calc.quantity(10, :mm).hello("Alex")
+    }
+  end
+
 end
