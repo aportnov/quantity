@@ -90,7 +90,6 @@ module Unit
   class SimpleUnit < BaseUnit
   
       include Unit::Comparable
-#      include Unit::Singleton
   
       attr_reader :unit, :coefficient, :based_on
   

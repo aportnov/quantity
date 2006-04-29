@@ -13,7 +13,7 @@ module Quantity
     end
     
     def quantity(value, unit_sym)
-      return Quantity.new(self, {:value => 1.0 * value, :unit => result_unit(unit_sym)})
+      return Quantity.new(self, {:value => 1.0 * value, :unit => to_unit(unit_sym)})
     end
     
     def perform_operation(first_operand, second_operand, operation)
@@ -34,7 +34,7 @@ module Quantity
       raise "Operand is not Quantifiable" unless quantifiable?(operand)
       
       
-      convert_to(operand.to_quantity(self), result_unit(return_as))
+      convert_to(operand.to_quantity(self), to_unit(return_as))
     end
     
     def add_unit(params)
@@ -57,8 +57,7 @@ module Quantity
     def add_conversion(params)
       params.each {|source, target|
         begin
-          @conversions << exp { target / source }
-          @conversions << exp { source / target }
+          @conversions << exp { target / source } << exp { source / target }
         rescue
           raise "Unit must be defined before used in conversion"
         end  
@@ -134,7 +133,7 @@ module Quantity
       raise "Incompatible Units: #{qty[:string]} and #{unit[:string]} " unless conversion
     end
   
-    def result_unit(return_spec)
+    def to_unit(return_spec)
       return nil if return_spec.nil?
       
       if quantifiable?(return_spec)
