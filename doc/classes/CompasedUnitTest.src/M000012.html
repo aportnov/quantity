@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>test_contains (CompasedUnitTest)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File test/composed_unit_test.rb, line 151</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_contains</span>
+    <span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:L</span>] = <span class="ruby-constant">SimpleUnit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:L</span>)
+    <span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:cu_in</span>] = <span class="ruby-constant">SimpleUnit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:cu_in</span>, <span class="ruby-identifier">:based_on</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:L</span>], <span class="ruby-identifier">:coefficient</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span><span class="ruby-value">.016387064</span>)    
+  
+    <span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:sq_mm</span>] = <span class="ruby-constant">SimpleUnit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:sq_mm</span>)
+    <span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:sq_cm</span>] = <span class="ruby-constant">SimpleUnit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:sq_cm</span>, <span class="ruby-identifier">:based_on</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:sq_mm</span>], <span class="ruby-identifier">:coefficient</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">100</span>)
+
+    <span class="ruby-identifier">unit</span> = <span class="ruby-constant">ComposedUnit</span>.<span class="ruby-identifier">new</span>(
+      <span class="ruby-identifier">:dividends</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:mm</span>], <span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:sq_cm</span>]],
+      <span class="ruby-identifier">:divisors</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:cu_in</span>]]
+    )
+    
+    <span class="ruby-identifier">other</span> = <span class="ruby-constant">ComposedUnit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:dividends</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:mm</span>], <span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:mm</span>]] )
+    
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword kw">false</span>, <span class="ruby-identifier">unit</span>.<span class="ruby-identifier">contains?</span>(<span class="ruby-identifier">other</span>))
+    
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

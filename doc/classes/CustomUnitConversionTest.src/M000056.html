@@ -5,22 +5,21 @@
 
 <html>
 <head>
-  <title>test_composed_conversion_usage (CustomUnitConversionTest)</title>
+  <title>test_add_custom_unit_conversion (CustomUnitConversionTest)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File test/unit/custom_conversion_test.rb, line 54</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_composed_conversion_usage</span>
+  <pre><span class="ruby-comment cmt"># File test/custom_conversion_test.rb, line 25</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_add_custom_unit_conversion</span>
+    <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">add_unit</span> <span class="ruby-identifier">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:PA</span>
+    <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">add_unit</span> <span class="ruby-identifier">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:sq_in</span>
   
-    <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">add_unit</span> <span class="ruby-identifier">:unit</span> =<span class="ruby-operator">&gt;</span><span class="ruby-identifier">:t</span>
+    <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">add_conversion</span> <span class="ruby-value">1</span>.<span class="ruby-constant">PA</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">6894.757</span>.<span class="ruby-identifier">lb</span> <span class="ruby-operator">/</span> <span class="ruby-value">1</span>.<span class="ruby-identifier">sq_in</span>
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">2</span>, <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">conversions</span>.<span class="ruby-identifier">length</span>)
+
     <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">add_conversion</span> <span class="ruby-value">1</span>.<span class="ruby-identifier">m</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">10</span>.<span class="ruby-identifier">lb</span>
-    <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">add_conversion</span> <span class="ruby-value">1</span>.<span class="ruby-identifier">lb</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">10</span>.<span class="ruby-identifier">t</span>
-  
-    <span class="ruby-identifier">qty</span> = <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">exp</span>(<span class="ruby-identifier">:m</span>) {<span class="ruby-value">200</span>.<span class="ruby-identifier">cm</span> <span class="ruby-operator">+</span> <span class="ruby-value">300</span>.<span class="ruby-identifier">t</span>}
-  
-    <span class="ruby-identifier">assert_in_delta</span>(<span class="ruby-value">5</span>, <span class="ruby-identifier">qty</span>.<span class="ruby-identifier">value</span>, <span class="ruby-value">0</span><span class="ruby-value">.0001</span>)
-    <span class="ruby-identifier">assert_equal</span>([<span class="ruby-identifier">:m</span>], <span class="ruby-identifier">qty</span>.<span class="ruby-identifier">unit</span>[<span class="ruby-identifier">:dividends</span>])  
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">4</span>, <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">conversions</span>.<span class="ruby-identifier">length</span>)
   <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

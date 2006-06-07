@@ -55,8 +55,8 @@
         <tr class="top-aligned-row">
             <td><strong>In:</strong></td>
             <td>
-                <a href="../../files/unitmanager/simple_unit_rb.html">
-                unitmanager/simple_unit.rb
+                <a href="../../files/lib/unitmanager/simple_unit_rb.html">
+                lib/unitmanager/simple_unit.rb
                 </a>
         <br />
             </td>
@@ -65,7 +65,9 @@
         <tr class="top-aligned-row">
             <td><strong>Parent:</strong></td>
             <td>
-                Object
+                <a href="BaseUnit.html">
+                BaseUnit
+               </a>
             </td>
         </tr>
         </table>
@@ -95,13 +97,14 @@ other words X cm = 10 * Y mm.
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000037">==</a>&nbsp;&nbsp;
-      <a href="#M000035">[]</a>&nbsp;&nbsp;
-      <a href="#M000038">eql?</a>&nbsp;&nbsp;
-      <a href="#M000034">from_base</a>&nbsp;&nbsp;
-      <a href="#M000036">h_base</a>&nbsp;&nbsp;
-      <a href="#M000032">new</a>&nbsp;&nbsp;
-      <a href="#M000033">to_base</a>&nbsp;&nbsp;
+      <a href="#M000100">==</a>&nbsp;&nbsp;
+      <a href="#M000098">dividend</a>&nbsp;&nbsp;
+      <a href="#M000099">divisor</a>&nbsp;&nbsp;
+      <a href="#M000101">eql?</a>&nbsp;&nbsp;
+      <a href="#M000096">from_base</a>&nbsp;&nbsp;
+      <a href="#M000097">h_base</a>&nbsp;&nbsp;
+      <a href="#M000094">new</a>&nbsp;&nbsp;
+      <a href="#M000095">to_base</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -153,13 +156,13 @@ other words X cm = 10 * Y mm.
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000032" class="method-detail">
-        <a name="M000032"></a>
+      <div id="method-M000094" class="method-detail">
+        <a name="M000094"></a>
 
         <div class="method-heading">
-          <a href="SimpleUnit.src/M000032.html" target="Code" class="method-signature"
-            onclick="popupCode('SimpleUnit.src/M000032.html');return false;">
-          <span class="method-name">new</span><span class="method-args">(args)</span>
+          <a href="SimpleUnit.src/M000094.html" target="Code" class="method-signature"
+            onclick="popupCode('SimpleUnit.src/M000094.html');return false;">
+          <span class="method-name">new</span><span class="method-args">(args = {})</span>
           </a>
         </div>
       
@@ -169,12 +172,12 @@ other words X cm = 10 * Y mm.
 
       <h3 class="section-bar">Public Instance methods</h3>
 
-      <div id="method-M000037" class="method-detail">
-        <a name="M000037"></a>
+      <div id="method-M000100" class="method-detail">
+        <a name="M000100"></a>
 
         <div class="method-heading">
-          <a href="SimpleUnit.src/M000037.html" target="Code" class="method-signature"
-            onclick="popupCode('SimpleUnit.src/M000037.html');return false;">
+          <a href="SimpleUnit.src/M000100.html" target="Code" class="method-signature"
+            onclick="popupCode('SimpleUnit.src/M000100.html');return false;">
           <span class="method-name">==</span><span class="method-args">(other)</span>
           </a>
         </div>
@@ -187,37 +190,40 @@ with the same coefficient
         </div>
       </div>
 
-      <div id="method-M000035" class="method-detail">
-        <a name="M000035"></a>
+      <div id="method-M000098" class="method-detail">
+        <a name="M000098"></a>
 
         <div class="method-heading">
-          <a href="SimpleUnit.src/M000035.html" target="Code" class="method-signature"
-            onclick="popupCode('SimpleUnit.src/M000035.html');return false;">
-          <span class="method-name">[]</span><span class="method-args">(symbol)</span>
+          <a href="SimpleUnit.src/M000098.html" target="Code" class="method-signature"
+            onclick="popupCode('SimpleUnit.src/M000098.html');return false;">
+          <span class="method-name">dividend</span><span class="method-args">()</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p>
-This method allows to retrieve symbolic portions of the unit definition.
-Supported values are:
-</p>
-<pre>
-        :dividends - returns an array of symbols representing dividend part of
-                 unit definition.
-        :divisors - returns an array of symbols representing divisor part of
-                 unit definition.
-        :string - string representation of the unit of measure.
-</pre>
         </div>
       </div>
 
-      <div id="method-M000038" class="method-detail">
-        <a name="M000038"></a>
+      <div id="method-M000099" class="method-detail">
+        <a name="M000099"></a>
 
         <div class="method-heading">
-          <a href="SimpleUnit.src/M000038.html" target="Code" class="method-signature"
-            onclick="popupCode('SimpleUnit.src/M000038.html');return false;">
+          <a href="SimpleUnit.src/M000099.html" target="Code" class="method-signature"
+            onclick="popupCode('SimpleUnit.src/M000099.html');return false;">
+          <span class="method-name">divisor</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000101" class="method-detail">
+        <a name="M000101"></a>
+
+        <div class="method-heading">
+          <a href="SimpleUnit.src/M000101.html" target="Code" class="method-signature"
+            onclick="popupCode('SimpleUnit.src/M000101.html');return false;">
           <span class="method-name">eql?</span><span class="method-args">(other)</span>
           </a>
         </div>
@@ -226,12 +232,12 @@ Supported values are:
         </div>
       </div>
 
-      <div id="method-M000034" class="method-detail">
-        <a name="M000034"></a>
+      <div id="method-M000096" class="method-detail">
+        <a name="M000096"></a>
 
         <div class="method-heading">
-          <a href="SimpleUnit.src/M000034.html" target="Code" class="method-signature"
-            onclick="popupCode('SimpleUnit.src/M000034.html');return false;">
+          <a href="SimpleUnit.src/M000096.html" target="Code" class="method-signature"
+            onclick="popupCode('SimpleUnit.src/M000096.html');return false;">
           <span class="method-name">from_base</span><span class="method-args">(value)</span>
           </a>
         </div>
@@ -240,12 +246,12 @@ Supported values are:
         </div>
       </div>
 
-      <div id="method-M000036" class="method-detail">
-        <a name="M000036"></a>
+      <div id="method-M000097" class="method-detail">
+        <a name="M000097"></a>
 
         <div class="method-heading">
-          <a href="SimpleUnit.src/M000036.html" target="Code" class="method-signature"
-            onclick="popupCode('SimpleUnit.src/M000036.html');return false;">
+          <a href="SimpleUnit.src/M000097.html" target="Code" class="method-signature"
+            onclick="popupCode('SimpleUnit.src/M000097.html');return false;">
           <span class="method-name">h_base</span><span class="method-args">()</span>
           </a>
         </div>
@@ -258,12 +264,12 @@ is the &quot;based on&quot; chain.
         </div>
       </div>
 
-      <div id="method-M000033" class="method-detail">
-        <a name="M000033"></a>
+      <div id="method-M000095" class="method-detail">
+        <a name="M000095"></a>
 
         <div class="method-heading">
-          <a href="SimpleUnit.src/M000033.html" target="Code" class="method-signature"
-            onclick="popupCode('SimpleUnit.src/M000033.html');return false;">
+          <a href="SimpleUnit.src/M000095.html" target="Code" class="method-signature"
+            onclick="popupCode('SimpleUnit.src/M000095.html');return false;">
           <span class="method-name">to_base</span><span class="method-args">(value)</span>
           </a>
         </div>

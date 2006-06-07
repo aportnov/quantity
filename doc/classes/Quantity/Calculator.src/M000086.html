@@ -10,14 +10,14 @@
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File unitmanager/calculator.rb, line 31</span>
+  <pre><span class="ruby-comment cmt"># File lib/unitmanager/calculator.rb, line 31</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">exp</span> (<span class="ruby-identifier">return_as</span> = <span class="ruby-keyword kw">nil</span>)
     
       <span class="ruby-identifier">operand</span> = <span class="ruby-keyword kw">yield</span> <span class="ruby-keyword kw">self</span>
       <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;Operand is not Quantifiable&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">quantifiable?</span>(<span class="ruby-identifier">operand</span>)
       
       
-      <span class="ruby-identifier">convert_to</span>(<span class="ruby-identifier">operand</span>.<span class="ruby-identifier">to_quantity</span>(<span class="ruby-keyword kw">self</span>), <span class="ruby-identifier">result_unit</span>(<span class="ruby-identifier">return_as</span>))
+      <span class="ruby-identifier">convert_to</span>(<span class="ruby-identifier">operand</span>.<span class="ruby-identifier">to_quantity</span>(<span class="ruby-keyword kw">self</span>), <span class="ruby-identifier">to_unit</span>(<span class="ruby-identifier">return_as</span>))
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

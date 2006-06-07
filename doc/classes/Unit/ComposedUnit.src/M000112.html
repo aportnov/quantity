@@ -5,20 +5,16 @@
 
 <html>
 <head>
-  <title>reverse (Unit::ComposedUnit)</title>
+  <title>h_base (Unit::ComposedUnit)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File unitmanager/unit_composition.rb, line 90</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">reverse</span>
-      <span class="ruby-ivar">@reverse</span> = <span class="ruby-constant">ComposedUnit</span>.<span class="ruby-identifier">new</span>({
-        <span class="ruby-identifier">:coefficient</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1.0</span> <span class="ruby-operator">/</span> <span class="ruby-identifier">coefficient</span>,
-        <span class="ruby-identifier">:dividends</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@divisors</span>.<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">unit</span><span class="ruby-operator">|</span> <span class="ruby-identifier">unit</span> },
-        <span class="ruby-identifier">:divisors</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@dividends</span>.<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">unit</span><span class="ruby-operator">|</span> <span class="ruby-identifier">unit</span> }
-      }) <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@reverse</span>
-      
-      <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@reverse</span>
+  <pre><span class="ruby-comment cmt"># File lib/unitmanager/unit_composition.rb, line 46</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">h_base</span>
+      <span class="ruby-constant">ComposedUnit</span>.<span class="ruby-identifier">new</span>({ <span class="ruby-identifier">:coefficient</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1.0</span>,
+            <span class="ruby-identifier">:dividends</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Optimizer</span>.<span class="ruby-identifier">base</span>(<span class="ruby-ivar">@dividends</span>),
+            <span class="ruby-identifier">:divisors</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-constant">Optimizer</span>.<span class="ruby-identifier">base</span>(<span class="ruby-ivar">@divisors</span>) })
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

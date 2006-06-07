@@ -5,23 +5,23 @@
 
 <html>
 <head>
-  <title>test_existing_coefficient_optimization (UnitOptemizerTest)</title>
+  <title>test_no_optimization_needed (UnitOptemizerTest)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File test/unit/unit_optimizer_test.rb, line 61</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_existing_coefficient_optimization</span>
+  <pre><span class="ruby-comment cmt"># File test/unit_optimizer_test.rb, line 35</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_no_optimization_needed</span>
+
       <span class="ruby-identifier">results</span> = <span class="ruby-constant">Optimizer</span>.<span class="ruby-identifier">process</span>({
-        <span class="ruby-identifier">:coefficient</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">7</span>,
-        <span class="ruby-identifier">:dividends</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:mm</span>], <span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:kg</span>]], 
-        <span class="ruby-identifier">:divisors</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:g</span>]]
+        <span class="ruby-identifier">:dividends</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:mm</span>], <span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:sec</span>]], <span class="ruby-identifier">:divisors</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:g</span>]]
       })
   
       <span class="ruby-identifier">assert_equal</span>(<span class="ruby-keyword kw">true</span>, <span class="ruby-identifier">results</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Hash</span>))
-      <span class="ruby-identifier">assert_in_delta</span>(<span class="ruby-value">7000.0</span>, <span class="ruby-identifier">results</span>[<span class="ruby-identifier">:coefficient</span>], <span class="ruby-value">0</span><span class="ruby-value">.001</span>)
-      <span class="ruby-identifier">assert_equal</span>([<span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:mm</span>]], <span class="ruby-identifier">results</span>[<span class="ruby-identifier">:dividends</span>])
-      <span class="ruby-identifier">assert_equal</span>([], <span class="ruby-identifier">results</span>[<span class="ruby-identifier">:divisors</span>])
+      <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">1.0</span>, <span class="ruby-identifier">results</span>[<span class="ruby-identifier">:coefficient</span>])
+      <span class="ruby-identifier">assert_equal</span>([<span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:mm</span>], <span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:sec</span>]], <span class="ruby-identifier">results</span>[<span class="ruby-identifier">:dividends</span>])
+      <span class="ruby-identifier">assert_equal</span>([<span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:g</span>]], <span class="ruby-identifier">results</span>[<span class="ruby-identifier">:divisors</span>])
+  
   <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

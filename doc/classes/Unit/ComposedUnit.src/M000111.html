@@ -5,25 +5,14 @@
 
 <html>
 <head>
-  <title>[] (Unit::ComposedUnit)</title>
+  <title>from_base (Unit::ComposedUnit)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File unitmanager/unit_composition.rb, line 75</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-operator">[]</span> (<span class="ruby-identifier">symbol</span>)
-      <span class="ruby-ivar">@unit_sym</span> = {
-        <span class="ruby-identifier">:dividends</span> =<span class="ruby-operator">&gt;</span> 
-          <span class="ruby-identifier">collect</span>(<span class="ruby-ivar">@dividends</span>){<span class="ruby-operator">|</span><span class="ruby-identifier">unit</span><span class="ruby-operator">|</span> <span class="ruby-identifier">unit</span>[<span class="ruby-identifier">:dividends</span>]} <span class="ruby-operator">+</span>
-          <span class="ruby-identifier">collect</span>(<span class="ruby-ivar">@divisors</span>){<span class="ruby-operator">|</span><span class="ruby-identifier">unit</span><span class="ruby-operator">|</span> <span class="ruby-identifier">unit</span>[<span class="ruby-identifier">:divisors</span>]},
-        <span class="ruby-identifier">:divisors</span> =<span class="ruby-operator">&gt;</span> 
-          <span class="ruby-identifier">collect</span>(<span class="ruby-ivar">@divisors</span>){<span class="ruby-operator">|</span><span class="ruby-identifier">unit</span><span class="ruby-operator">|</span> <span class="ruby-identifier">unit</span>[<span class="ruby-identifier">:dividends</span>]} <span class="ruby-operator">+</span>
-          <span class="ruby-identifier">collect</span>(<span class="ruby-ivar">@dividends</span>){<span class="ruby-operator">|</span><span class="ruby-identifier">unit</span><span class="ruby-operator">|</span> <span class="ruby-identifier">unit</span>[<span class="ruby-identifier">:divisors</span>]},
-        <span class="ruby-identifier">:string</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">unit_string</span>          
-          
-      } <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@unit_sym</span>
-      
-      <span class="ruby-keyword kw">return</span> <span class="ruby-ivar">@unit_sym</span>[<span class="ruby-identifier">symbol</span>]
+  <pre><span class="ruby-comment cmt"># File lib/unitmanager/unit_composition.rb, line 40</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">from_base</span>(<span class="ruby-identifier">value</span>)
+      <span class="ruby-identifier">value</span> <span class="ruby-operator">*</span> <span class="ruby-identifier">from_base_coef</span>
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

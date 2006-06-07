@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>test_add_unit (CalculatorTest)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File test/calculator_test.rb, line 170</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_add_unit</span>
+    <span class="ruby-identifier">assert_nothing_raised</span>(<span class="ruby-constant">RuntimeError</span>) {
+      <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">add_unit</span>({<span class="ruby-identifier">:unit=</span><span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:V</span>})
+      <span class="ruby-identifier">qty</span> = <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">quantity</span>(<span class="ruby-value">15</span>, <span class="ruby-identifier">:V</span>)
+      <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;V&quot;</span>, <span class="ruby-identifier">qty</span>[<span class="ruby-identifier">:string</span>])
+      <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">add_unit</span>({<span class="ruby-identifier">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:mV</span>, <span class="ruby-identifier">:based_on</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:V</span>, <span class="ruby-identifier">:coefficient</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span><span class="ruby-value">.001</span>})
+
+      <span class="ruby-identifier">qty</span> = <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">quantity</span>(<span class="ruby-value">15</span>, <span class="ruby-identifier">:mV</span>)
+      <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value str">&quot;mV&quot;</span>, <span class="ruby-identifier">qty</span>[<span class="ruby-identifier">:string</span>])
+      <span class="ruby-identifier">assert_equal</span>([<span class="ruby-identifier">:V</span>], <span class="ruby-identifier">qty</span>.<span class="ruby-identifier">unit</span>.<span class="ruby-identifier">h_base</span>[<span class="ruby-identifier">:dividends</span>])
+    }
+    
+    <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">RuntimeError</span>) {
+      <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">add_unit</span> <span class="ruby-identifier">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:mW</span>, <span class="ruby-identifier">:based_on</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:W</span>, <span class="ruby-identifier">:coefficient</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span><span class="ruby-value">.001</span>
+    }
+      
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

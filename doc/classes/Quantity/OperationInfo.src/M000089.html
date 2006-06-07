@@ -10,11 +10,11 @@
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File unitmanager/quantity.rb, line 97</span>
+  <pre><span class="ruby-comment cmt"># File lib/unitmanager/quantity.rb, line 77</span>
     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">first_operand</span>, <span class="ruby-identifier">second_operand</span>, <span class="ruby-identifier">operation</span>)
 
-      <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;Operand is not Quantifiable&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">quantifiable?</span>(<span class="ruby-identifier">first_operand</span>) <span class="ruby-operator">&amp;&amp;</span> 
-          <span class="ruby-identifier">quantifiable?</span>(<span class="ruby-identifier">second_operand</span>)
+      <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Operand #{first_operand.to_s} is not Quantifiable&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">quantifiable?</span>(<span class="ruby-identifier">first_operand</span>) 
+      <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Operand #{second_operand.to_s} is not Quantifiable&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">quantifiable?</span>(<span class="ruby-identifier">second_operand</span>)
   
       <span class="ruby-ivar">@first_operand</span> = <span class="ruby-identifier">first_operand</span>
       <span class="ruby-ivar">@second_operand</span> = <span class="ruby-identifier">second_operand</span>

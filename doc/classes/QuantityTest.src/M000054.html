@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <title>test_method_missing (QuantityTest)</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
+</head>
+<body class="standalone-code">
+  <pre><span class="ruby-comment cmt"># File test/quantity_test.rb, line 79</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_method_missing</span>
+    
+    <span class="ruby-identifier">assert_nothing_raised</span>(<span class="ruby-constant">NoMethodError</span>) {
+      <span class="ruby-value">10</span>.<span class="ruby-identifier">lb</span> <span class="ruby-operator">+</span> <span class="ruby-value">5</span>.<span class="ruby-identifier">kg</span>
+      <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">quantity</span>(<span class="ruby-value">10</span>, <span class="ruby-identifier">:mm</span>) <span class="ruby-operator">+</span> <span class="ruby-value">25</span>.<span class="ruby-identifier">cm</span>
+    }
+    <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">NoMethodError</span>) { <span class="ruby-value">10</span>.<span class="ruby-identifier">lb</span> <span class="ruby-operator">%</span> <span class="ruby-value">3</span>.<span class="ruby-identifier">kg</span>}
+
+    <span class="ruby-identifier">assert_raise</span>(<span class="ruby-constant">NoMethodError</span>) { 
+      <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">quantity</span>(<span class="ruby-value">10</span>, <span class="ruby-identifier">:mm</span>).<span class="ruby-identifier">hello</span>(<span class="ruby-value str">&quot;Alex&quot;</span>)
+    }
+  <span class="ruby-keyword kw">end</span></pre>
+</body>
+</html>

@@ -5,20 +5,14 @@
 
 <html>
 <head>
-  <title>calc (Configuration)</title>
+  <title>unit (Configuration)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File unitmanager/configuration.rb, line 16</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">calc</span>
-    <span class="ruby-identifier">calc</span> = <span class="ruby-constant">Quantity</span><span class="ruby-operator">::</span><span class="ruby-constant">Calculator</span>.<span class="ruby-identifier">new</span>({}.<span class="ruby-identifier">replace</span>(<span class="ruby-ivar">@default</span>.<span class="ruby-identifier">units</span>))
-    
-    <span class="ruby-ivar">@default</span>.<span class="ruby-identifier">conversions</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> 
-      <span class="ruby-identifier">calc</span>.<span class="ruby-identifier">conversions</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Quantity</span><span class="ruby-operator">::</span><span class="ruby-constant">Quantity</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">calc</span>, <span class="ruby-identifier">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">unit</span>, <span class="ruby-identifier">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">value</span>)
-    }
-    
-    <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">calc</span>    
+  <pre><span class="ruby-comment cmt"># File lib/unitmanager/configuration.rb, line 8</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">unit</span> (<span class="ruby-identifier">params</span>)
+    <span class="ruby-ivar">@default</span>.<span class="ruby-identifier">add_unit</span> <span class="ruby-identifier">params</span>
   <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

@@ -5,23 +5,28 @@
 
 <html>
 <head>
-  <title>test_quantity_info_conversion (QuantityTest)</title>
+  <title>setup (QuantityTest)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File test/unit/quantity_test.rb, line 46</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_quantity_info_conversion</span>
-    
-    <span class="ruby-identifier">qty</span> = <span class="ruby-value">14</span>.<span class="ruby-identifier">m</span>.<span class="ruby-identifier">to_quantity</span>(<span class="ruby-ivar">@calc</span>)
-    <span class="ruby-identifier">assert_not_nil</span>(<span class="ruby-identifier">qty</span>)
-    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">14</span>, <span class="ruby-identifier">qty</span>.<span class="ruby-identifier">value</span>)
-    <span class="ruby-identifier">assert_equal</span>([<span class="ruby-identifier">:m</span>], <span class="ruby-identifier">qty</span>[<span class="ruby-identifier">:dividends</span>])
-    
-    <span class="ruby-identifier">qty</span> = <span class="ruby-identifier">qty</span> <span class="ruby-operator">*</span> <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">quantity</span>(<span class="ruby-value">5</span>, <span class="ruby-identifier">:lb</span>)
-    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">qty</span>)
-    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">14</span> <span class="ruby-operator">*</span> <span class="ruby-value">5</span>, <span class="ruby-identifier">qty</span>.<span class="ruby-identifier">value</span>)
-    <span class="ruby-identifier">assert_equal</span>([<span class="ruby-identifier">:m</span>, <span class="ruby-identifier">:lb</span>], <span class="ruby-identifier">qty</span>[<span class="ruby-identifier">:dividends</span>])
+  <pre><span class="ruby-comment cmt"># File test/quantity_test.rb, line 8</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">setup</span>
+ 
+    <span class="ruby-ivar">@units</span> = {}
+    <span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:mm</span>] = <span class="ruby-constant">SimpleUnit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:mm</span>)
+    <span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:cm</span>] = <span class="ruby-constant">SimpleUnit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:cm</span>, <span class="ruby-identifier">:based_on</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:mm</span>], <span class="ruby-identifier">:coefficient</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">10</span>)  
+    <span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:m</span>] = <span class="ruby-constant">SimpleUnit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:m</span>, <span class="ruby-identifier">:based_on</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:cm</span>], <span class="ruby-identifier">:coefficient</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">100</span>)
+
+    <span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:g</span>] = <span class="ruby-constant">SimpleUnit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:g</span>)
+    <span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:kg</span>] = <span class="ruby-constant">SimpleUnit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:kg</span>, <span class="ruby-identifier">:based_on</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:g</span>], <span class="ruby-identifier">:coefficient</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">1000.0</span>)
+    <span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:oz</span>] = <span class="ruby-constant">SimpleUnit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:oz</span>, <span class="ruby-identifier">:based_on</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:g</span>], <span class="ruby-identifier">:coefficient</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">28.349523125</span>)
+    <span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:lb</span>] = <span class="ruby-constant">SimpleUnit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:lb</span>, <span class="ruby-identifier">:based_on</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:oz</span>], <span class="ruby-identifier">:coefficient</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">16</span>)
+    <span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:mg</span>] = <span class="ruby-constant">SimpleUnit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:mg</span>, <span class="ruby-identifier">:based_on</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:g</span>], <span class="ruby-identifier">:coefficient</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-value">0</span><span class="ruby-value">.001</span>)
+
+    <span class="ruby-ivar">@units</span>[<span class="ruby-identifier">:sec</span>] = <span class="ruby-constant">SimpleUnit</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">:sec</span>)
+  
+    <span class="ruby-ivar">@calc</span> = <span class="ruby-constant">Calculator</span>.<span class="ruby-identifier">new</span>(<span class="ruby-ivar">@units</span>)
   <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

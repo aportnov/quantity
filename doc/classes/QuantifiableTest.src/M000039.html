@@ -5,19 +5,22 @@
 
 <html>
 <head>
-  <title>test_mixed_operation (QuantifiableTest)</title>
+  <title>test_numeric_mixin (QuantifiableTest)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File test/unit/quantifiable_test.rb, line 56</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_mixed_operation</span>
-    
-    <span class="ruby-comment cmt"># Quantity has to be first...</span>
-    <span class="ruby-identifier">assert_nothing_raised</span>(<span class="ruby-constant">RuntimeError</span>) {<span class="ruby-value">10</span>.<span class="ruby-identifier">mm</span> <span class="ruby-operator">*</span> <span class="ruby-value">10</span>}
-      
-    <span class="ruby-identifier">assert_nothing_raised</span>(<span class="ruby-constant">RuntimeError</span>){<span class="ruby-value">10</span>.<span class="ruby-identifier">mm</span> <span class="ruby-operator">+</span> <span class="ruby-value">10</span>}
-  
+  <pre><span class="ruby-comment cmt"># File test/quantifiable_test.rb, line 17</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_numeric_mixin</span>
+    <span class="ruby-identifier">info</span> = <span class="ruby-value">12</span>.<span class="ruby-identifier">mm</span>
+    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">info</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">QuantityInfo</span>))
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-value">12</span>, <span class="ruby-identifier">info</span>.<span class="ruby-identifier">value</span>)
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">:mm</span>, <span class="ruby-identifier">info</span>.<span class="ruby-identifier">unit_sym</span>)
+
+    <span class="ruby-identifier">info</span> = <span class="ruby-value">12.566</span>.<span class="ruby-identifier">mm</span>
+    <span class="ruby-identifier">assert</span>(<span class="ruby-identifier">info</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">QuantityInfo</span>))
+    <span class="ruby-identifier">assert_in_delta</span>(<span class="ruby-value">12.566</span>, <span class="ruby-identifier">info</span>.<span class="ruby-identifier">value</span>, <span class="ruby-value">0</span><span class="ruby-value">.0001</span>)
+    <span class="ruby-identifier">assert_equal</span>(<span class="ruby-identifier">:mm</span>, <span class="ruby-identifier">info</span>.<span class="ruby-identifier">unit_sym</span>)
   <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

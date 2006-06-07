@@ -55,8 +55,8 @@
         <tr class="top-aligned-row">
             <td><strong>In:</strong></td>
             <td>
-                <a href="../../files/unitmanager/unit_composition_rb.html">
-                unitmanager/unit_composition.rb
+                <a href="../../files/lib/unitmanager/unit_composition_rb.html">
+                lib/unitmanager/unit_composition.rb
                 </a>
         <br />
             </td>
@@ -65,7 +65,9 @@
         <tr class="top-aligned-row">
             <td><strong>Parent:</strong></td>
             <td>
-                Object
+                <a href="BaseUnit.html">
+                BaseUnit
+               </a>
             </td>
         </tr>
         </table>
@@ -94,14 +96,15 @@ units. Example: 1 lb per in or 70 mi per hour
       <h3 class="section-bar">Methods</h3>
 
       <div class="name-list">
-      <a href="#M000050">==</a>&nbsp;&nbsp;
-      <a href="#M000048">[]</a>&nbsp;&nbsp;
-      <a href="#M000051">eql?</a>&nbsp;&nbsp;
-      <a href="#M000046">from_base</a>&nbsp;&nbsp;
-      <a href="#M000047">h_base</a>&nbsp;&nbsp;
-      <a href="#M000044">new</a>&nbsp;&nbsp;
-      <a href="#M000049">reverse</a>&nbsp;&nbsp;
-      <a href="#M000045">to_base</a>&nbsp;&nbsp;
+      <a href="#M000116">==</a>&nbsp;&nbsp;
+      <a href="#M000113">dividend</a>&nbsp;&nbsp;
+      <a href="#M000114">divisor</a>&nbsp;&nbsp;
+      <a href="#M000117">eql?</a>&nbsp;&nbsp;
+      <a href="#M000111">from_base</a>&nbsp;&nbsp;
+      <a href="#M000112">h_base</a>&nbsp;&nbsp;
+      <a href="#M000109">new</a>&nbsp;&nbsp;
+      <a href="#M000115">reverse</a>&nbsp;&nbsp;
+      <a href="#M000110">to_base</a>&nbsp;&nbsp;
       </div>
     </div>
 
@@ -153,12 +156,12 @@ units. Example: 1 lb per in or 70 mi per hour
     <div id="methods">
       <h3 class="section-bar">Public Class methods</h3>
 
-      <div id="method-M000044" class="method-detail">
-        <a name="M000044"></a>
+      <div id="method-M000109" class="method-detail">
+        <a name="M000109"></a>
 
         <div class="method-heading">
-          <a href="ComposedUnit.src/M000044.html" target="Code" class="method-signature"
-            onclick="popupCode('ComposedUnit.src/M000044.html');return false;">
+          <a href="ComposedUnit.src/M000109.html" target="Code" class="method-signature"
+            onclick="popupCode('ComposedUnit.src/M000109.html');return false;">
           <span class="method-name">new</span><span class="method-args">(params)</span>
           </a>
         </div>
@@ -169,12 +172,12 @@ units. Example: 1 lb per in or 70 mi per hour
 
       <h3 class="section-bar">Public Instance methods</h3>
 
-      <div id="method-M000050" class="method-detail">
-        <a name="M000050"></a>
+      <div id="method-M000116" class="method-detail">
+        <a name="M000116"></a>
 
         <div class="method-heading">
-          <a href="ComposedUnit.src/M000050.html" target="Code" class="method-signature"
-            onclick="popupCode('ComposedUnit.src/M000050.html');return false;">
+          <a href="ComposedUnit.src/M000116.html" target="Code" class="method-signature"
+            onclick="popupCode('ComposedUnit.src/M000116.html');return false;">
           <span class="method-name">==</span><span class="method-args">(other)</span>
           </a>
         </div>
@@ -187,37 +190,40 @@ contain same set of dividends and divisors.
         </div>
       </div>
 
-      <div id="method-M000048" class="method-detail">
-        <a name="M000048"></a>
+      <div id="method-M000113" class="method-detail">
+        <a name="M000113"></a>
 
         <div class="method-heading">
-          <a href="ComposedUnit.src/M000048.html" target="Code" class="method-signature"
-            onclick="popupCode('ComposedUnit.src/M000048.html');return false;">
-          <span class="method-name">[]</span><span class="method-args">(symbol)</span>
+          <a href="ComposedUnit.src/M000113.html" target="Code" class="method-signature"
+            onclick="popupCode('ComposedUnit.src/M000113.html');return false;">
+          <span class="method-name">dividend</span><span class="method-args">()</span>
           </a>
         </div>
       
         <div class="method-description">
-          <p>
-This method allows to retrieve symbolic portions of the unit definition.
-Supported values are:
-</p>
-<pre>
-  :dividends - returns an array of symbols representing dividend part of
-                 unit definition.
-  :divisors - returns an array of symbols representing divisor part of
-                 unit definition.
-  :string - string representation of the unit of measure.
-</pre>
         </div>
       </div>
 
-      <div id="method-M000051" class="method-detail">
-        <a name="M000051"></a>
+      <div id="method-M000114" class="method-detail">
+        <a name="M000114"></a>
 
         <div class="method-heading">
-          <a href="ComposedUnit.src/M000051.html" target="Code" class="method-signature"
-            onclick="popupCode('ComposedUnit.src/M000051.html');return false;">
+          <a href="ComposedUnit.src/M000114.html" target="Code" class="method-signature"
+            onclick="popupCode('ComposedUnit.src/M000114.html');return false;">
+          <span class="method-name">divisor</span><span class="method-args">()</span>
+          </a>
+        </div>
+      
+        <div class="method-description">
+        </div>
+      </div>
+
+      <div id="method-M000117" class="method-detail">
+        <a name="M000117"></a>
+
+        <div class="method-heading">
+          <a href="ComposedUnit.src/M000117.html" target="Code" class="method-signature"
+            onclick="popupCode('ComposedUnit.src/M000117.html');return false;">
           <span class="method-name">eql?</span><span class="method-args">(other)</span>
           </a>
         </div>
@@ -226,12 +232,12 @@ Supported values are:
         </div>
       </div>
 
-      <div id="method-M000046" class="method-detail">
-        <a name="M000046"></a>
+      <div id="method-M000111" class="method-detail">
+        <a name="M000111"></a>
 
         <div class="method-heading">
-          <a href="ComposedUnit.src/M000046.html" target="Code" class="method-signature"
-            onclick="popupCode('ComposedUnit.src/M000046.html');return false;">
+          <a href="ComposedUnit.src/M000111.html" target="Code" class="method-signature"
+            onclick="popupCode('ComposedUnit.src/M000111.html');return false;">
           <span class="method-name">from_base</span><span class="method-args">(value)</span>
           </a>
         </div>
@@ -240,12 +246,12 @@ Supported values are:
         </div>
       </div>
 
-      <div id="method-M000047" class="method-detail">
-        <a name="M000047"></a>
+      <div id="method-M000112" class="method-detail">
+        <a name="M000112"></a>
 
         <div class="method-heading">
-          <a href="ComposedUnit.src/M000047.html" target="Code" class="method-signature"
-            onclick="popupCode('ComposedUnit.src/M000047.html');return false;">
+          <a href="ComposedUnit.src/M000112.html" target="Code" class="method-signature"
+            onclick="popupCode('ComposedUnit.src/M000112.html');return false;">
           <span class="method-name">h_base</span><span class="method-args">()</span>
           </a>
         </div>
@@ -258,12 +264,12 @@ is the &quot;based on&quot; chain.
         </div>
       </div>
 
-      <div id="method-M000049" class="method-detail">
-        <a name="M000049"></a>
+      <div id="method-M000115" class="method-detail">
+        <a name="M000115"></a>
 
         <div class="method-heading">
-          <a href="ComposedUnit.src/M000049.html" target="Code" class="method-signature"
-            onclick="popupCode('ComposedUnit.src/M000049.html');return false;">
+          <a href="ComposedUnit.src/M000115.html" target="Code" class="method-signature"
+            onclick="popupCode('ComposedUnit.src/M000115.html');return false;">
           <span class="method-name">reverse</span><span class="method-args">()</span>
           </a>
         </div>
@@ -272,12 +278,12 @@ is the &quot;based on&quot; chain.
         </div>
       </div>
 
-      <div id="method-M000045" class="method-detail">
-        <a name="M000045"></a>
+      <div id="method-M000110" class="method-detail">
+        <a name="M000110"></a>
 
         <div class="method-heading">
-          <a href="ComposedUnit.src/M000045.html" target="Code" class="method-signature"
-            onclick="popupCode('ComposedUnit.src/M000045.html');return false;">
+          <a href="ComposedUnit.src/M000110.html" target="Code" class="method-signature"
+            onclick="popupCode('ComposedUnit.src/M000110.html');return false;">
           <span class="method-name">to_base</span><span class="method-args">(value)</span>
           </a>
         </div>

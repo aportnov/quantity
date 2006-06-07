@@ -5,15 +5,21 @@
 
 <html>
 <head>
-  <title>parse_operand_symbols (Unit::Parser)</title>
+  <title>to_units (Unit::Parser)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File unitmanager/unit_composition.rb, line 182</span>
-    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_operand_symbols</span>(<span class="ruby-identifier">string</span>)
-      <span class="ruby-identifier">operands</span> = <span class="ruby-identifier">string</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-value">? </span>[] <span class="ruby-operator">:</span> <span class="ruby-identifier">string</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/\*/</span>)
-      <span class="ruby-identifier">operands</span>.<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>}
+  <pre><span class="ruby-comment cmt"># File lib/unitmanager/unit_composition.rb, line 160</span>
+    <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_units</span>(<span class="ruby-identifier">unit_spec</span>)
+  
+       <span class="ruby-identifier">operands</span> = <span class="ruby-identifier">unit_spec</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/\//</span>)
+       <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Invalid Number of Operands in : #{unit_spec}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">operands</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>
+       
+       {
+          <span class="ruby-identifier">:dividends</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">convert</span>(<span class="ruby-identifier">parse_operand_symbols</span>(<span class="ruby-identifier">operands</span>[<span class="ruby-value">0</span>])),
+          <span class="ruby-identifier">:divisors</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">convert</span>(<span class="ruby-identifier">parse_operand_symbols</span>(<span class="ruby-identifier">operands</span>[<span class="ruby-value">1</span>]))
+       }   
     <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>

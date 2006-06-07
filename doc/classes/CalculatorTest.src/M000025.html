@@ -5,30 +5,24 @@
 
 <html>
 <head>
-  <title>test_convert_to (CalculatorTest)</title>
+  <title>test_quantity_creation (CalculatorTest)</title>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <link rel="stylesheet" href="../.././rdoc-style.css" type="text/css" media="screen" />
 </head>
 <body class="standalone-code">
-  <pre><span class="ruby-comment cmt"># File test/unit/calculator_test.rb, line 53</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_convert_to</span>
-
-    <span class="ruby-identifier">qty</span> = <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">quantity</span>(<span class="ruby-value">45</span>, <span class="ruby-identifier">:cm</span>)
- 
-    <span class="ruby-identifier">base</span> = <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">exp</span>(<span class="ruby-value">1</span>.<span class="ruby-identifier">mm</span>) {<span class="ruby-identifier">qty</span>}
+  <pre><span class="ruby-comment cmt"># File test/calculator_test.rb, line 28</span>
+  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">test_quantity_creation</span>
+    <span class="ruby-identifier">qty</span> = <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">quantity</span>(<span class="ruby-value">45.897</span>, <span class="ruby-identifier">:mm</span>)
     
-    <span class="ruby-identifier">assert_in_delta</span>(<span class="ruby-value">450.0</span>, <span class="ruby-identifier">base</span>.<span class="ruby-identifier">value</span>, <span class="ruby-value">0</span><span class="ruby-value">.0001</span>)
-    <span class="ruby-identifier">assert_equal</span>([<span class="ruby-identifier">:mm</span>], <span class="ruby-identifier">base</span>[<span class="ruby-identifier">:dividends</span>]) 
+    <span class="ruby-identifier">assert_in_delta</span>(<span class="ruby-value">45.897</span>, <span class="ruby-identifier">qty</span>.<span class="ruby-identifier">value</span>, <span class="ruby-value">0</span><span class="ruby-value">.0001</span>)
+    <span class="ruby-identifier">assert_equal</span>([<span class="ruby-identifier">:mm</span>], <span class="ruby-identifier">qty</span>[<span class="ruby-identifier">:dividends</span>])
+    <span class="ruby-identifier">assert_equal</span>([], <span class="ruby-identifier">qty</span>[<span class="ruby-identifier">:divisors</span>])
     
-    <span class="ruby-identifier">base</span> = <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">exp</span>(<span class="ruby-identifier">:mm</span>) {<span class="ruby-identifier">qty</span>}
     
-    <span class="ruby-identifier">assert_in_delta</span>(<span class="ruby-value">450.0</span>, <span class="ruby-identifier">base</span>.<span class="ruby-identifier">value</span>, <span class="ruby-value">0</span><span class="ruby-value">.0001</span>)
-    <span class="ruby-identifier">assert_equal</span>([<span class="ruby-identifier">:mm</span>], <span class="ruby-identifier">base</span>[<span class="ruby-identifier">:dividends</span>]) 
-    
-    <span class="ruby-identifier">base</span> = <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">exp</span>(<span class="ruby-value str">&quot;mm&quot;</span>) {<span class="ruby-identifier">qty</span>}
-    
-    <span class="ruby-identifier">assert_in_delta</span>(<span class="ruby-value">450.0</span>, <span class="ruby-identifier">base</span>.<span class="ruby-identifier">value</span>, <span class="ruby-value">0</span><span class="ruby-value">.0001</span>)
-    <span class="ruby-identifier">assert_equal</span>([<span class="ruby-identifier">:mm</span>], <span class="ruby-identifier">base</span>[<span class="ruby-identifier">:dividends</span>]) 
+    <span class="ruby-identifier">qty</span> = <span class="ruby-ivar">@calc</span>.<span class="ruby-identifier">quantity</span>(<span class="ruby-value">57.345</span>, <span class="ruby-value str">&quot;mm/lb&quot;</span>)
+    <span class="ruby-identifier">assert_in_delta</span>(<span class="ruby-value">57.345</span>, <span class="ruby-identifier">qty</span>.<span class="ruby-identifier">value</span>, <span class="ruby-value">0</span><span class="ruby-value">.0001</span>)
+    <span class="ruby-identifier">assert_equal</span>([<span class="ruby-identifier">:mm</span>], <span class="ruby-identifier">qty</span>[<span class="ruby-identifier">:dividends</span>])
+    <span class="ruby-identifier">assert_equal</span>([<span class="ruby-identifier">:lb</span>], <span class="ruby-identifier">qty</span>[<span class="ruby-identifier">:divisors</span>])
   <span class="ruby-keyword kw">end</span></pre>
 </body>
 </html>
