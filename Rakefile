@@ -7,7 +7,7 @@ require 'rake/gempackagetask'
 spec = Gem::Specification.new { |s|
   
   s.name = "quantitymanager"
-  s.version = "0.9.1"
+  s.version = "0.9.2"
   s.author = "Alexander A. Portnov"
   s.email = "alex.portnov@gmail.com"
   s.homepage = "http://rubyforge.org/projects/quantitymanager/"
