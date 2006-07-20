@@ -25,9 +25,11 @@
 
 $:.unshift(File.dirname(__FILE__))
 
+require "unitmanager/utils"
+require "unitmanager/simple_unit"
+require "unitmanager/unit_composition"
+require "unitmanager/quantity"
+require "unitmanager/calculator"
+require "unitmanager/configuration"
 
-files = Dir["#{File.dirname(__FILE__)}/unitmanager/*.rb"] + Dir["#{File.dirname(__FILE__)}/config/*.rb"]
-
-files.each {|file|
-  require file
-}
+require "config/default_configuration"
