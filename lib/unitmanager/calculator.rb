@@ -2,7 +2,6 @@ module Quantity
 
   class Calculator
     include Quantifiable
-    include Unit::SymbolConverter
     
     attr_reader :units, :conversions
     
@@ -87,9 +86,9 @@ module Quantity
       
       unit = Unit::ComposedUnit.new({
         :dividends => 
-          convert(first_operand[:dividends] + second_operand[:dividends]),
+          @units.collect_for(first_operand[:dividends] + second_operand[:dividends]),
         :divisors => 
-          convert(first_operand[:divisors] + second_operand[:divisors])          
+          @units.collect_for(first_operand[:divisors] + second_operand[:divisors])          
       })  
       
       Quantity.new(self, {:value => value, :unit => unit})      
@@ -100,9 +99,9 @@ module Quantity
  
       unit = Unit::ComposedUnit.new({
         :dividends => 
-          convert(first_operand[:dividends] + second_operand[:divisors]),
+          @units.collect_for(first_operand[:dividends] + second_operand[:divisors]),
         :divisors => 
-          convert(first_operand[:divisors] + second_operand[:dividends])          
+          @units.collect_for(first_operand[:divisors] + second_operand[:dividends])          
       })  
       
       Quantity.new(self, {:value => value, :unit => unit})      
@@ -156,8 +155,8 @@ module Quantity
       from, to = params[:from], params[:to]
       
       target = Unit::ComposedUnit.new({ 
-        :dividends => convert(to[:dividends] + from[:divisors]), 
-        :divisors => convert(to[:divisors] + from[:dividends]) 
+        :dividends => @units.collect_for(to[:dividends] + from[:divisors]), 
+        :divisors => @units.collect_for(to[:divisors] + from[:dividends]) 
       }) 
      
       if (conversion = direct_conversion(target))

@@ -1,63 +1,4 @@
-#Extension to standard Array class. 
-#Added functionality to compare array content regardless element order.
-class Array
-    def contains?(other_array)
-      copy = dup
-      other_array.each {|item| 
-        return false unless i = copy.index(item)
-        copy[i] = nil
-      }
-      true
-    end
-    
-    def same?(other_array)
-      length == other_array.length &&
-      contains?(other_array)
-    end
-
-end
-
 module Unit
-  
-  class BaseUnit
-
-    class << self
-
-      def once (*methods) #:nodoc:
-        methods.each {|method| 
-         
-          module_eval <<-"end;"
-            alias_method :__#{method.to_i}__ , :#{method.to_s}
-
-            def #{method.to_s}(*args, &block)
-              
-              def self.#{method.to_s}(*args, &block)
-                @__#{method.to_i}__ 
-              end
-            
-              @__#{method.to_i}__ = __#{method.to_i}__(*args, &block)
-            end
-            private :__#{method.to_i}__
-            
-          end;
-          
-        }
-      end
-      
-      private :once
-    end
- 
-    # This method allows to retrieve symbolic portions of the unit definition.
-    # Supported values are:
-    # 	:dividends - returns an array of symbols representing dividend part of 
-    #                  unit definition.
-    # 	:divisors - returns an array of symbols representing divisor part of 
-    #                  unit definition.
-    # 	:string - string representation of the unit of measure. 
-    def [] (symbol)
-      unit_sym[symbol]
-    end
-  end
   
   # Adds comparing capabilities to  unit implementations
   module Comparable
@@ -87,7 +28,7 @@ module Unit
   # simple unit with linear coefficient.
   # Example:  :cm is based on :mm with coefficient equal 10.
   # In other words X cm = 10 * Y mm. 
-  class SimpleUnit < BaseUnit
+  class SimpleUnit
   
       include Unit::Comparable
   
@@ -99,17 +40,16 @@ module Unit
         @unit = args[:unit]
         @based_on = args[:based_on] || nil
         @coefficient = args[:coefficient] || 1
+        @unit_sym = {:dividends => [@unit], :divisors => [], :string => @unit.to_s}
       end
   
       def to_base(value)
         value = @based_on.to_base(value) if derived?
-        
         value *= @coefficient
       end
   
       def from_base(value)
         value = @based_on.from_base(value) if derived?
-        
         value /= @coefficient
       end
       
@@ -140,16 +80,19 @@ module Unit
         self == other
       end
 
+    # This method allows to retrieve symbolic portions of the unit definition.
+    # Supported values are:
+    # 	:dividends - returns an array of symbols representing dividend part of 
+    #                  unit definition.
+    # 	:string - string representation of the unit of measure. 
+    def [] (symbol)
+      @unit_sym[symbol]
+    end
+
   private        
       def derived?
         @based_on != nil
       end
-  
-      def unit_sym
-        {:dividends => [@unit], :divisors => [], :string => @unit.to_s}
-      end
-  
-  once :unit_sym    
   end
 
 end

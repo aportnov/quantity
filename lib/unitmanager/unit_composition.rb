@@ -1,27 +1,14 @@
 module Unit
 
-  module SymbolConverter
-
-    def convert(symbols)
-      units = []
-      symbols.each {|symbol| 
-        unit = @units[symbol]
-        raise "Invalid Unit Name: #{symbol.to_s}" if unit.nil?
-        units << unit
-      }
-      return units
-    end
-  
-  end
-
-
   # Implementation of what is called ‘composed unit of measure’. 
   # This is a result of performing multiplication or division of
   # quantities with simple units.
   # Example:  1 lb per in or 70 mi per hour
-  class ComposedUnit < BaseUnit
+  class ComposedUnit
   
     include Unit::Comparable
+
+    self.extend ExecControl
   
     attr_reader :dividends, :divisors, :coefficient
   
@@ -82,9 +69,20 @@ module Unit
       self == other
     end
     
+    # This method allows to retrieve symbolic portions of the unit definition.
+    # Supported values are:
+    # 	:dividends - returns an array of symbols representing dividend part of 
+    #                  unit definition.
+    # 	:divisors - returns an array of symbols representing divisor part of 
+    #                  unit definition.
+    # 	:string - string representation of the unit of measure. 
+    def [] (symbol)
+      unit_sym[symbol]
+    end
+
   private    
     
-    def collect(array)
+    def collect(array, &block)
       result = []
       
       array.each {|item| result += (yield(item) || []) }
@@ -151,7 +149,6 @@ module Unit
 
 
   class Parser 
-    include SymbolConverter
   
     def initialize(units)
       @units = units
@@ -163,8 +160,8 @@ module Unit
        raise "Invalid Number of Operands in : #{unit_spec}" if operands.size > 2
        
        {
-          :dividends => convert(parse_operand_symbols(operands[0])),
-          :divisors => convert(parse_operand_symbols(operands[1]))
+          :dividends => @units.collect_for(parse_operand_symbols(operands[0])),
+          :divisors => @units.collect_for(parse_operand_symbols(operands[1]))
        }   
     end
     
