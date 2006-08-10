@@ -12,7 +12,7 @@ module Quantity
     end
     
     def quantity(value, unit_sym)
-      return Quantity.new(self, {:value => 1.0 * value, :unit => to_unit(unit_sym)})
+      return Quantity.new(self, {:value => value.to_f, :unit => to_unit(unit_sym)})
     end
     
     def perform_operation(first_operand, second_operand, operation)
