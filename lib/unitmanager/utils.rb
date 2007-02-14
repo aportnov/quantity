@@ -14,7 +14,7 @@ module ExecControl
             
           @__#{method.to_i}__ = __#{method.to_i}__(*args, &block)
         end
-            private :__#{method.to_i}__
+        private :__#{method.to_i}__
             
       end;
           
