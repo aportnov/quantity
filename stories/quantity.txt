@@ -1,7 +1,0 @@
-Quantity Story:
-
-Implement concept of Quantity to represent value and unit of measure. Allow for all simple Math operations (+, -, *, /)
-
-Completion test:
-
-Should be able to accommodate for the same set of calculations as Java version. 

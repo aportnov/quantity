@@ -1,9 +1,0 @@
-Calculator Story:
-
-Implement Calculator and Calculator factory to allow for different configurations to be specified
-for each Calculator. 
-This feature allows for different material calculators to use different conversions , etc. 
-
-For now only quantities defined in terms of units known to the 
-Calculator will be considered compatible. - I am not sure this is true with my Java version. 
-I think it is more like : if they created by the same Calculator, then and only then they are compatible.
