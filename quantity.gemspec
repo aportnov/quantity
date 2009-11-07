@@ -17,20 +17,18 @@ spec = Gem::Specification.new { |s|
   
   # = MANIFEST =
   s.files = %w[
+    LICENSE
+    README.rdoc
     Rakefile
-    lib/config/default_configuration.rb
+    lib/config/default.rb
     lib/quantity.rb
-    lib/unitmanager/calculator.rb
-    lib/unitmanager/configuration.rb
-    lib/unitmanager/quantity.rb
-    lib/unitmanager/simple_unit.rb
-    lib/unitmanager/unit_composition.rb
-    lib/unitmanager/utils.rb
-    stories/calculator.txt
-    stories/configuration.txt
-    stories/project-plan.txt
-    stories/quantity.txt
-    test/all_tests.rb
+    lib/quantity/calculator.rb
+    lib/quantity/configuration.rb
+    lib/quantity/quantity.rb
+    lib/quantity/simple_unit.rb
+    lib/quantity/unit_composition.rb
+    lib/quantity/utils.rb
+    quantity.gemspec
     test/calculator_test.rb
     test/composed_unit_test.rb
     test/configuration_test.rb
