@@ -8,7 +8,7 @@ module Unit
   
     include Unit::Comparable
 
-    self.extend ExecControl
+    include Quantity::Extensions
   
     attr_reader :dividends, :divisors, :coefficient
   
@@ -59,8 +59,8 @@ module Unit
       return false unless other.kind_of?(self.class)
       
       result = (coefficient == other.coefficient) &&
-       dividends.same?(other.dividends) &&
-       divisors.same?(other.divisors)
+       dividends.same_values?(other.dividends) &&
+       divisors.same_values?(other.divisors)
       
       return result
     end
@@ -160,8 +160,8 @@ module Unit
        raise "Invalid Number of Operands in : #{unit_spec}" if operands.size > 2
        
        {
-          :dividends => @units.collect_for(parse_operand_symbols(operands[0])),
-          :divisors => @units.collect_for(parse_operand_symbols(operands[1]))
+          :dividends => @units.collect!(parse_operand_symbols(operands[0])),
+          :divisors => @units.collect!(parse_operand_symbols(operands[1]))
        }   
     end
     

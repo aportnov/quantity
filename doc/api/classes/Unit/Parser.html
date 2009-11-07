@@ -45,55 +45,55 @@
             <h2>Methods</h2>
             <h3>public class</h3>
             <ol>
-              <li><a href="#M000029">new</a></li>
+              <li><a href="#M000030">new</a></li>
             </ol>
             <h3>public instance</h3>
             <ol>
-              <li><a href="#M000031">parse_operand_symbols</a></li>
-              <li><a href="#M000030">to_units</a></li>
+              <li><a href="#M000032">parse_operand_symbols</a></li>
+              <li><a href="#M000031">to_units</a></li>
             </ol>
           </div>
           <div id='section'>
             <div id='methods'>
               <h2>Public class methods</h2>
-              <div class='public-class method' id='method-M000029'>
-                <a name='M000029'>      </a>
+              <div class='public-class method' id='method-M000030'>
+                <a name='M000030'>      </a>
                 <div class='synopsis'>
                   <span class='name'>new</span>
                   <span class='arguments'>(units)</span>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000029-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000030-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000029-source'>     <span class="ruby-comment cmt"># File lib/quantity/unit_composition.rb, line 153</span>&#x000A;153:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">units</span>)&#x000A;154:       <span class="ruby-ivar">@units</span> = <span class="ruby-identifier">units</span>&#x000A;155:     <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000030-source'>     <span class="ruby-comment cmt"># File lib/quantity/unit_composition.rb, line 153</span>&#x000A;153:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">units</span>)&#x000A;154:       <span class="ruby-ivar">@units</span> = <span class="ruby-identifier">units</span>&#x000A;155:     <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
               <h2>Public instance methods</h2>
-              <div class='public-instance method' id='method-M000031'>
-                <a name='M000031'>      </a>
+              <div class='public-instance method' id='method-M000032'>
+                <a name='M000032'>      </a>
                 <div class='synopsis'>
                   <span class='name'>parse_operand_symbols</span>
                   <span class='arguments'>(string)</span>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000031-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000032-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000031-source'>     <span class="ruby-comment cmt"># File lib/quantity/unit_composition.rb, line 168</span>&#x000A;168:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_operand_symbols</span>(<span class="ruby-identifier">string</span>)&#x000A;169:       <span class="ruby-identifier">operands</span> = <span class="ruby-identifier">string</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-value">? </span>[] <span class="ruby-operator">:</span> <span class="ruby-identifier">string</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/\*/</span>)&#x000A;170:       <span class="ruby-identifier">operands</span>.<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>}&#x000A;171:     <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000032-source'>     <span class="ruby-comment cmt"># File lib/quantity/unit_composition.rb, line 168</span>&#x000A;168:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">parse_operand_symbols</span>(<span class="ruby-identifier">string</span>)&#x000A;169:       <span class="ruby-identifier">operands</span> = <span class="ruby-identifier">string</span>.<span class="ruby-identifier">nil?</span> <span class="ruby-value">? </span>[] <span class="ruby-operator">:</span> <span class="ruby-identifier">string</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/\*/</span>)&#x000A;170:       <span class="ruby-identifier">operands</span>.<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">name</span><span class="ruby-operator">|</span> <span class="ruby-identifier">name</span>.<span class="ruby-identifier">to_sym</span>}&#x000A;171:     <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='public-instance method' id='method-M000030'>
-                <a name='M000030'>      </a>
+              <div class='public-instance method' id='method-M000031'>
+                <a name='M000031'>      </a>
                 <div class='synopsis'>
                   <span class='name'>to_units</span>
                   <span class='arguments'>(unit_spec)</span>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000030-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000031-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000030-source'>     <span class="ruby-comment cmt"># File lib/quantity/unit_composition.rb, line 157</span>&#x000A;157:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_units</span>(<span class="ruby-identifier">unit_spec</span>)&#x000A;158:   &#x000A;159:        <span class="ruby-identifier">operands</span> = <span class="ruby-identifier">unit_spec</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/\//</span>)&#x000A;160:        <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Invalid Number of Operands in : #{unit_spec}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">operands</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>&#x000A;161:        &#x000A;162:        {&#x000A;163:           <span class="ruby-identifier">:dividends</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@units</span>.<span class="ruby-identifier">collect_for</span>(<span class="ruby-identifier">parse_operand_symbols</span>(<span class="ruby-identifier">operands</span>[<span class="ruby-value">0</span>])),&#x000A;164:           <span class="ruby-identifier">:divisors</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@units</span>.<span class="ruby-identifier">collect_for</span>(<span class="ruby-identifier">parse_operand_symbols</span>(<span class="ruby-identifier">operands</span>[<span class="ruby-value">1</span>]))&#x000A;165:        }   &#x000A;166:     <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000031-source'>     <span class="ruby-comment cmt"># File lib/quantity/unit_composition.rb, line 157</span>&#x000A;157:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_units</span>(<span class="ruby-identifier">unit_spec</span>)&#x000A;158:   &#x000A;159:        <span class="ruby-identifier">operands</span> = <span class="ruby-identifier">unit_spec</span>.<span class="ruby-identifier">split</span>(<span class="ruby-regexp re">/\//</span>)&#x000A;160:        <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Invalid Number of Operands in : #{unit_spec}&quot;</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">operands</span>.<span class="ruby-identifier">size</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>&#x000A;161:        &#x000A;162:        {&#x000A;163:           <span class="ruby-identifier">:dividends</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@units</span>.<span class="ruby-identifier">collect!</span>(<span class="ruby-identifier">parse_operand_symbols</span>(<span class="ruby-identifier">operands</span>[<span class="ruby-value">0</span>])),&#x000A;164:           <span class="ruby-identifier">:divisors</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@units</span>.<span class="ruby-identifier">collect!</span>(<span class="ruby-identifier">parse_operand_symbols</span>(<span class="ruby-identifier">operands</span>[<span class="ruby-value">1</span>]))&#x000A;165:        }   &#x000A;166:     <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
             </div>

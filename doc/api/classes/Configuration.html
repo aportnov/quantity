@@ -45,69 +45,69 @@
             <h2>Methods</h2>
             <h3>public class</h3>
             <ol>
-              <li><a href="#M000003">new</a></li>
+              <li><a href="#M000001">new</a></li>
             </ol>
             <h3>public instance</h3>
             <ol>
-              <li><a href="#M000006">calc</a></li>
-              <li><a href="#M000005">conversion</a></li>
-              <li><a href="#M000004">unit</a></li>
+              <li><a href="#M000004">calc</a></li>
+              <li><a href="#M000003">conversion</a></li>
+              <li><a href="#M000002">unit</a></li>
             </ol>
           </div>
           <div id='section'>
             <div id='methods'>
               <h2>Public class methods</h2>
-              <div class='public-class method' id='method-M000003'>
-                <a name='M000003'>      </a>
+              <div class='public-class method' id='method-M000001'>
+                <a name='M000001'>      </a>
                 <div class='synopsis'>
                   <span class='name'>new</span>
                   <span class='arguments'>() {|self if block_given?| ...}</span>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000003-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000001-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000003-source'>   <span class="ruby-comment cmt"># File lib/quantity/configuration.rb, line 3</span>&#x000A;3:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>&#x000A;4:     <span class="ruby-ivar">@default</span> = <span class="ruby-constant">Quantity</span><span class="ruby-operator">::</span><span class="ruby-constant">Calculator</span>.<span class="ruby-identifier">new</span>&#x000A;5:     <span class="ruby-keyword kw">yield</span> <span class="ruby-keyword kw">self</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>&#x000A;6:   <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000001-source'>   <span class="ruby-comment cmt"># File lib/quantity/configuration.rb, line 3</span>&#x000A;3:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>&#x000A;4:     <span class="ruby-ivar">@default</span> = <span class="ruby-constant">Quantity</span><span class="ruby-operator">::</span><span class="ruby-constant">Calculator</span>.<span class="ruby-identifier">new</span>&#x000A;5:     <span class="ruby-keyword kw">yield</span> <span class="ruby-keyword kw">self</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">block_given?</span>&#x000A;6:   <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
               <h2>Public instance methods</h2>
-              <div class='public-instance method' id='method-M000006'>
-                <a name='M000006'>      </a>
+              <div class='public-instance method' id='method-M000004'>
+                <a name='M000004'>      </a>
                 <div class='synopsis'>
                   <span class='name'>calc</span>
                   <span class='arguments'>()</span>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000006-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000004-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000006-source'>    <span class="ruby-comment cmt"># File lib/quantity/configuration.rb, line 16</span>&#x000A;16:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">calc</span>&#x000A;17:     <span class="ruby-identifier">calc</span> = <span class="ruby-constant">Quantity</span><span class="ruby-operator">::</span><span class="ruby-constant">Calculator</span>.<span class="ruby-identifier">new</span>({}.<span class="ruby-identifier">replace</span>(<span class="ruby-ivar">@default</span>.<span class="ruby-identifier">units</span>))&#x000A;18:     &#x000A;19:     <span class="ruby-ivar">@default</span>.<span class="ruby-identifier">conversions</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> &#x000A;20:       <span class="ruby-identifier">calc</span>.<span class="ruby-identifier">conversions</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Quantity</span><span class="ruby-operator">::</span><span class="ruby-constant">Quantity</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">calc</span>, <span class="ruby-identifier">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">unit</span>, <span class="ruby-identifier">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">value</span>)&#x000A;21:     }&#x000A;22:     &#x000A;23:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">calc</span>    &#x000A;24:   <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000004-source'>    <span class="ruby-comment cmt"># File lib/quantity/configuration.rb, line 16</span>&#x000A;16:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">calc</span>&#x000A;17:     <span class="ruby-identifier">calc</span> = <span class="ruby-constant">Quantity</span><span class="ruby-operator">::</span><span class="ruby-constant">Calculator</span>.<span class="ruby-identifier">new</span>({}.<span class="ruby-identifier">replace</span>(<span class="ruby-ivar">@default</span>.<span class="ruby-identifier">units</span>))&#x000A;18:     &#x000A;19:     <span class="ruby-ivar">@default</span>.<span class="ruby-identifier">conversions</span>.<span class="ruby-identifier">each</span> {<span class="ruby-operator">|</span><span class="ruby-identifier">c</span><span class="ruby-operator">|</span> &#x000A;20:       <span class="ruby-identifier">calc</span>.<span class="ruby-identifier">conversions</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-constant">Quantity</span><span class="ruby-operator">::</span><span class="ruby-constant">Quantity</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">calc</span>, <span class="ruby-identifier">:unit</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">unit</span>, <span class="ruby-identifier">:value</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-identifier">c</span>.<span class="ruby-identifier">value</span>)&#x000A;21:     }&#x000A;22:     &#x000A;23:     <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">calc</span>    &#x000A;24:   <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='public-instance method' id='method-M000005'>
-                <a name='M000005'>      </a>
+              <div class='public-instance method' id='method-M000003'>
+                <a name='M000003'>      </a>
                 <div class='synopsis'>
                   <span class='name'>conversion</span>
                   <span class='arguments'>(params)</span>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000005-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000003-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000005-source'>    <span class="ruby-comment cmt"># File lib/quantity/configuration.rb, line 12</span>&#x000A;12:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">conversion</span> (<span class="ruby-identifier">params</span>)&#x000A;13:     <span class="ruby-ivar">@default</span>.<span class="ruby-identifier">add_conversion</span> <span class="ruby-identifier">params</span>&#x000A;14:   <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000003-source'>    <span class="ruby-comment cmt"># File lib/quantity/configuration.rb, line 12</span>&#x000A;12:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">conversion</span> (<span class="ruby-identifier">params</span>)&#x000A;13:     <span class="ruby-ivar">@default</span>.<span class="ruby-identifier">add_conversion</span> <span class="ruby-identifier">params</span>&#x000A;14:   <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='public-instance method' id='method-M000004'>
-                <a name='M000004'>      </a>
+              <div class='public-instance method' id='method-M000002'>
+                <a name='M000002'>      </a>
                 <div class='synopsis'>
                   <span class='name'>unit</span>
                   <span class='arguments'>(params)</span>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000004-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000002-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000004-source'>    <span class="ruby-comment cmt"># File lib/quantity/configuration.rb, line 8</span>&#x000A; 8:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">unit</span> (<span class="ruby-identifier">params</span>)&#x000A; 9:     <span class="ruby-ivar">@default</span>.<span class="ruby-identifier">add_unit</span> <span class="ruby-identifier">params</span>&#x000A;10:   <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000002-source'>    <span class="ruby-comment cmt"># File lib/quantity/configuration.rb, line 8</span>&#x000A; 8:   <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">unit</span> (<span class="ruby-identifier">params</span>)&#x000A; 9:     <span class="ruby-ivar">@default</span>.<span class="ruby-identifier">add_unit</span> <span class="ruby-identifier">params</span>&#x000A;10:   <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
             </div>

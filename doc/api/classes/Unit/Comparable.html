@@ -46,15 +46,15 @@
             <h2>Methods</h2>
             <h3>public instance</h3>
             <ol>
-              <li><a href="#M000027">compatible?</a></li>
-              <li><a href="#M000028">contains?</a></li>
+              <li><a href="#M000028">compatible?</a></li>
+              <li><a href="#M000029">contains?</a></li>
             </ol>
           </div>
           <div id='section'>
             <div id='methods'>
               <h2>Public instance methods</h2>
-              <div class='public-instance method' id='method-M000027'>
-                <a name='M000027'>      </a>
+              <div class='public-instance method' id='method-M000028'>
+                <a name='M000028'>      </a>
                 <div class='synopsis'>
                   <span class='name'>compatible?</span>
                   <span class='arguments'>(other)</span>
@@ -66,23 +66,23 @@
                   </p>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000027-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000028-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000027-source'>    <span class="ruby-comment cmt"># File lib/quantity/simple_unit.rb, line 8</span>&#x000A; 8:      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">compatible?</span> (<span class="ruby-identifier">other</span>)&#x000A; 9:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">other</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span>&#x000A;10:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:h_base</span>)&#x000A;11: &#x000A;12:       <span class="ruby-identifier">h_base</span>[<span class="ruby-identifier">:dividends</span>].<span class="ruby-identifier">same?</span>(<span class="ruby-identifier">other</span>.<span class="ruby-identifier">h_base</span>[<span class="ruby-identifier">:dividends</span>]) <span class="ruby-operator">&amp;&amp;</span>&#x000A;13:       <span class="ruby-identifier">h_base</span>[<span class="ruby-identifier">:divisors</span>].<span class="ruby-identifier">same?</span>(<span class="ruby-identifier">other</span>.<span class="ruby-identifier">h_base</span>[<span class="ruby-identifier">:divisors</span>])&#x000A;14:     <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000028-source'>    <span class="ruby-comment cmt"># File lib/quantity/simple_unit.rb, line 8</span>&#x000A; 8:      <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">compatible?</span> (<span class="ruby-identifier">other</span>)&#x000A; 9:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">other</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span>&#x000A;10:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:h_base</span>)&#x000A;11: &#x000A;12:       <span class="ruby-identifier">h_base</span>[<span class="ruby-identifier">:dividends</span>].<span class="ruby-identifier">same_values?</span>(<span class="ruby-identifier">other</span>.<span class="ruby-identifier">h_base</span>[<span class="ruby-identifier">:dividends</span>]) <span class="ruby-operator">&amp;&amp;</span>&#x000A;13:       <span class="ruby-identifier">h_base</span>[<span class="ruby-identifier">:divisors</span>].<span class="ruby-identifier">same_values?</span>(<span class="ruby-identifier">other</span>.<span class="ruby-identifier">h_base</span>[<span class="ruby-identifier">:divisors</span>])&#x000A;14:     <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='public-instance method' id='method-M000028'>
-                <a name='M000028'>      </a>
+              <div class='public-instance method' id='method-M000029'>
+                <a name='M000029'>      </a>
                 <div class='synopsis'>
                   <span class='name'>contains?</span>
                   <span class='arguments'>(other)</span>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000028-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000029-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000028-source'>    <span class="ruby-comment cmt"># File lib/quantity/simple_unit.rb, line 16</span>&#x000A;16:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">contains?</span> (<span class="ruby-identifier">other</span>)&#x000A;17:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">other</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span>&#x000A;18:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:h_base</span>)&#x000A;19: &#x000A;20:       <span class="ruby-identifier">h_base</span>[<span class="ruby-identifier">:dividends</span>].<span class="ruby-identifier">contains?</span>(<span class="ruby-identifier">other</span>.<span class="ruby-identifier">h_base</span>[<span class="ruby-identifier">:dividends</span>]) <span class="ruby-operator">&amp;&amp;</span>&#x000A;21:       <span class="ruby-identifier">h_base</span>[<span class="ruby-identifier">:divisors</span>].<span class="ruby-identifier">contains?</span>(<span class="ruby-identifier">other</span>.<span class="ruby-identifier">h_base</span>[<span class="ruby-identifier">:divisors</span>])&#x000A;22:     <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000029-source'>    <span class="ruby-comment cmt"># File lib/quantity/simple_unit.rb, line 16</span>&#x000A;16:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">contains?</span> (<span class="ruby-identifier">other</span>)&#x000A;17:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">other</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span>&#x000A;18:       <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:h_base</span>)&#x000A;19: &#x000A;20:       <span class="ruby-identifier">h_base</span>[<span class="ruby-identifier">:dividends</span>].<span class="ruby-identifier">contains?</span>(<span class="ruby-identifier">other</span>.<span class="ruby-identifier">h_base</span>[<span class="ruby-identifier">:dividends</span>]) <span class="ruby-operator">&amp;&amp;</span>&#x000A;21:       <span class="ruby-identifier">h_base</span>[<span class="ruby-identifier">:divisors</span>].<span class="ruby-identifier">contains?</span>(<span class="ruby-identifier">other</span>.<span class="ruby-identifier">h_base</span>[<span class="ruby-identifier">:divisors</span>])&#x000A;22:     <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
             </div>

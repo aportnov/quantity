@@ -4331,58 +4331,59 @@
         
         Element.addMethods();
         var search_index = [
-          { method: '==', module: 'quantity::calculationsupport', html: '<a href="classes/Quantity/CalculationSupport.html#M000012"><span class="method_name">==</span> <span class="module_name">(Quantity::CalculationSupport)</span></a>' },
-          { method: '==', module: 'unit::composedunit', html: '<a href="classes/Unit/ComposedUnit.html#M000048"><span class="method_name">==</span> <span class="module_name">(Unit::ComposedUnit)</span></a>' },
-          { method: '==', module: 'unit::simpleunit', html: '<a href="classes/Unit/SimpleUnit.html#M000038"><span class="method_name">==</span> <span class="module_name">(Unit::SimpleUnit)</span></a>' },
-          { method: '[]', module: 'unit::simpleunit', html: '<a href="classes/Unit/SimpleUnit.html#M000040"><span class="method_name">[]</span> <span class="module_name">(Unit::SimpleUnit)</span></a>' },
-          { method: '[]', module: 'unit::composedunit', html: '<a href="classes/Unit/ComposedUnit.html#M000050"><span class="method_name">[]</span> <span class="module_name">(Unit::ComposedUnit)</span></a>' },
-          { method: '[]', module: 'quantity::quantity', html: '<a href="classes/Quantity/Quantity.html#M000018"><span class="method_name">[]</span> <span class="module_name">(Quantity::Quantity)</span></a>' },
-          { method: 'add_conversion', module: 'quantity::calculator', html: '<a href="classes/Quantity/Calculator.html#M000024"><span class="method_name">add_conversion</span> <span class="module_name">(Quantity::Calculator)</span></a>' },
-          { method: 'add_unit', module: 'quantity::calculator', html: '<a href="classes/Quantity/Calculator.html#M000023"><span class="method_name">add_unit</span> <span class="module_name">(Quantity::Calculator)</span></a>' },
-          { method: 'base', module: 'unit::optimizer', html: '<a href="classes/Unit/Optimizer.html#M000052"><span class="method_name">base</span> <span class="module_name">(Unit::Optimizer)</span></a>' },
-          { method: 'calc', module: 'configuration', html: '<a href="classes/Configuration.html#M000006"><span class="method_name">calc</span> <span class="module_name">(Configuration)</span></a>' },
-          { method: 'coerce', module: 'quantity::calculationsupport', html: '<a href="classes/Quantity/CalculationSupport.html#M000013"><span class="method_name">coerce</span> <span class="module_name">(Quantity::CalculationSupport)</span></a>' },
-          { method: 'collect_for', module: 'hash', html: '<a href="classes/Hash.html#M000007"><span class="method_name">collect_for</span> <span class="module_name">(Hash)</span></a>' },
-          { method: 'compatible?', module: 'unit::comparable', html: '<a href="classes/Unit/Comparable.html#M000027"><span class="method_name">compatible?</span> <span class="module_name">(Unit::Comparable)</span></a>' },
-          { method: 'contains?', module: 'array', html: '<a href="classes/Array.html#M000001"><span class="method_name">contains?</span> <span class="module_name">(Array)</span></a>' },
-          { method: 'contains?', module: 'unit::comparable', html: '<a href="classes/Unit/Comparable.html#M000028"><span class="method_name">contains?</span> <span class="module_name">(Unit::Comparable)</span></a>' },
-          { method: 'conversion', module: 'configuration', html: '<a href="classes/Configuration.html#M000005"><span class="method_name">conversion</span> <span class="module_name">(Configuration)</span></a>' },
-          { method: 'dividend', module: 'unit::composedunit', html: '<a href="classes/Unit/ComposedUnit.html#M000045"><span class="method_name">dividend</span> <span class="module_name">(Unit::ComposedUnit)</span></a>' },
-          { method: 'dividend', module: 'unit::simpleunit', html: '<a href="classes/Unit/SimpleUnit.html#M000036"><span class="method_name">dividend</span> <span class="module_name">(Unit::SimpleUnit)</span></a>' },
-          { method: 'divisor', module: 'unit::composedunit', html: '<a href="classes/Unit/ComposedUnit.html#M000046"><span class="method_name">divisor</span> <span class="module_name">(Unit::ComposedUnit)</span></a>' },
-          { method: 'divisor', module: 'unit::simpleunit', html: '<a href="classes/Unit/SimpleUnit.html#M000037"><span class="method_name">divisor</span> <span class="module_name">(Unit::SimpleUnit)</span></a>' },
-          { method: 'eql?', module: 'unit::composedunit', html: '<a href="classes/Unit/ComposedUnit.html#M000049"><span class="method_name">eql?</span> <span class="module_name">(Unit::ComposedUnit)</span></a>' },
-          { method: 'eql?', module: 'unit::simpleunit', html: '<a href="classes/Unit/SimpleUnit.html#M000039"><span class="method_name">eql?</span> <span class="module_name">(Unit::SimpleUnit)</span></a>' },
-          { method: 'exp', module: 'quantity::calculator', html: '<a href="classes/Quantity/Calculator.html#M000022"><span class="method_name">exp</span> <span class="module_name">(Quantity::Calculator)</span></a>' },
-          { method: 'from_base', module: 'unit::composedunit', html: '<a href="classes/Unit/ComposedUnit.html#M000043"><span class="method_name">from_base</span> <span class="module_name">(Unit::ComposedUnit)</span></a>' },
-          { method: 'from_base', module: 'unit::simpleunit', html: '<a href="classes/Unit/SimpleUnit.html#M000034"><span class="method_name">from_base</span> <span class="module_name">(Unit::SimpleUnit)</span></a>' },
-          { method: 'h_base', module: 'unit::composedunit', html: '<a href="classes/Unit/ComposedUnit.html#M000044"><span class="method_name">h_base</span> <span class="module_name">(Unit::ComposedUnit)</span></a>' },
-          { method: 'h_base', module: 'unit::simpleunit', html: '<a href="classes/Unit/SimpleUnit.html#M000035"><span class="method_name">h_base</span> <span class="module_name">(Unit::SimpleUnit)</span></a>' },
-          { method: 'method_missing', module: 'quantity::calculationsupport', html: '<a href="classes/Quantity/CalculationSupport.html#M000011"><span class="method_name">method_missing</span> <span class="module_name">(Quantity::CalculationSupport)</span></a>' },
-          { method: 'method_missing', module: 'quantity::measurable', html: '<a href="classes/Quantity/Measurable.html#M000009"><span class="method_name">method_missing</span> <span class="module_name">(Quantity::Measurable)</span></a>' },
-          { method: 'new', module: 'quantity::quantity', html: '<a href="classes/Quantity/Quantity.html#M000016"><span class="method_name">new</span> <span class="module_name">(Quantity::Quantity)</span></a>' },
-          { method: 'new', module: 'unit::parser', html: '<a href="classes/Unit/Parser.html#M000029"><span class="method_name">new</span> <span class="module_name">(Unit::Parser)</span></a>' },
-          { method: 'new', module: 'unit::simpleunit', html: '<a href="classes/Unit/SimpleUnit.html#M000032"><span class="method_name">new</span> <span class="module_name">(Unit::SimpleUnit)</span></a>' },
-          { method: 'new', module: 'unit::composedunit', html: '<a href="classes/Unit/ComposedUnit.html#M000041"><span class="method_name">new</span> <span class="module_name">(Unit::ComposedUnit)</span></a>' },
-          { method: 'new', module: 'configuration', html: '<a href="classes/Configuration.html#M000003"><span class="method_name">new</span> <span class="module_name">(Configuration)</span></a>' },
-          { method: 'new', module: 'quantity::calculator', html: '<a href="classes/Quantity/Calculator.html#M000019"><span class="method_name">new</span> <span class="module_name">(Quantity::Calculator)</span></a>' },
-          { method: 'new', module: 'quantity::quantityinfo', html: '<a href="classes/Quantity/QuantityInfo.html#M000025"><span class="method_name">new</span> <span class="module_name">(Quantity::QuantityInfo)</span></a>' },
-          { method: 'new', module: 'quantity::operationinfo', html: '<a href="classes/Quantity/OperationInfo.html#M000014"><span class="method_name">new</span> <span class="module_name">(Quantity::OperationInfo)</span></a>' },
-          { method: 'parse_operand_symbols', module: 'unit::parser', html: '<a href="classes/Unit/Parser.html#M000031"><span class="method_name">parse_operand_symbols</span> <span class="module_name">(Unit::Parser)</span></a>' },
-          { method: 'perform_operation', module: 'quantity::calculator', html: '<a href="classes/Quantity/Calculator.html#M000021"><span class="method_name">perform_operation</span> <span class="module_name">(Quantity::Calculator)</span></a>' },
-          { method: 'process', module: 'unit::optimizer', html: '<a href="classes/Unit/Optimizer.html#M000051"><span class="method_name">process</span> <span class="module_name">(Unit::Optimizer)</span></a>' },
-          { method: 'quantifiable?', module: 'quantity::quantifiable', html: '<a href="classes/Quantity/Quantifiable.html#M000008"><span class="method_name">quantifiable?</span> <span class="module_name">(Quantity::Quantifiable)</span></a>' },
-          { method: 'quantity', module: 'quantity::calculator', html: '<a href="classes/Quantity/Calculator.html#M000020"><span class="method_name">quantity</span> <span class="module_name">(Quantity::Calculator)</span></a>' },
-          { method: 'reverse', module: 'unit::composedunit', html: '<a href="classes/Unit/ComposedUnit.html#M000047"><span class="method_name">reverse</span> <span class="module_name">(Unit::ComposedUnit)</span></a>' },
-          { method: 'same?', module: 'array', html: '<a href="classes/Array.html#M000002"><span class="method_name">same?</span> <span class="module_name">(Array)</span></a>' },
-          { method: 'to_base', module: 'unit::composedunit', html: '<a href="classes/Unit/ComposedUnit.html#M000042"><span class="method_name">to_base</span> <span class="module_name">(Unit::ComposedUnit)</span></a>' },
-          { method: 'to_base', module: 'unit::simpleunit', html: '<a href="classes/Unit/SimpleUnit.html#M000033"><span class="method_name">to_base</span> <span class="module_name">(Unit::SimpleUnit)</span></a>' },
-          { method: 'to_quantity', module: 'quantity::measurable', html: '<a href="classes/Quantity/Measurable.html#M000010"><span class="method_name">to_quantity</span> <span class="module_name">(Quantity::Measurable)</span></a>' },
-          { method: 'to_quantity', module: 'quantity::quantity', html: '<a href="classes/Quantity/Quantity.html#M000017"><span class="method_name">to_quantity</span> <span class="module_name">(Quantity::Quantity)</span></a>' },
-          { method: 'to_quantity', module: 'quantity::operationinfo', html: '<a href="classes/Quantity/OperationInfo.html#M000015"><span class="method_name">to_quantity</span> <span class="module_name">(Quantity::OperationInfo)</span></a>' },
-          { method: 'to_quantity', module: 'quantity::quantityinfo', html: '<a href="classes/Quantity/QuantityInfo.html#M000026"><span class="method_name">to_quantity</span> <span class="module_name">(Quantity::QuantityInfo)</span></a>' },
-          { method: 'to_units', module: 'unit::parser', html: '<a href="classes/Unit/Parser.html#M000030"><span class="method_name">to_units</span> <span class="module_name">(Unit::Parser)</span></a>' },
-          { method: 'unit', module: 'configuration', html: '<a href="classes/Configuration.html#M000004"><span class="method_name">unit</span> <span class="module_name">(Configuration)</span></a>' },
+          { method: '==', module: 'unit::composedunit', html: '<a href="classes/Unit/ComposedUnit.html#M000049"><span class="method_name">==</span> <span class="module_name">(Unit::ComposedUnit)</span></a>' },
+          { method: '==', module: 'quantity::calculationsupport', html: '<a href="classes/Quantity/CalculationSupport.html#M000013"><span class="method_name">==</span> <span class="module_name">(Quantity::CalculationSupport)</span></a>' },
+          { method: '==', module: 'unit::simpleunit', html: '<a href="classes/Unit/SimpleUnit.html#M000039"><span class="method_name">==</span> <span class="module_name">(Unit::SimpleUnit)</span></a>' },
+          { method: '[]', module: 'unit::simpleunit', html: '<a href="classes/Unit/SimpleUnit.html#M000041"><span class="method_name">[]</span> <span class="module_name">(Unit::SimpleUnit)</span></a>' },
+          { method: '[]', module: 'unit::composedunit', html: '<a href="classes/Unit/ComposedUnit.html#M000051"><span class="method_name">[]</span> <span class="module_name">(Unit::ComposedUnit)</span></a>' },
+          { method: '[]', module: 'quantity::quantity', html: '<a href="classes/Quantity/Quantity.html#M000019"><span class="method_name">[]</span> <span class="module_name">(Quantity::Quantity)</span></a>' },
+          { method: 'add_conversion', module: 'quantity::calculator', html: '<a href="classes/Quantity/Calculator.html#M000025"><span class="method_name">add_conversion</span> <span class="module_name">(Quantity::Calculator)</span></a>' },
+          { method: 'add_unit', module: 'quantity::calculator', html: '<a href="classes/Quantity/Calculator.html#M000024"><span class="method_name">add_unit</span> <span class="module_name">(Quantity::Calculator)</span></a>' },
+          { method: 'base', module: 'unit::optimizer', html: '<a href="classes/Unit/Optimizer.html#M000053"><span class="method_name">base</span> <span class="module_name">(Unit::Optimizer)</span></a>' },
+          { method: 'calc', module: 'configuration', html: '<a href="classes/Configuration.html#M000004"><span class="method_name">calc</span> <span class="module_name">(Configuration)</span></a>' },
+          { method: 'coerce', module: 'quantity::calculationsupport', html: '<a href="classes/Quantity/CalculationSupport.html#M000014"><span class="method_name">coerce</span> <span class="module_name">(Quantity::CalculationSupport)</span></a>' },
+          { method: 'collect!', module: 'quantity::extensions::hash::instancemethods', html: '<a href="classes/Quantity/Extensions/Hash/InstanceMethods.html#M000008"><span class="method_name">collect!</span> <span class="module_name">(Quantity::Extensions::Hash::InstanceMethods)</span></a>' },
+          { method: 'compatible?', module: 'unit::comparable', html: '<a href="classes/Unit/Comparable.html#M000028"><span class="method_name">compatible?</span> <span class="module_name">(Unit::Comparable)</span></a>' },
+          { method: 'contains?', module: 'unit::comparable', html: '<a href="classes/Unit/Comparable.html#M000029"><span class="method_name">contains?</span> <span class="module_name">(Unit::Comparable)</span></a>' },
+          { method: 'contains?', module: 'quantity::extensions::array::instancemethods', html: '<a href="classes/Quantity/Extensions/Array/InstanceMethods.html#M000006"><span class="method_name">contains?</span> <span class="module_name">(Quantity::Extensions::Array::InstanceMethods)</span></a>' },
+          { method: 'conversion', module: 'configuration', html: '<a href="classes/Configuration.html#M000003"><span class="method_name">conversion</span> <span class="module_name">(Configuration)</span></a>' },
+          { method: 'dividend', module: 'unit::composedunit', html: '<a href="classes/Unit/ComposedUnit.html#M000046"><span class="method_name">dividend</span> <span class="module_name">(Unit::ComposedUnit)</span></a>' },
+          { method: 'dividend', module: 'unit::simpleunit', html: '<a href="classes/Unit/SimpleUnit.html#M000037"><span class="method_name">dividend</span> <span class="module_name">(Unit::SimpleUnit)</span></a>' },
+          { method: 'divisor', module: 'unit::composedunit', html: '<a href="classes/Unit/ComposedUnit.html#M000047"><span class="method_name">divisor</span> <span class="module_name">(Unit::ComposedUnit)</span></a>' },
+          { method: 'divisor', module: 'unit::simpleunit', html: '<a href="classes/Unit/SimpleUnit.html#M000038"><span class="method_name">divisor</span> <span class="module_name">(Unit::SimpleUnit)</span></a>' },
+          { method: 'eql?', module: 'unit::simpleunit', html: '<a href="classes/Unit/SimpleUnit.html#M000040"><span class="method_name">eql?</span> <span class="module_name">(Unit::SimpleUnit)</span></a>' },
+          { method: 'eql?', module: 'unit::composedunit', html: '<a href="classes/Unit/ComposedUnit.html#M000050"><span class="method_name">eql?</span> <span class="module_name">(Unit::ComposedUnit)</span></a>' },
+          { method: 'exp', module: 'quantity::calculator', html: '<a href="classes/Quantity/Calculator.html#M000023"><span class="method_name">exp</span> <span class="module_name">(Quantity::Calculator)</span></a>' },
+          { method: 'from_base', module: 'unit::simpleunit', html: '<a href="classes/Unit/SimpleUnit.html#M000035"><span class="method_name">from_base</span> <span class="module_name">(Unit::SimpleUnit)</span></a>' },
+          { method: 'from_base', module: 'unit::composedunit', html: '<a href="classes/Unit/ComposedUnit.html#M000044"><span class="method_name">from_base</span> <span class="module_name">(Unit::ComposedUnit)</span></a>' },
+          { method: 'h_base', module: 'unit::composedunit', html: '<a href="classes/Unit/ComposedUnit.html#M000045"><span class="method_name">h_base</span> <span class="module_name">(Unit::ComposedUnit)</span></a>' },
+          { method: 'h_base', module: 'unit::simpleunit', html: '<a href="classes/Unit/SimpleUnit.html#M000036"><span class="method_name">h_base</span> <span class="module_name">(Unit::SimpleUnit)</span></a>' },
+          { method: 'included', module: 'quantity::extensions', html: '<a href="classes/Quantity/Extensions.html#M000005"><span class="method_name">included</span> <span class="module_name">(Quantity::Extensions)</span></a>' },
+          { method: 'method_missing', module: 'quantity::calculationsupport', html: '<a href="classes/Quantity/CalculationSupport.html#M000012"><span class="method_name">method_missing</span> <span class="module_name">(Quantity::CalculationSupport)</span></a>' },
+          { method: 'method_missing', module: 'quantity::measurable', html: '<a href="classes/Quantity/Measurable.html#M000010"><span class="method_name">method_missing</span> <span class="module_name">(Quantity::Measurable)</span></a>' },
+          { method: 'new', module: 'unit::parser', html: '<a href="classes/Unit/Parser.html#M000030"><span class="method_name">new</span> <span class="module_name">(Unit::Parser)</span></a>' },
+          { method: 'new', module: 'quantity::quantityinfo', html: '<a href="classes/Quantity/QuantityInfo.html#M000026"><span class="method_name">new</span> <span class="module_name">(Quantity::QuantityInfo)</span></a>' },
+          { method: 'new', module: 'unit::simpleunit', html: '<a href="classes/Unit/SimpleUnit.html#M000033"><span class="method_name">new</span> <span class="module_name">(Unit::SimpleUnit)</span></a>' },
+          { method: 'new', module: 'quantity::quantity', html: '<a href="classes/Quantity/Quantity.html#M000017"><span class="method_name">new</span> <span class="module_name">(Quantity::Quantity)</span></a>' },
+          { method: 'new', module: 'unit::composedunit', html: '<a href="classes/Unit/ComposedUnit.html#M000042"><span class="method_name">new</span> <span class="module_name">(Unit::ComposedUnit)</span></a>' },
+          { method: 'new', module: 'quantity::calculator', html: '<a href="classes/Quantity/Calculator.html#M000020"><span class="method_name">new</span> <span class="module_name">(Quantity::Calculator)</span></a>' },
+          { method: 'new', module: 'quantity::operationinfo', html: '<a href="classes/Quantity/OperationInfo.html#M000015"><span class="method_name">new</span> <span class="module_name">(Quantity::OperationInfo)</span></a>' },
+          { method: 'new', module: 'configuration', html: '<a href="classes/Configuration.html#M000001"><span class="method_name">new</span> <span class="module_name">(Configuration)</span></a>' },
+          { method: 'parse_operand_symbols', module: 'unit::parser', html: '<a href="classes/Unit/Parser.html#M000032"><span class="method_name">parse_operand_symbols</span> <span class="module_name">(Unit::Parser)</span></a>' },
+          { method: 'perform_operation', module: 'quantity::calculator', html: '<a href="classes/Quantity/Calculator.html#M000022"><span class="method_name">perform_operation</span> <span class="module_name">(Quantity::Calculator)</span></a>' },
+          { method: 'process', module: 'unit::optimizer', html: '<a href="classes/Unit/Optimizer.html#M000052"><span class="method_name">process</span> <span class="module_name">(Unit::Optimizer)</span></a>' },
+          { method: 'quantifiable?', module: 'quantity::quantifiable', html: '<a href="classes/Quantity/Quantifiable.html#M000009"><span class="method_name">quantifiable?</span> <span class="module_name">(Quantity::Quantifiable)</span></a>' },
+          { method: 'quantity', module: 'quantity::calculator', html: '<a href="classes/Quantity/Calculator.html#M000021"><span class="method_name">quantity</span> <span class="module_name">(Quantity::Calculator)</span></a>' },
+          { method: 'reverse', module: 'unit::composedunit', html: '<a href="classes/Unit/ComposedUnit.html#M000048"><span class="method_name">reverse</span> <span class="module_name">(Unit::ComposedUnit)</span></a>' },
+          { method: 'same_values?', module: 'quantity::extensions::array::instancemethods', html: '<a href="classes/Quantity/Extensions/Array/InstanceMethods.html#M000007"><span class="method_name">same_values?</span> <span class="module_name">(Quantity::Extensions::Array::InstanceMethods)</span></a>' },
+          { method: 'to_base', module: 'unit::composedunit', html: '<a href="classes/Unit/ComposedUnit.html#M000043"><span class="method_name">to_base</span> <span class="module_name">(Unit::ComposedUnit)</span></a>' },
+          { method: 'to_base', module: 'unit::simpleunit', html: '<a href="classes/Unit/SimpleUnit.html#M000034"><span class="method_name">to_base</span> <span class="module_name">(Unit::SimpleUnit)</span></a>' },
+          { method: 'to_quantity', module: 'quantity::operationinfo', html: '<a href="classes/Quantity/OperationInfo.html#M000016"><span class="method_name">to_quantity</span> <span class="module_name">(Quantity::OperationInfo)</span></a>' },
+          { method: 'to_quantity', module: 'quantity::measurable', html: '<a href="classes/Quantity/Measurable.html#M000011"><span class="method_name">to_quantity</span> <span class="module_name">(Quantity::Measurable)</span></a>' },
+          { method: 'to_quantity', module: 'quantity::quantity', html: '<a href="classes/Quantity/Quantity.html#M000018"><span class="method_name">to_quantity</span> <span class="module_name">(Quantity::Quantity)</span></a>' },
+          { method: 'to_quantity', module: 'quantity::quantityinfo', html: '<a href="classes/Quantity/QuantityInfo.html#M000027"><span class="method_name">to_quantity</span> <span class="module_name">(Quantity::QuantityInfo)</span></a>' },
+          { method: 'to_units', module: 'unit::parser', html: '<a href="classes/Unit/Parser.html#M000031"><span class="method_name">to_units</span> <span class="module_name">(Unit::Parser)</span></a>' },
+          { method: 'unit', module: 'configuration', html: '<a href="classes/Configuration.html#M000002"><span class="method_name">unit</span> <span class="module_name">(Configuration)</span></a>' },
         ]
         $(document).observe('dom:loaded', function() {
         	// Setup search-during-typing.
@@ -4453,58 +4454,59 @@
       </form>
       <ol class='methods' id='search-results' style='display: none'></ol>
       <ol class='methods' id='index-entries'>
-        <li><a href="classes/Quantity/CalculationSupport.html#M000012"><span class="method_name">==</span> <span class="module_name">(Quantity::CalculationSupport)</span></a></li>
-        <li><a href="classes/Unit/ComposedUnit.html#M000048"><span class="method_name">==</span> <span class="module_name">(Unit::ComposedUnit)</span></a></li>
-        <li><a href="classes/Unit/SimpleUnit.html#M000038"><span class="method_name">==</span> <span class="module_name">(Unit::SimpleUnit)</span></a></li>
-        <li><a href="classes/Unit/SimpleUnit.html#M000040"><span class="method_name">[]</span> <span class="module_name">(Unit::SimpleUnit)</span></a></li>
-        <li><a href="classes/Unit/ComposedUnit.html#M000050"><span class="method_name">[]</span> <span class="module_name">(Unit::ComposedUnit)</span></a></li>
-        <li><a href="classes/Quantity/Quantity.html#M000018"><span class="method_name">[]</span> <span class="module_name">(Quantity::Quantity)</span></a></li>
-        <li><a href="classes/Quantity/Calculator.html#M000024"><span class="method_name">add_conversion</span> <span class="module_name">(Quantity::Calculator)</span></a></li>
-        <li><a href="classes/Quantity/Calculator.html#M000023"><span class="method_name">add_unit</span> <span class="module_name">(Quantity::Calculator)</span></a></li>
-        <li><a href="classes/Unit/Optimizer.html#M000052"><span class="method_name">base</span> <span class="module_name">(Unit::Optimizer)</span></a></li>
-        <li><a href="classes/Configuration.html#M000006"><span class="method_name">calc</span> <span class="module_name">(Configuration)</span></a></li>
-        <li><a href="classes/Quantity/CalculationSupport.html#M000013"><span class="method_name">coerce</span> <span class="module_name">(Quantity::CalculationSupport)</span></a></li>
-        <li><a href="classes/Hash.html#M000007"><span class="method_name">collect_for</span> <span class="module_name">(Hash)</span></a></li>
-        <li><a href="classes/Unit/Comparable.html#M000027"><span class="method_name">compatible?</span> <span class="module_name">(Unit::Comparable)</span></a></li>
-        <li><a href="classes/Array.html#M000001"><span class="method_name">contains?</span> <span class="module_name">(Array)</span></a></li>
-        <li><a href="classes/Unit/Comparable.html#M000028"><span class="method_name">contains?</span> <span class="module_name">(Unit::Comparable)</span></a></li>
-        <li><a href="classes/Configuration.html#M000005"><span class="method_name">conversion</span> <span class="module_name">(Configuration)</span></a></li>
-        <li><a href="classes/Unit/ComposedUnit.html#M000045"><span class="method_name">dividend</span> <span class="module_name">(Unit::ComposedUnit)</span></a></li>
-        <li><a href="classes/Unit/SimpleUnit.html#M000036"><span class="method_name">dividend</span> <span class="module_name">(Unit::SimpleUnit)</span></a></li>
-        <li><a href="classes/Unit/ComposedUnit.html#M000046"><span class="method_name">divisor</span> <span class="module_name">(Unit::ComposedUnit)</span></a></li>
-        <li><a href="classes/Unit/SimpleUnit.html#M000037"><span class="method_name">divisor</span> <span class="module_name">(Unit::SimpleUnit)</span></a></li>
-        <li><a href="classes/Unit/ComposedUnit.html#M000049"><span class="method_name">eql?</span> <span class="module_name">(Unit::ComposedUnit)</span></a></li>
-        <li><a href="classes/Unit/SimpleUnit.html#M000039"><span class="method_name">eql?</span> <span class="module_name">(Unit::SimpleUnit)</span></a></li>
-        <li><a href="classes/Quantity/Calculator.html#M000022"><span class="method_name">exp</span> <span class="module_name">(Quantity::Calculator)</span></a></li>
-        <li><a href="classes/Unit/ComposedUnit.html#M000043"><span class="method_name">from_base</span> <span class="module_name">(Unit::ComposedUnit)</span></a></li>
-        <li><a href="classes/Unit/SimpleUnit.html#M000034"><span class="method_name">from_base</span> <span class="module_name">(Unit::SimpleUnit)</span></a></li>
-        <li><a href="classes/Unit/ComposedUnit.html#M000044"><span class="method_name">h_base</span> <span class="module_name">(Unit::ComposedUnit)</span></a></li>
-        <li><a href="classes/Unit/SimpleUnit.html#M000035"><span class="method_name">h_base</span> <span class="module_name">(Unit::SimpleUnit)</span></a></li>
-        <li><a href="classes/Quantity/CalculationSupport.html#M000011"><span class="method_name">method_missing</span> <span class="module_name">(Quantity::CalculationSupport)</span></a></li>
-        <li><a href="classes/Quantity/Measurable.html#M000009"><span class="method_name">method_missing</span> <span class="module_name">(Quantity::Measurable)</span></a></li>
-        <li><a href="classes/Quantity/Quantity.html#M000016"><span class="method_name">new</span> <span class="module_name">(Quantity::Quantity)</span></a></li>
-        <li><a href="classes/Unit/Parser.html#M000029"><span class="method_name">new</span> <span class="module_name">(Unit::Parser)</span></a></li>
-        <li><a href="classes/Unit/SimpleUnit.html#M000032"><span class="method_name">new</span> <span class="module_name">(Unit::SimpleUnit)</span></a></li>
-        <li><a href="classes/Unit/ComposedUnit.html#M000041"><span class="method_name">new</span> <span class="module_name">(Unit::ComposedUnit)</span></a></li>
-        <li><a href="classes/Configuration.html#M000003"><span class="method_name">new</span> <span class="module_name">(Configuration)</span></a></li>
-        <li><a href="classes/Quantity/Calculator.html#M000019"><span class="method_name">new</span> <span class="module_name">(Quantity::Calculator)</span></a></li>
-        <li><a href="classes/Quantity/QuantityInfo.html#M000025"><span class="method_name">new</span> <span class="module_name">(Quantity::QuantityInfo)</span></a></li>
-        <li><a href="classes/Quantity/OperationInfo.html#M000014"><span class="method_name">new</span> <span class="module_name">(Quantity::OperationInfo)</span></a></li>
-        <li><a href="classes/Unit/Parser.html#M000031"><span class="method_name">parse_operand_symbols</span> <span class="module_name">(Unit::Parser)</span></a></li>
-        <li><a href="classes/Quantity/Calculator.html#M000021"><span class="method_name">perform_operation</span> <span class="module_name">(Quantity::Calculator)</span></a></li>
-        <li><a href="classes/Unit/Optimizer.html#M000051"><span class="method_name">process</span> <span class="module_name">(Unit::Optimizer)</span></a></li>
-        <li><a href="classes/Quantity/Quantifiable.html#M000008"><span class="method_name">quantifiable?</span> <span class="module_name">(Quantity::Quantifiable)</span></a></li>
-        <li><a href="classes/Quantity/Calculator.html#M000020"><span class="method_name">quantity</span> <span class="module_name">(Quantity::Calculator)</span></a></li>
-        <li><a href="classes/Unit/ComposedUnit.html#M000047"><span class="method_name">reverse</span> <span class="module_name">(Unit::ComposedUnit)</span></a></li>
-        <li><a href="classes/Array.html#M000002"><span class="method_name">same?</span> <span class="module_name">(Array)</span></a></li>
-        <li><a href="classes/Unit/ComposedUnit.html#M000042"><span class="method_name">to_base</span> <span class="module_name">(Unit::ComposedUnit)</span></a></li>
-        <li><a href="classes/Unit/SimpleUnit.html#M000033"><span class="method_name">to_base</span> <span class="module_name">(Unit::SimpleUnit)</span></a></li>
-        <li><a href="classes/Quantity/Measurable.html#M000010"><span class="method_name">to_quantity</span> <span class="module_name">(Quantity::Measurable)</span></a></li>
-        <li><a href="classes/Quantity/Quantity.html#M000017"><span class="method_name">to_quantity</span> <span class="module_name">(Quantity::Quantity)</span></a></li>
-        <li><a href="classes/Quantity/OperationInfo.html#M000015"><span class="method_name">to_quantity</span> <span class="module_name">(Quantity::OperationInfo)</span></a></li>
-        <li><a href="classes/Quantity/QuantityInfo.html#M000026"><span class="method_name">to_quantity</span> <span class="module_name">(Quantity::QuantityInfo)</span></a></li>
-        <li><a href="classes/Unit/Parser.html#M000030"><span class="method_name">to_units</span> <span class="module_name">(Unit::Parser)</span></a></li>
-        <li><a href="classes/Configuration.html#M000004"><span class="method_name">unit</span> <span class="module_name">(Configuration)</span></a></li>
+        <li><a href="classes/Unit/ComposedUnit.html#M000049"><span class="method_name">==</span> <span class="module_name">(Unit::ComposedUnit)</span></a></li>
+        <li><a href="classes/Quantity/CalculationSupport.html#M000013"><span class="method_name">==</span> <span class="module_name">(Quantity::CalculationSupport)</span></a></li>
+        <li><a href="classes/Unit/SimpleUnit.html#M000039"><span class="method_name">==</span> <span class="module_name">(Unit::SimpleUnit)</span></a></li>
+        <li><a href="classes/Unit/SimpleUnit.html#M000041"><span class="method_name">[]</span> <span class="module_name">(Unit::SimpleUnit)</span></a></li>
+        <li><a href="classes/Unit/ComposedUnit.html#M000051"><span class="method_name">[]</span> <span class="module_name">(Unit::ComposedUnit)</span></a></li>
+        <li><a href="classes/Quantity/Quantity.html#M000019"><span class="method_name">[]</span> <span class="module_name">(Quantity::Quantity)</span></a></li>
+        <li><a href="classes/Quantity/Calculator.html#M000025"><span class="method_name">add_conversion</span> <span class="module_name">(Quantity::Calculator)</span></a></li>
+        <li><a href="classes/Quantity/Calculator.html#M000024"><span class="method_name">add_unit</span> <span class="module_name">(Quantity::Calculator)</span></a></li>
+        <li><a href="classes/Unit/Optimizer.html#M000053"><span class="method_name">base</span> <span class="module_name">(Unit::Optimizer)</span></a></li>
+        <li><a href="classes/Configuration.html#M000004"><span class="method_name">calc</span> <span class="module_name">(Configuration)</span></a></li>
+        <li><a href="classes/Quantity/CalculationSupport.html#M000014"><span class="method_name">coerce</span> <span class="module_name">(Quantity::CalculationSupport)</span></a></li>
+        <li><a href="classes/Quantity/Extensions/Hash/InstanceMethods.html#M000008"><span class="method_name">collect!</span> <span class="module_name">(Quantity::Extensions::Hash::InstanceMethods)</span></a></li>
+        <li><a href="classes/Unit/Comparable.html#M000028"><span class="method_name">compatible?</span> <span class="module_name">(Unit::Comparable)</span></a></li>
+        <li><a href="classes/Unit/Comparable.html#M000029"><span class="method_name">contains?</span> <span class="module_name">(Unit::Comparable)</span></a></li>
+        <li><a href="classes/Quantity/Extensions/Array/InstanceMethods.html#M000006"><span class="method_name">contains?</span> <span class="module_name">(Quantity::Extensions::Array::InstanceMethods)</span></a></li>
+        <li><a href="classes/Configuration.html#M000003"><span class="method_name">conversion</span> <span class="module_name">(Configuration)</span></a></li>
+        <li><a href="classes/Unit/ComposedUnit.html#M000046"><span class="method_name">dividend</span> <span class="module_name">(Unit::ComposedUnit)</span></a></li>
+        <li><a href="classes/Unit/SimpleUnit.html#M000037"><span class="method_name">dividend</span> <span class="module_name">(Unit::SimpleUnit)</span></a></li>
+        <li><a href="classes/Unit/ComposedUnit.html#M000047"><span class="method_name">divisor</span> <span class="module_name">(Unit::ComposedUnit)</span></a></li>
+        <li><a href="classes/Unit/SimpleUnit.html#M000038"><span class="method_name">divisor</span> <span class="module_name">(Unit::SimpleUnit)</span></a></li>
+        <li><a href="classes/Unit/SimpleUnit.html#M000040"><span class="method_name">eql?</span> <span class="module_name">(Unit::SimpleUnit)</span></a></li>
+        <li><a href="classes/Unit/ComposedUnit.html#M000050"><span class="method_name">eql?</span> <span class="module_name">(Unit::ComposedUnit)</span></a></li>
+        <li><a href="classes/Quantity/Calculator.html#M000023"><span class="method_name">exp</span> <span class="module_name">(Quantity::Calculator)</span></a></li>
+        <li><a href="classes/Unit/SimpleUnit.html#M000035"><span class="method_name">from_base</span> <span class="module_name">(Unit::SimpleUnit)</span></a></li>
+        <li><a href="classes/Unit/ComposedUnit.html#M000044"><span class="method_name">from_base</span> <span class="module_name">(Unit::ComposedUnit)</span></a></li>
+        <li><a href="classes/Unit/ComposedUnit.html#M000045"><span class="method_name">h_base</span> <span class="module_name">(Unit::ComposedUnit)</span></a></li>
+        <li><a href="classes/Unit/SimpleUnit.html#M000036"><span class="method_name">h_base</span> <span class="module_name">(Unit::SimpleUnit)</span></a></li>
+        <li><a href="classes/Quantity/Extensions.html#M000005"><span class="method_name">included</span> <span class="module_name">(Quantity::Extensions)</span></a></li>
+        <li><a href="classes/Quantity/CalculationSupport.html#M000012"><span class="method_name">method_missing</span> <span class="module_name">(Quantity::CalculationSupport)</span></a></li>
+        <li><a href="classes/Quantity/Measurable.html#M000010"><span class="method_name">method_missing</span> <span class="module_name">(Quantity::Measurable)</span></a></li>
+        <li><a href="classes/Unit/Parser.html#M000030"><span class="method_name">new</span> <span class="module_name">(Unit::Parser)</span></a></li>
+        <li><a href="classes/Quantity/QuantityInfo.html#M000026"><span class="method_name">new</span> <span class="module_name">(Quantity::QuantityInfo)</span></a></li>
+        <li><a href="classes/Unit/SimpleUnit.html#M000033"><span class="method_name">new</span> <span class="module_name">(Unit::SimpleUnit)</span></a></li>
+        <li><a href="classes/Quantity/Quantity.html#M000017"><span class="method_name">new</span> <span class="module_name">(Quantity::Quantity)</span></a></li>
+        <li><a href="classes/Unit/ComposedUnit.html#M000042"><span class="method_name">new</span> <span class="module_name">(Unit::ComposedUnit)</span></a></li>
+        <li><a href="classes/Quantity/Calculator.html#M000020"><span class="method_name">new</span> <span class="module_name">(Quantity::Calculator)</span></a></li>
+        <li><a href="classes/Quantity/OperationInfo.html#M000015"><span class="method_name">new</span> <span class="module_name">(Quantity::OperationInfo)</span></a></li>
+        <li><a href="classes/Configuration.html#M000001"><span class="method_name">new</span> <span class="module_name">(Configuration)</span></a></li>
+        <li><a href="classes/Unit/Parser.html#M000032"><span class="method_name">parse_operand_symbols</span> <span class="module_name">(Unit::Parser)</span></a></li>
+        <li><a href="classes/Quantity/Calculator.html#M000022"><span class="method_name">perform_operation</span> <span class="module_name">(Quantity::Calculator)</span></a></li>
+        <li><a href="classes/Unit/Optimizer.html#M000052"><span class="method_name">process</span> <span class="module_name">(Unit::Optimizer)</span></a></li>
+        <li><a href="classes/Quantity/Quantifiable.html#M000009"><span class="method_name">quantifiable?</span> <span class="module_name">(Quantity::Quantifiable)</span></a></li>
+        <li><a href="classes/Quantity/Calculator.html#M000021"><span class="method_name">quantity</span> <span class="module_name">(Quantity::Calculator)</span></a></li>
+        <li><a href="classes/Unit/ComposedUnit.html#M000048"><span class="method_name">reverse</span> <span class="module_name">(Unit::ComposedUnit)</span></a></li>
+        <li><a href="classes/Quantity/Extensions/Array/InstanceMethods.html#M000007"><span class="method_name">same_values?</span> <span class="module_name">(Quantity::Extensions::Array::InstanceMethods)</span></a></li>
+        <li><a href="classes/Unit/ComposedUnit.html#M000043"><span class="method_name">to_base</span> <span class="module_name">(Unit::ComposedUnit)</span></a></li>
+        <li><a href="classes/Unit/SimpleUnit.html#M000034"><span class="method_name">to_base</span> <span class="module_name">(Unit::SimpleUnit)</span></a></li>
+        <li><a href="classes/Quantity/OperationInfo.html#M000016"><span class="method_name">to_quantity</span> <span class="module_name">(Quantity::OperationInfo)</span></a></li>
+        <li><a href="classes/Quantity/Measurable.html#M000011"><span class="method_name">to_quantity</span> <span class="module_name">(Quantity::Measurable)</span></a></li>
+        <li><a href="classes/Quantity/Quantity.html#M000018"><span class="method_name">to_quantity</span> <span class="module_name">(Quantity::Quantity)</span></a></li>
+        <li><a href="classes/Quantity/QuantityInfo.html#M000027"><span class="method_name">to_quantity</span> <span class="module_name">(Quantity::QuantityInfo)</span></a></li>
+        <li><a href="classes/Unit/Parser.html#M000031"><span class="method_name">to_units</span> <span class="module_name">(Unit::Parser)</span></a></li>
+        <li><a href="classes/Configuration.html#M000002"><span class="method_name">unit</span> <span class="module_name">(Configuration)</span></a></li>
       </ol>
     </div>
   </body>

@@ -9,8 +9,8 @@ module Unit
       return false if other == nil
       return false unless other.respond_to?(:h_base)
 
-      h_base[:dividends].same?(other.h_base[:dividends]) &&
-      h_base[:divisors].same?(other.h_base[:divisors])
+      h_base[:dividends].same_values?(other.h_base[:dividends]) &&
+      h_base[:divisors].same_values?(other.h_base[:divisors])
     end
     
     def contains? (other)

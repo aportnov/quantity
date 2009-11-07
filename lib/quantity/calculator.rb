@@ -86,9 +86,9 @@ module Quantity
       
       unit = Unit::ComposedUnit.new({
         :dividends => 
-          @units.collect_for(first_operand[:dividends] + second_operand[:dividends]),
+          @units.collect!(first_operand[:dividends] + second_operand[:dividends]),
         :divisors => 
-          @units.collect_for(first_operand[:divisors] + second_operand[:divisors])          
+          @units.collect!(first_operand[:divisors] + second_operand[:divisors])          
       })  
       
       Quantity.new(self, {:value => value, :unit => unit})      
@@ -99,9 +99,9 @@ module Quantity
  
       unit = Unit::ComposedUnit.new({
         :dividends => 
-          @units.collect_for(first_operand[:dividends] + second_operand[:divisors]),
+          @units.collect!(first_operand[:dividends] + second_operand[:divisors]),
         :divisors => 
-          @units.collect_for(first_operand[:divisors] + second_operand[:dividends])          
+          @units.collect!(first_operand[:divisors] + second_operand[:dividends])          
       })  
       
       Quantity.new(self, {:value => value, :unit => unit})      
@@ -155,8 +155,8 @@ module Quantity
       from, to = params[:from], params[:to]
       
       target = Unit::ComposedUnit.new({ 
-        :dividends => @units.collect_for(to[:dividends] + from[:divisors]), 
-        :divisors => @units.collect_for(to[:divisors] + from[:dividends]) 
+        :dividends => @units.collect!(to[:dividends] + from[:divisors]), 
+        :divisors => @units.collect!(to[:divisors] + from[:dividends]) 
       }) 
      
       if (conversion = direct_conversion(target))
