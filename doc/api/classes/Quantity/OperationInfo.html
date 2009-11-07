@@ -1,0 +1,125 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+  <head>
+    <title>: Quantity::OperationInfo [Quantity Framework API Documentation]</title>
+    <meta content='text/html; charset=utf8' http-equiv='Content-Type'>
+    <link href='../../rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
+    <script type='text/javascript'>
+      //<![CDATA[
+        function popupCode(url) {
+          window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+        }
+        
+        function toggleCode(id) {
+          var code = document.getElementById(id)
+        
+          code.style.display = code.style.display != 'block' ? 'block' : 'none'
+          return true
+        }
+        
+        // Make codeblocks hidden by default
+        document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+      //]]>
+    </script>
+  </head>
+  <body class='page'>
+    <div class='class' id='wrapper'>
+      <div class='header'>
+        <h1 class='name'>
+          <span class='type'>Class</span>
+          Quantity::OperationInfo
+        </h1>
+        <ol class='paths'>
+          <li>
+            <a href="../../files/lib/quantity/quantity_rb.html">lib/quantity/quantity.rb</a>
+          </li>
+        </ol>
+        <div class='parent'>
+          Parent:
+          <strong>Object</strong>
+        </div>
+      </div>
+      <div id='content'>
+        <div id='text'>
+          <div id='method-list'>
+            <h2>Methods</h2>
+            <h3>public class</h3>
+            <ol>
+              <li><a href="#M000014">new</a></li>
+            </ol>
+            <h3>public instance</h3>
+            <ol>
+              <li><a href="#M000015">to_quantity</a></li>
+            </ol>
+          </div>
+          <div id='context'>
+            <div id='includes'>
+              <h2>Included modules</h2>
+              <ol>
+                <li><a href="CalculationSupport.html">CalculationSupport</a></li>
+              </ol>
+            </div>
+          </div>
+          <div id='section'>
+            <div id='attribute-list'>
+              <h2 class='section-bar'>Attributes</h2>
+              <div class='name-list'>
+                <table>
+                  <tr class='top-aligned-row context-row'>
+                    <td class='context-item-name'>first_operand</td>
+                    <td class='context-item-value'>[R]</td>
+                    <td class='context-item-desc'></td>
+                  </tr>
+                  <tr class='top-aligned-row context-row'>
+                    <td class='context-item-name'>operation</td>
+                    <td class='context-item-value'>[R]</td>
+                    <td class='context-item-desc'></td>
+                  </tr>
+                  <tr class='top-aligned-row context-row'>
+                    <td class='context-item-name'>second_operand</td>
+                    <td class='context-item-value'>[R]</td>
+                    <td class='context-item-desc'></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div id='methods'>
+              <h2>Public class methods</h2>
+              <div class='public-class method' id='method-M000014'>
+                <a name='M000014'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>new</span>
+                  <span class='arguments'>(first_operand, second_operand, operation)</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000014-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000014-source'>    <span class="ruby-comment cmt"># File lib/quantity/quantity.rb, line 77</span>&#x000A;77:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">first_operand</span>, <span class="ruby-identifier">second_operand</span>, <span class="ruby-identifier">operation</span>)&#x000A;78: &#x000A;79:       <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Operand #{first_operand.to_s} is not Quantifiable&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">quantifiable?</span>(<span class="ruby-identifier">first_operand</span>) &#x000A;80:       <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Operand #{second_operand.to_s} is not Quantifiable&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">quantifiable?</span>(<span class="ruby-identifier">second_operand</span>)&#x000A;81:   &#x000A;82:       <span class="ruby-ivar">@first_operand</span> = <span class="ruby-identifier">first_operand</span>&#x000A;83:       <span class="ruby-ivar">@second_operand</span> = <span class="ruby-identifier">second_operand</span>&#x000A;84:       <span class="ruby-ivar">@operation</span> = <span class="ruby-identifier">operation</span>&#x000A;85:     <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <h2>Public instance methods</h2>
+              <div class='public-instance method' id='method-M000015'>
+                <a name='M000015'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>to_quantity</span>
+                  <span class='arguments'>(calc)</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000015-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000015-source'>    <span class="ruby-comment cmt"># File lib/quantity/quantity.rb, line 87</span>&#x000A;87:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_quantity</span>(<span class="ruby-identifier">calc</span>)&#x000A;88:       <span class="ruby-identifier">first_operand</span> = <span class="ruby-ivar">@first_operand</span>.<span class="ruby-identifier">to_quantity</span>(<span class="ruby-identifier">calc</span>)&#x000A;89:       <span class="ruby-identifier">second_operand</span> = <span class="ruby-ivar">@second_operand</span>.<span class="ruby-identifier">to_quantity</span>(<span class="ruby-identifier">calc</span>)&#x000A;90: &#x000A;91:       <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">apply_operator</span>(<span class="ruby-identifier">first_operand</span>, <span class="ruby-identifier">second_operand</span>, <span class="ruby-ivar">@operation</span>)&#x000A;92:     <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id='footer-push'></div>
+    </div>
+    <div id='footer'>
+      <a href="http://github.com/mislav/hanna/tree/master"><strong>Hanna</strong> RDoc template</a>
+    </div>
+  </body>
+</html>

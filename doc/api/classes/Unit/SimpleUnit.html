@@ -1,0 +1,250 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang='en'>
+  <head>
+    <title>: Unit::SimpleUnit [Quantity Framework API Documentation]</title>
+    <meta content='text/html; charset=utf8' http-equiv='Content-Type'>
+    <link href='../../rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
+    <script type='text/javascript'>
+      //<![CDATA[
+        function popupCode(url) {
+          window.open(url, "Code", "resizable=yes,scrollbars=yes,toolbar=no,status=no,height=150,width=400")
+        }
+        
+        function toggleCode(id) {
+          var code = document.getElementById(id)
+        
+          code.style.display = code.style.display != 'block' ? 'block' : 'none'
+          return true
+        }
+        
+        // Make codeblocks hidden by default
+        document.writeln('<' + 'style type="text/css">.method .source pre { display: none }<\/style>')
+      //]]>
+    </script>
+  </head>
+  <body class='page'>
+    <div class='class' id='wrapper'>
+      <div class='header'>
+        <h1 class='name'>
+          <span class='type'>Class</span>
+          Unit::SimpleUnit
+        </h1>
+        <ol class='paths'>
+          <li>
+            <a href="../../files/lib/quantity/simple_unit_rb.html">lib/quantity/simple_unit.rb</a>
+          </li>
+        </ol>
+        <div class='parent'>
+          Parent:
+          <strong>Object</strong>
+        </div>
+      </div>
+      <div id='content'>
+        <div id='text'>
+          <div id='description'>
+            <p>
+            Implementation of what is called ‘simple unit of measure’. This is a
+            linear unit which is optionally based on some other simple unit with linear
+            coefficient. Example: :cm is based on :mm with coefficient equal 10. In
+            other words X cm = 10 * Y mm.
+            </p>
+          </div>
+          <div id='method-list'>
+            <h2>Methods</h2>
+            <h3>public class</h3>
+            <ol>
+              <li><a href="#M000032">new</a></li>
+            </ol>
+            <h3>public instance</h3>
+            <ol>
+              <li><a href="#M000038">==</a></li>
+              <li><a href="#M000040">[]</a></li>
+              <li><a href="#M000036">dividend</a></li>
+              <li><a href="#M000037">divisor</a></li>
+              <li><a href="#M000039">eql?</a></li>
+              <li><a href="#M000034">from_base</a></li>
+              <li><a href="#M000035">h_base</a></li>
+              <li><a href="#M000033">to_base</a></li>
+            </ol>
+          </div>
+          <div id='context'>
+            <div id='includes'>
+              <h2>Included modules</h2>
+              <ol>
+                <li><a href="Comparable.html">Unit::Comparable</a></li>
+              </ol>
+            </div>
+          </div>
+          <div id='section'>
+            <div id='attribute-list'>
+              <h2 class='section-bar'>Attributes</h2>
+              <div class='name-list'>
+                <table>
+                  <tr class='top-aligned-row context-row'>
+                    <td class='context-item-name'>based_on</td>
+                    <td class='context-item-value'>[R]</td>
+                    <td class='context-item-desc'></td>
+                  </tr>
+                  <tr class='top-aligned-row context-row'>
+                    <td class='context-item-name'>coefficient</td>
+                    <td class='context-item-value'>[R]</td>
+                    <td class='context-item-desc'></td>
+                  </tr>
+                  <tr class='top-aligned-row context-row'>
+                    <td class='context-item-name'>unit</td>
+                    <td class='context-item-value'>[R]</td>
+                    <td class='context-item-desc'></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div id='methods'>
+              <h2>Public class methods</h2>
+              <div class='public-class method' id='method-M000032'>
+                <a name='M000032'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>new</span>
+                  <span class='arguments'>(args = {})</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000032-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000032-source'>    <span class="ruby-comment cmt"># File lib/quantity/simple_unit.rb, line 39</span>&#x000A;39:           <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span> (<span class="ruby-identifier">args</span> = {})&#x000A;40:         <span class="ruby-ivar">@unit</span> = <span class="ruby-identifier">args</span>[<span class="ruby-identifier">:unit</span>]&#x000A;41:         <span class="ruby-ivar">@based_on</span> = <span class="ruby-identifier">args</span>[<span class="ruby-identifier">:based_on</span>] <span class="ruby-operator">||</span> <span class="ruby-keyword kw">nil</span>&#x000A;42:         <span class="ruby-ivar">@coefficient</span> = <span class="ruby-identifier">args</span>[<span class="ruby-identifier">:coefficient</span>] <span class="ruby-operator">||</span> <span class="ruby-value">1</span>&#x000A;43:         <span class="ruby-ivar">@unit_sym</span> = {<span class="ruby-identifier">:dividends</span> =<span class="ruby-operator">&gt;</span> [<span class="ruby-ivar">@unit</span>], <span class="ruby-identifier">:divisors</span> =<span class="ruby-operator">&gt;</span> [], <span class="ruby-identifier">:string</span> =<span class="ruby-operator">&gt;</span> <span class="ruby-ivar">@unit</span>.<span class="ruby-identifier">to_s</span>}&#x000A;44:       <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <h2>Public instance methods</h2>
+              <div class='public-instance method' id='method-M000038'>
+                <a name='M000038'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>==</span>
+                  <span class='arguments'>(other)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Two Simple units are equal if they have same symbol, based on the same unit
+                  with the same coefficient
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000038-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000038-source'>    <span class="ruby-comment cmt"># File lib/quantity/simple_unit.rb, line 72</span>&#x000A;72:       <span class="ruby-keyword kw">def</span> <span class="ruby-operator">==</span>(<span class="ruby-identifier">other</span>)&#x000A;73:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">other</span> <span class="ruby-operator">==</span> <span class="ruby-keyword kw">nil</span>&#x000A;74:         <span class="ruby-keyword kw">return</span> <span class="ruby-keyword kw">false</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-keyword kw">self</span>.<span class="ruby-identifier">class</span>)&#x000A;75:         &#x000A;76:         <span class="ruby-identifier">unit</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">unit</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">based_on</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">based_on</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">coefficient</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>.<span class="ruby-identifier">coefficient</span>     &#x000A;77:       <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000040'>
+                <a name='M000040'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>[]</span>
+                  <span class='arguments'>(symbol)</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  This method allows to retrieve symbolic portions of the unit definition.
+                  Supported values are:
+                  </p>
+                  <pre>:dividends - returns an array of symbols representing dividend part of&#x000A;               unit definition.&#x000A;:string - string representation of the unit of measure.</pre>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000040-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000040-source'>    <span class="ruby-comment cmt"># File lib/quantity/simple_unit.rb, line 88</span>&#x000A;88:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">[]</span> (<span class="ruby-identifier">symbol</span>)&#x000A;89:       <span class="ruby-ivar">@unit_sym</span>[<span class="ruby-identifier">symbol</span>]&#x000A;90:     <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000036'>
+                <a name='M000036'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>dividend</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000036-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000036-source'>    <span class="ruby-comment cmt"># File lib/quantity/simple_unit.rb, line 62</span>&#x000A;62:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">dividend</span>&#x000A;63:         <span class="ruby-ivar">@unit</span>&#x000A;64:       <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000037'>
+                <a name='M000037'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>divisor</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000037-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000037-source'>    <span class="ruby-comment cmt"># File lib/quantity/simple_unit.rb, line 66</span>&#x000A;66:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">divisor</span>&#x000A;67:         <span class="ruby-ivar">@@EMPTY_UNIT</span>&#x000A;68:       <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000039'>
+                <a name='M000039'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>eql?</span>
+                  <span class='arguments'>(other)</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000039-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000039-source'>    <span class="ruby-comment cmt"># File lib/quantity/simple_unit.rb, line 79</span>&#x000A;79:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">eql?</span>(<span class="ruby-identifier">other</span>)&#x000A;80:         <span class="ruby-keyword kw">self</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">other</span>&#x000A;81:       <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000034'>
+                <a name='M000034'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>from_base</span>
+                  <span class='arguments'>(value)</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000034-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000034-source'>    <span class="ruby-comment cmt"># File lib/quantity/simple_unit.rb, line 51</span>&#x000A;51:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">from_base</span>(<span class="ruby-identifier">value</span>)&#x000A;52:         <span class="ruby-identifier">value</span> = <span class="ruby-ivar">@based_on</span>.<span class="ruby-identifier">from_base</span>(<span class="ruby-identifier">value</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">derived?</span>&#x000A;53:         <span class="ruby-identifier">value</span> <span class="ruby-operator">/=</span> <span class="ruby-ivar">@coefficient</span>&#x000A;54:       <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000035'>
+                <a name='M000035'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>h_base</span>
+                  <span class='arguments'>()</span>
+                </div>
+                <div class='description'>
+                  <p>
+                  Returns unit representing hierarchy base for the given unit. The Hierarchy
+                  is the &#8220;based on&#8221; chain.
+                  </p>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000035-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000035-source'>    <span class="ruby-comment cmt"># File lib/quantity/simple_unit.rb, line 58</span>&#x000A;58:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">h_base</span>&#x000A;59:         <span class="ruby-identifier">derived?</span> <span class="ruby-value">? </span><span class="ruby-ivar">@based_on</span>.<span class="ruby-identifier">h_base</span> <span class="ruby-operator">:</span> <span class="ruby-keyword kw">self</span>&#x000A;60:       <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+              <div class='public-instance method' id='method-M000033'>
+                <a name='M000033'>      </a>
+                <div class='synopsis'>
+                  <span class='name'>to_base</span>
+                  <span class='arguments'>(value)</span>
+                </div>
+                <div class='source'>
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000033-source'); return false">
+                    [show source]
+                  </a>
+                  <pre id='M000033-source'>    <span class="ruby-comment cmt"># File lib/quantity/simple_unit.rb, line 46</span>&#x000A;46:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_base</span>(<span class="ruby-identifier">value</span>)&#x000A;47:         <span class="ruby-identifier">value</span> = <span class="ruby-ivar">@based_on</span>.<span class="ruby-identifier">to_base</span>(<span class="ruby-identifier">value</span>) <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">derived?</span>&#x000A;48:         <span class="ruby-identifier">value</span> <span class="ruby-operator">*=</span> <span class="ruby-ivar">@coefficient</span>&#x000A;49:       <span class="ruby-keyword kw">end</span></pre>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id='footer-push'></div>
+    </div>
+    <div id='footer'>
+      <a href="http://github.com/mislav/hanna/tree/master"><strong>Hanna</strong> RDoc template</a>
+    </div>
+  </body>
+</html>
