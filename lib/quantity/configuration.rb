@@ -24,3 +24,14 @@ class Configuration
   end
   
 end
+
+module Quantity
+  def self.default(&block)
+    @config ||= Configuration.new()
+    yield @config if block_given? 
+  end
+  
+  def self.config
+    @config
+  end
+end

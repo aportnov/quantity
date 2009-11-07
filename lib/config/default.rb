@@ -1,7 +1,7 @@
 # Default configuration file defines default set of units and conversions
 # to be used by concrete Calculator instances.
 
-$configuration = Configuration.new() {|config|
+Quantity::default do |config|
 
   # Electrical Units
   config.unit :unit => :A
@@ -112,4 +112,4 @@ $configuration = Configuration.new() {|config|
   config.conversion 1.Hz => 6.28318530718.rad / 1.sec
   config.conversion 1.Pa => 0.000145038.lb / 1.sq_in 
   
-}
+end

@@ -58,9 +58,9 @@ class ConfigurationTest < Test::Unit::TestCase
   end
 
   def test_default_configuration
-    assert_not_nil($configuration)
+    assert_not_nil(Quantity::config)
     
-    calc = $configuration.calc
+    calc = Quantity::config.calc
     
     qty = calc.exp(:m){20.cm + 600.mm}
     
