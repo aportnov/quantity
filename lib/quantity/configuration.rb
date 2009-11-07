@@ -6,11 +6,11 @@ module Quantity
       yield self if block_given?
     end
   
-    def unit (params)
+    def unit(params)
       @default.add_unit params
     end
   
-    def conversion (params)
+    def conversion(params)
       @default.add_conversion params
     end
   
