@@ -8,31 +8,31 @@ class CompasedUnitTest < Test::Unit::TestCase
   def setup
  
     @units = {}
-    @units[:mm] = SimpleUnit.new(:unit => :mm)
-    @units[:cm] = SimpleUnit.new(:unit => :cm, :based_on => @units[:mm], :coefficient => 10)  
-    @units[:m] = SimpleUnit.new(:unit => :m, :based_on => @units[:cm], :coefficient => 100)
+    @units[:mm] = Base.new(:unit => :mm)
+    @units[:cm] = Base.new(:unit => :cm, :based_on => @units[:mm], :coefficient => 10)  
+    @units[:m] = Base.new(:unit => :m, :based_on => @units[:cm], :coefficient => 100)
 
-    @units[:g] = SimpleUnit.new(:unit => :g)
-    @units[:kg] = SimpleUnit.new(:unit => :kg, :based_on => @units[:g], :coefficient => 1000.0)
-    @units[:oz] = SimpleUnit.new(:unit => :oz, :based_on => @units[:g], :coefficient => 28.349523125)
-    @units[:lb] = SimpleUnit.new(:unit => :lb, :based_on => @units[:oz], :coefficient => 16)
-    @units[:mg] = SimpleUnit.new(:unit => :mg, :based_on => @units[:g], :coefficient => 0.001)
+    @units[:g] = Base.new(:unit => :g)
+    @units[:kg] = Base.new(:unit => :kg, :based_on => @units[:g], :coefficient => 1000.0)
+    @units[:oz] = Base.new(:unit => :oz, :based_on => @units[:g], :coefficient => 28.349523125)
+    @units[:lb] = Base.new(:unit => :lb, :based_on => @units[:oz], :coefficient => 16)
+    @units[:mg] = Base.new(:unit => :mg, :based_on => @units[:g], :coefficient => 0.001)
 
-    @units[:sec] = SimpleUnit.new(:unit => :sec)
-    @units[:A] = SimpleUnit.new(:unit => :A)
+    @units[:sec] = Base.new(:unit => :sec)
+    @units[:A] = Base.new(:unit => :A)
   
   end
   
   
   def test_to_base_conversion
 
-    unit = ComposedUnit.new({
+    unit = Composition.new({
       :dividends => [@units[:oz]]
     })
 
     assert_in_delta(2834.9523125, unit.to_base(100), 0.0001)
 
-    unit = ComposedUnit.new({
+    unit = Composition.new({
       :dividends => [@units[:lb]],
       :divisors => [@units[:m]]
     })
@@ -42,11 +42,11 @@ class CompasedUnitTest < Test::Unit::TestCase
   end
   
   def test_from_base_conversion
-    unit = ComposedUnit.new({ :dividends => [@units[:oz]] })
+    unit = Composition.new({ :dividends => [@units[:oz]] })
 
     assert_in_delta(100, unit.from_base(2834.9523125), 0.0001)
   
-    unit = ComposedUnit.new({
+    unit = Composition.new({
       :dividends => [@units[:lb]],
       :divisors => [@units[:m]]
     })
@@ -56,38 +56,38 @@ class CompasedUnitTest < Test::Unit::TestCase
   end
   
   def test_equal_units
-    oz = ComposedUnit.new( { :dividends => [@units[:oz]] } )
+    oz = Composition.new( { :dividends => [@units[:oz]] } )
     
-    lb = ComposedUnit.new( { :dividends => [@units[:lb]] })
+    lb = Composition.new( { :dividends => [@units[:lb]] })
   
     assert_not_equal(oz, lb)
     
-    ozee = ComposedUnit.new({ :dividends => [@units[:oz], @units[:mm]] })
+    ozee = Composition.new({ :dividends => [@units[:oz], @units[:mm]] })
     
-    mmee = ComposedUnit.new({ :dividends => [@units[:mm], @units[:oz]] })
+    mmee = Composition.new({ :dividends => [@units[:mm], @units[:oz]] })
   
     assert_equal(ozee, mmee)
   end
   
   def test_compatible_units
-    oz = ComposedUnit.new( { :dividends => [@units[:oz]] } )
-    lb = ComposedUnit.new( { :dividends => [@units[:lb]] })
+    oz = Composition.new( { :dividends => [@units[:oz]] } )
+    lb = Composition.new( { :dividends => [@units[:lb]] })
 
     assert_equal(true, oz.compatible?(lb))
   
-    ozee = ComposedUnit.new({ :dividends => [@units[:oz], @units[:mm]] })
-    mmee = ComposedUnit.new({ :dividends => [@units[:mm], @units[:oz]] })
+    ozee = Composition.new({ :dividends => [@units[:oz], @units[:mm]] })
+    mmee = Composition.new({ :dividends => [@units[:mm], @units[:oz]] })
 
     assert_equal(true, ozee.compatible?(mmee))
     
-    ozee = ComposedUnit.new({ :dividends => [@units[:oz], @units[:sec]] })
-    mmee = ComposedUnit.new({ :dividends => [@units[:mm], @units[:oz]] })
+    ozee = Composition.new({ :dividends => [@units[:oz], @units[:sec]] })
+    mmee = Composition.new({ :dividends => [@units[:mm], @units[:oz]] })
     
     assert_equal(false, ozee.compatible?(mmee))
   end
   
   def test_get_unit
-    unit = ComposedUnit.new({ 
+    unit = Composition.new({ 
           :dividends => [@units[:oz], @units[:sec]],
           :divisors => [@units[:mm]]})
     
@@ -97,22 +97,22 @@ class CompasedUnitTest < Test::Unit::TestCase
   
   def test_get_unit_string
 
-    dividend = ComposedUnit.new({ 
+    dividend = Composition.new({ 
           :dividends => [@units[:oz]],
           :divisors => [@units[:mm]]})
 
-    divisor = ComposedUnit.new({ 
+    divisor = Composition.new({ 
           :dividends => [@units[:sec]],
           :divisors => [@units[:A]]})
     
-    sample = ComposedUnit.new({:dividends => [dividend], :divisors => [divisor]})
+    sample = Composition.new({:dividends => [dividend], :divisors => [divisor]})
   
     assert_equal("oz*A/mm*sec", sample[:string])
   
   end
   
   def test_hierarchy_base
-    unit = ComposedUnit.new({ :dividends => [@units[:lb]] })
+    unit = Composition.new({ :dividends => [@units[:lb]] })
     
     base_unit = unit.h_base
   
@@ -122,7 +122,7 @@ class CompasedUnitTest < Test::Unit::TestCase
   end
 
   def test_reverse_unit
-    unit = ComposedUnit.new({ 
+    unit = Composition.new({ 
           :coefficient => 20.0,
           :dividends => [@units[:oz], @units[:sec]],
           :divisors => [@units[:mm]]})
@@ -149,18 +149,18 @@ class CompasedUnitTest < Test::Unit::TestCase
   end
 
   def test_contains
-    @units[:L] = SimpleUnit.new(:unit => :L)
-    @units[:cu_in] = SimpleUnit.new(:unit => :cu_in, :based_on => @units[:L], :coefficient => 0.016387064)    
+    @units[:L] = Base.new(:unit => :L)
+    @units[:cu_in] = Base.new(:unit => :cu_in, :based_on => @units[:L], :coefficient => 0.016387064)    
   
-    @units[:sq_mm] = SimpleUnit.new(:unit => :sq_mm)
-    @units[:sq_cm] = SimpleUnit.new(:unit => :sq_cm, :based_on => @units[:sq_mm], :coefficient => 100)
+    @units[:sq_mm] = Base.new(:unit => :sq_mm)
+    @units[:sq_cm] = Base.new(:unit => :sq_cm, :based_on => @units[:sq_mm], :coefficient => 100)
 
-    unit = ComposedUnit.new(
+    unit = Composition.new(
       :dividends => [@units[:mm], @units[:sq_cm]],
       :divisors => [@units[:cu_in]]
     )
     
-    other = ComposedUnit.new(:dividends => [@units[:mm], @units[:mm]] )
+    other = Composition.new(:dividends => [@units[:mm], @units[:mm]] )
     
     assert_equal(false, unit.contains?(other))
     

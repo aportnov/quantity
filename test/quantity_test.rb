@@ -8,17 +8,17 @@ class QuantityTest < Test::Unit::TestCase
   def setup
  
     @units = {}
-    @units[:mm] = SimpleUnit.new(:unit => :mm)
-    @units[:cm] = SimpleUnit.new(:unit => :cm, :based_on => @units[:mm], :coefficient => 10)  
-    @units[:m] = SimpleUnit.new(:unit => :m, :based_on => @units[:cm], :coefficient => 100)
+    @units[:mm] = Base.new(:unit => :mm)
+    @units[:cm] = Base.new(:unit => :cm, :based_on => @units[:mm], :coefficient => 10)  
+    @units[:m] = Base.new(:unit => :m, :based_on => @units[:cm], :coefficient => 100)
 
-    @units[:g] = SimpleUnit.new(:unit => :g)
-    @units[:kg] = SimpleUnit.new(:unit => :kg, :based_on => @units[:g], :coefficient => 1000.0)
-    @units[:oz] = SimpleUnit.new(:unit => :oz, :based_on => @units[:g], :coefficient => 28.349523125)
-    @units[:lb] = SimpleUnit.new(:unit => :lb, :based_on => @units[:oz], :coefficient => 16)
-    @units[:mg] = SimpleUnit.new(:unit => :mg, :based_on => @units[:g], :coefficient => 0.001)
+    @units[:g] = Base.new(:unit => :g)
+    @units[:kg] = Base.new(:unit => :kg, :based_on => @units[:g], :coefficient => 1000.0)
+    @units[:oz] = Base.new(:unit => :oz, :based_on => @units[:g], :coefficient => 28.349523125)
+    @units[:lb] = Base.new(:unit => :lb, :based_on => @units[:oz], :coefficient => 16)
+    @units[:mg] = Base.new(:unit => :mg, :based_on => @units[:g], :coefficient => 0.001)
 
-    @units[:sec] = SimpleUnit.new(:unit => :sec)
+    @units[:sec] = Base.new(:unit => :sec)
   
     @calc = Calculator.new(@units)
   end

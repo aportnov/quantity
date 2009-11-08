@@ -1,12 +1,13 @@
-module Unit
+module Quantity
+  module Unit
 
   # Implementation of what is called ‘composed unit of measure’. 
   # This is a result of performing multiplication or division of
   # quantities with simple units.
-  # Example:  1 lb per in or 70 mi per hour
-  class ComposedUnit
+  # Example:  1 'lb' per 'in' or 70 'mi' per 'hour'
+  class Composition
   
-    include Unit::Comparable
+    include Comparable
 
     include Quantity::Extensions
   
@@ -31,21 +32,21 @@ module Unit
     # Returns unit representing hierarchy base for the given unit.
     # The Hierarchy is the "based on" chain.
     def h_base
-      ComposedUnit.new({ :coefficient => 1.0,
+      Composition.new({ :coefficient => 1.0,
             :dividends => Optimizer.base(@dividends),
             :divisors => Optimizer.base(@divisors) })
     end
     
     def dividend
-      ComposedUnit.new({:dividends => @dividends})
+      Composition.new({:dividends => @dividends})
     end
     
     def divisor
-      ComposedUnit.new({:divisors => @divisors})
+      Composition.new({:divisors => @divisors})
     end
     
     def reverse
-      ComposedUnit.new({
+      Composition.new({
         :coefficient => 1.0 / coefficient,
         :dividends => @divisors.collect{|unit| unit },
         :divisors => @dividends.collect{|unit| unit }
@@ -175,7 +176,7 @@ module Unit
 
   class Optimizer
   
-    def Optimizer.process(params)
+    def self.process(params)
       raise "Incoming parameter has to respond to [] method" unless params.respond_to?(:[])
       
       #initialize local values
@@ -205,10 +206,11 @@ module Unit
       }
     end
  
-    def Optimizer.base(units)
+    def self.base(units)
       units.collect {| item | item.h_base}
     end
     
   end
   
 end  
+end

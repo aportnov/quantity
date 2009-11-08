@@ -1,5 +1,7 @@
 module Quantity
 
+  VERSION = "0.9.4"
+
   module Quantifiable
     def quantifiable? (value)
       value && value.respond_to?(:to_quantity)
@@ -113,7 +115,7 @@ module Quantity
     
     def initialize(calc, params)
       @calc = calc
-      @unit = params[:unit] || Unit::ComposedUnit.new({})
+      @unit = params[:unit] || Unit::Composition.new({})
       @value = params[:value] || 0.0
     end
     

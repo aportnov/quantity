@@ -46,7 +46,7 @@ module Quantity
            "Based_on unit must be defined before used." unless (based_on = @units[based_on_sym]) 
       end
       
-      @units[unit_sym] = Unit::SimpleUnit.new({
+      @units[unit_sym] = Unit::Base.new({
         :unit => unit_sym, 
         :based_on => based_on, 
         :coefficient => params[:coefficient] || 1.0 
@@ -84,7 +84,7 @@ module Quantity
     def multiply (first_operand, second_operand) 
       value = first_operand.value * second_operand.value
       
-      unit = Unit::ComposedUnit.new({
+      unit = Unit::Composition.new({
         :dividends => 
           @units.collect!(first_operand[:dividends] + second_operand[:dividends]),
         :divisors => 
@@ -97,7 +97,7 @@ module Quantity
     def divide (first_operand, second_operand) 
       value = second_operand.value == 0 ? 0 : first_operand.value / second_operand.value
  
-      unit = Unit::ComposedUnit.new({
+      unit = Unit::Composition.new({
         :dividends => 
           @units.collect!(first_operand[:dividends] + second_operand[:divisors]),
         :divisors => 
@@ -141,7 +141,7 @@ module Quantity
       end
       
       if return_spec.respond_to?(:split)
-        return Unit::ComposedUnit.new(@parser.to_units(return_spec))        
+        return Unit::Composition.new(@parser.to_units(return_spec))        
       end  
       
       unit = @units[return_spec]      
@@ -154,7 +154,7 @@ module Quantity
 
       from, to = params[:from], params[:to]
       
-      target = Unit::ComposedUnit.new({ 
+      target = Unit::Composition.new({ 
         :dividends => @units.collect!(to[:dividends] + from[:divisors]), 
         :divisors => @units.collect!(to[:divisors] + from[:dividends]) 
       }) 

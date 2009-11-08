@@ -94,9 +94,8 @@ CLEAN.include 'doc/api'
 # Gemspec Helpers ====================================================
 
 def source_version
-#  line = File.read('lib/quantity/base.rb')[/^\s*VERSION = .*/]
-#  line.match(/.*VERSION = '(.*)'/)[1]
-  "0.9.4" #TODO -- Fix this!!!
+  line = File.read('lib/quantity/base.rb')[/^\s*VERSION = .*/]
+  line.match(/.*VERSION = '(.*)'/)[1]
 end
 
 task 'quantity.gemspec' => FileList['{lib,test}/**','Rakefile','*.rdoc'] do |f|

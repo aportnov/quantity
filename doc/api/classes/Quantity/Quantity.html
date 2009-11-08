@@ -31,7 +31,7 @@
         </h1>
         <ol class='paths'>
           <li>
-            <a href="../../files/lib/quantity/quantity_rb.html">lib/quantity/quantity.rb</a>
+            <a href="../../files/lib/quantity/base_rb.html">lib/quantity/base.rb</a>
           </li>
         </ol>
         <div class='parent'>
@@ -45,12 +45,12 @@
             <h2>Methods</h2>
             <h3>public class</h3>
             <ol>
-              <li><a href="#M000017">new</a></li>
+              <li><a href="#M000041">new</a></li>
             </ol>
             <h3>public instance</h3>
             <ol>
-              <li><a href="#M000019">[]</a></li>
-              <li><a href="#M000018">to_quantity</a></li>
+              <li><a href="#M000043">[]</a></li>
+              <li><a href="#M000042">to_quantity</a></li>
             </ol>
           </div>
           <div id='context'>
@@ -86,22 +86,22 @@
             </div>
             <div id='methods'>
               <h2>Public class methods</h2>
-              <div class='public-class method' id='method-M000017'>
-                <a name='M000017'>      </a>
+              <div class='public-class method' id='method-M000041'>
+                <a name='M000041'>      </a>
                 <div class='synopsis'>
                   <span class='name'>new</span>
                   <span class='arguments'>(calc, params)</span>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000017-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000041-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000017-source'>     <span class="ruby-comment cmt"># File lib/quantity/quantity.rb, line 114</span>&#x000A;114:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">calc</span>, <span class="ruby-identifier">params</span>)&#x000A;115:       <span class="ruby-ivar">@calc</span> = <span class="ruby-identifier">calc</span>&#x000A;116:       <span class="ruby-ivar">@unit</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:unit</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">Unit</span><span class="ruby-operator">::</span><span class="ruby-constant">ComposedUnit</span>.<span class="ruby-identifier">new</span>({})&#x000A;117:       <span class="ruby-ivar">@value</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:value</span>] <span class="ruby-operator">||</span> <span class="ruby-value">0</span><span class="ruby-value">.0</span>&#x000A;118:     <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000041-source'>     <span class="ruby-comment cmt"># File lib/quantity/base.rb, line 116</span>&#x000A;116:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">calc</span>, <span class="ruby-identifier">params</span>)&#x000A;117:       <span class="ruby-ivar">@calc</span> = <span class="ruby-identifier">calc</span>&#x000A;118:       <span class="ruby-ivar">@unit</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:unit</span>] <span class="ruby-operator">||</span> <span class="ruby-constant">Unit</span><span class="ruby-operator">::</span><span class="ruby-constant">Composition</span>.<span class="ruby-identifier">new</span>({})&#x000A;119:       <span class="ruby-ivar">@value</span> = <span class="ruby-identifier">params</span>[<span class="ruby-identifier">:value</span>] <span class="ruby-operator">||</span> <span class="ruby-value">0</span><span class="ruby-value">.0</span>&#x000A;120:     <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
               <h2>Public instance methods</h2>
-              <div class='public-instance method' id='method-M000019'>
-                <a name='M000019'>      </a>
+              <div class='public-instance method' id='method-M000043'>
+                <a name='M000043'>      </a>
                 <div class='synopsis'>
                   <span class='name'>[]</span>
                   <span class='arguments'>(symbol)</span>
@@ -114,23 +114,23 @@
                   <pre>:dividends - returns an array of symbols representing dividend part of&#x000A;             unit definition.&#x000A;:divisors -  returns an array of symbols representing divisor part of&#x000A;             unit definition.&#x000A;:string - string representation of the unit of measure.&#x000A;:value - returns quantity value</pre>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000019-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000043-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000019-source'>     <span class="ruby-comment cmt"># File lib/quantity/quantity.rb, line 135</span>&#x000A;135:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">[]</span> (<span class="ruby-identifier">symbol</span>)&#x000A;136:       <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">value</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">symbol</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:value</span>&#x000A;137: &#x000A;138:       <span class="ruby-ivar">@unit</span>[<span class="ruby-identifier">symbol</span>]      &#x000A;139:     <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000043-source'>     <span class="ruby-comment cmt"># File lib/quantity/base.rb, line 137</span>&#x000A;137:     <span class="ruby-keyword kw">def</span> <span class="ruby-operator">[]</span> (<span class="ruby-identifier">symbol</span>)&#x000A;138:       <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">value</span> <span class="ruby-keyword kw">if</span> <span class="ruby-identifier">symbol</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">:value</span>&#x000A;139: &#x000A;140:       <span class="ruby-ivar">@unit</span>[<span class="ruby-identifier">symbol</span>]      &#x000A;141:     <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='public-instance method' id='method-M000018'>
-                <a name='M000018'>      </a>
+              <div class='public-instance method' id='method-M000042'>
+                <a name='M000042'>      </a>
                 <div class='synopsis'>
                   <span class='name'>to_quantity</span>
                   <span class='arguments'>(calc)</span>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000018-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000042-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000018-source'>     <span class="ruby-comment cmt"># File lib/quantity/quantity.rb, line 120</span>&#x000A;120:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_quantity</span>(<span class="ruby-identifier">calc</span>)&#x000A;121:       <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;Incompatible Argument.&quot;</span> <span class="ruby-operator">+</span> &#x000A;122:           <span class="ruby-value str">&quot;Both operands must be created by the same calculator&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@calc</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">calc</span>&#x000A;123:       <span class="ruby-keyword kw">self</span>&#x000A;124:     <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000042-source'>     <span class="ruby-comment cmt"># File lib/quantity/base.rb, line 122</span>&#x000A;122:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_quantity</span>(<span class="ruby-identifier">calc</span>)&#x000A;123:       <span class="ruby-identifier">raise</span> <span class="ruby-value str">&quot;Incompatible Argument.&quot;</span> <span class="ruby-operator">+</span> &#x000A;124:           <span class="ruby-value str">&quot;Both operands must be created by the same calculator&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-ivar">@calc</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">calc</span>&#x000A;125:       <span class="ruby-keyword kw">self</span>&#x000A;126:     <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
             </div>

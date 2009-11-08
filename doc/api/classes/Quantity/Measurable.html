@@ -31,7 +31,7 @@
         </h1>
         <ol class='paths'>
           <li>
-            <a href="../../files/lib/quantity/quantity_rb.html">lib/quantity/quantity.rb</a>
+            <a href="../../files/lib/quantity/base_rb.html">lib/quantity/base.rb</a>
           </li>
         </ol>
       </div>
@@ -47,37 +47,37 @@
             <h2>Methods</h2>
             <h3>public instance</h3>
             <ol>
-              <li><a href="#M000010">method_missing</a></li>
-              <li><a href="#M000011">to_quantity</a></li>
+              <li><a href="#M000008">method_missing</a></li>
+              <li><a href="#M000009">to_quantity</a></li>
             </ol>
           </div>
           <div id='section'>
             <div id='methods'>
               <h2>Public instance methods</h2>
-              <div class='public-instance method' id='method-M000010'>
-                <a name='M000010'>      </a>
+              <div class='public-instance method' id='method-M000008'>
+                <a name='M000008'>      </a>
                 <div class='synopsis'>
                   <span class='name'>method_missing</span>
                   <span class='arguments'>(method_name)</span>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000010-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000008-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000010-source'>     <span class="ruby-comment cmt"># File lib/quantity/quantity.rb, line 99</span>&#x000A; 99:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">method_missing</span> (<span class="ruby-identifier">method_name</span>)&#x000A;100:       <span class="ruby-constant">QuantityInfo</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">method_name</span>)&#x000A;101:     <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000008-source'>     <span class="ruby-comment cmt"># File lib/quantity/base.rb, line 101</span>&#x000A;101:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">method_missing</span> (<span class="ruby-identifier">method_name</span>)&#x000A;102:       <span class="ruby-constant">QuantityInfo</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">method_name</span>)&#x000A;103:     <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='public-instance method' id='method-M000011'>
-                <a name='M000011'>      </a>
+              <div class='public-instance method' id='method-M000009'>
+                <a name='M000009'>      </a>
                 <div class='synopsis'>
                   <span class='name'>to_quantity</span>
                   <span class='arguments'>(calc)</span>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000011-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000009-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000011-source'>     <span class="ruby-comment cmt"># File lib/quantity/quantity.rb, line 103</span>&#x000A;103:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_quantity</span> (<span class="ruby-identifier">calc</span>)&#x000A;104:       <span class="ruby-identifier">calc</span>.<span class="ruby-identifier">quantity</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-keyword kw">nil</span>)&#x000A;105:     <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000009-source'>     <span class="ruby-comment cmt"># File lib/quantity/base.rb, line 105</span>&#x000A;105:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_quantity</span> (<span class="ruby-identifier">calc</span>)&#x000A;106:       <span class="ruby-identifier">calc</span>.<span class="ruby-identifier">quantity</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-keyword kw">nil</span>)&#x000A;107:     <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
             </div>

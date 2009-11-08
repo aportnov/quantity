@@ -31,7 +31,7 @@
         </h1>
         <ol class='paths'>
           <li>
-            <a href="../../files/lib/quantity/quantity_rb.html">lib/quantity/quantity.rb</a>
+            <a href="../../files/lib/quantity/base_rb.html">lib/quantity/base.rb</a>
           </li>
         </ol>
         <div class='parent'>
@@ -45,11 +45,11 @@
             <h2>Methods</h2>
             <h3>public class</h3>
             <ol>
-              <li><a href="#M000015">new</a></li>
+              <li><a href="#M000039">new</a></li>
             </ol>
             <h3>public instance</h3>
             <ol>
-              <li><a href="#M000016">to_quantity</a></li>
+              <li><a href="#M000040">to_quantity</a></li>
             </ol>
           </div>
           <div id='context'>
@@ -85,31 +85,31 @@
             </div>
             <div id='methods'>
               <h2>Public class methods</h2>
-              <div class='public-class method' id='method-M000015'>
-                <a name='M000015'>      </a>
+              <div class='public-class method' id='method-M000039'>
+                <a name='M000039'>      </a>
                 <div class='synopsis'>
                   <span class='name'>new</span>
                   <span class='arguments'>(first_operand, second_operand, operation)</span>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000015-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000039-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000015-source'>    <span class="ruby-comment cmt"># File lib/quantity/quantity.rb, line 77</span>&#x000A;77:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">first_operand</span>, <span class="ruby-identifier">second_operand</span>, <span class="ruby-identifier">operation</span>)&#x000A;78: &#x000A;79:       <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Operand #{first_operand.to_s} is not Quantifiable&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">quantifiable?</span>(<span class="ruby-identifier">first_operand</span>) &#x000A;80:       <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Operand #{second_operand.to_s} is not Quantifiable&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">quantifiable?</span>(<span class="ruby-identifier">second_operand</span>)&#x000A;81:   &#x000A;82:       <span class="ruby-ivar">@first_operand</span> = <span class="ruby-identifier">first_operand</span>&#x000A;83:       <span class="ruby-ivar">@second_operand</span> = <span class="ruby-identifier">second_operand</span>&#x000A;84:       <span class="ruby-ivar">@operation</span> = <span class="ruby-identifier">operation</span>&#x000A;85:     <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000039-source'>    <span class="ruby-comment cmt"># File lib/quantity/base.rb, line 79</span>&#x000A;79:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">first_operand</span>, <span class="ruby-identifier">second_operand</span>, <span class="ruby-identifier">operation</span>)&#x000A;80: &#x000A;81:       <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Operand #{first_operand.to_s} is not Quantifiable&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">quantifiable?</span>(<span class="ruby-identifier">first_operand</span>) &#x000A;82:       <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Operand #{second_operand.to_s} is not Quantifiable&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">quantifiable?</span>(<span class="ruby-identifier">second_operand</span>)&#x000A;83:   &#x000A;84:       <span class="ruby-ivar">@first_operand</span> = <span class="ruby-identifier">first_operand</span>&#x000A;85:       <span class="ruby-ivar">@second_operand</span> = <span class="ruby-identifier">second_operand</span>&#x000A;86:       <span class="ruby-ivar">@operation</span> = <span class="ruby-identifier">operation</span>&#x000A;87:     <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
               <h2>Public instance methods</h2>
-              <div class='public-instance method' id='method-M000016'>
-                <a name='M000016'>      </a>
+              <div class='public-instance method' id='method-M000040'>
+                <a name='M000040'>      </a>
                 <div class='synopsis'>
                   <span class='name'>to_quantity</span>
                   <span class='arguments'>(calc)</span>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000016-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000040-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000016-source'>    <span class="ruby-comment cmt"># File lib/quantity/quantity.rb, line 87</span>&#x000A;87:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_quantity</span>(<span class="ruby-identifier">calc</span>)&#x000A;88:       <span class="ruby-identifier">first_operand</span> = <span class="ruby-ivar">@first_operand</span>.<span class="ruby-identifier">to_quantity</span>(<span class="ruby-identifier">calc</span>)&#x000A;89:       <span class="ruby-identifier">second_operand</span> = <span class="ruby-ivar">@second_operand</span>.<span class="ruby-identifier">to_quantity</span>(<span class="ruby-identifier">calc</span>)&#x000A;90: &#x000A;91:       <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">apply_operator</span>(<span class="ruby-identifier">first_operand</span>, <span class="ruby-identifier">second_operand</span>, <span class="ruby-ivar">@operation</span>)&#x000A;92:     <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000040-source'>    <span class="ruby-comment cmt"># File lib/quantity/base.rb, line 89</span>&#x000A;89:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_quantity</span>(<span class="ruby-identifier">calc</span>)&#x000A;90:       <span class="ruby-identifier">first_operand</span> = <span class="ruby-ivar">@first_operand</span>.<span class="ruby-identifier">to_quantity</span>(<span class="ruby-identifier">calc</span>)&#x000A;91:       <span class="ruby-identifier">second_operand</span> = <span class="ruby-ivar">@second_operand</span>.<span class="ruby-identifier">to_quantity</span>(<span class="ruby-identifier">calc</span>)&#x000A;92: &#x000A;93:       <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">apply_operator</span>(<span class="ruby-identifier">first_operand</span>, <span class="ruby-identifier">second_operand</span>, <span class="ruby-ivar">@operation</span>)&#x000A;94:     <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
             </div>

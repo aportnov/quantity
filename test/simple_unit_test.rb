@@ -1,17 +1,17 @@
 require File.dirname(__FILE__) + '/test_helper'
 
-class SimpleUnitTest < Test::Unit::TestCase
+class BaseTest < Test::Unit::TestCase
 
     include Unit
 
 	def setup
-      @millimeter = SimpleUnit.new(:unit => :mm)
-  	  @centimeter = SimpleUnit.new(:unit => :cm, :based_on => @millimeter, :coefficient => 10)
-  	  @meter = SimpleUnit.new(:unit => :m, :based_on => @centimeter, :coefficient => 100)
+      @millimeter = Base.new(:unit => :mm)
+  	  @centimeter = Base.new(:unit => :cm, :based_on => @millimeter, :coefficient => 10)
+  	  @meter = Base.new(:unit => :m, :based_on => @centimeter, :coefficient => 100)
 
-      @g = SimpleUnit.new(:unit => :g)
-      @oz = SimpleUnit.new(:unit => :oz, :based_on => @g, :coefficient => 28.349523125)
-      @lb = SimpleUnit.new(:unit => :lb, :based_on => @oz, :coefficient => 16)
+      @g = Base.new(:unit => :g)
+      @oz = Base.new(:unit => :oz, :based_on => @g, :coefficient => 28.349523125)
+      @lb = Base.new(:unit => :lb, :based_on => @oz, :coefficient => 16)
     end
 	
 	def test_to_base_conversion
