@@ -22,17 +22,18 @@ spec = Gem::Specification.new { |s|
     Rakefile
     lib/config/default.rb
     lib/quantity.rb
+    lib/quantity/base.rb
     lib/quantity/calculator.rb
     lib/quantity/configuration.rb
-    lib/quantity/quantity.rb
-    lib/quantity/simple_unit.rb
-    lib/quantity/unit_composition.rb
-    lib/quantity/utils.rb
+    lib/quantity/extensions.rb
+    lib/quantity/unit/base.rb
+    lib/quantity/unit/composition.rb
     quantity.gemspec
     test/calculator_test.rb
     test/composed_unit_test.rb
     test/configuration_test.rb
     test/custom_conversion_test.rb
+    test/extensions_test.rb
     test/quantifiable_test.rb
     test/quantity_test.rb
     test/simple_unit_test.rb
