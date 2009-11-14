@@ -41,23 +41,23 @@
             <h2>Methods</h2>
             <h3>public instance</h3>
             <ol>
-              <li><a href="#M000006">collect!</a></li>
+              <li><a href="#M000007">collect!</a></li>
             </ol>
           </div>
           <div id='section'>
             <div id='methods'>
               <h2>Public instance methods</h2>
-              <div class='public-instance method' id='method-M000006'>
-                <a name='M000006'>      </a>
+              <div class='public-instance method' id='method-M000007'>
+                <a name='M000007'>      </a>
                 <div class='synopsis'>
                   <span class='name'>collect!</span>
                   <span class='arguments'>(*keys)</span>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000006-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000007-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000006-source'>    <span class="ruby-comment cmt"># File lib/quantity/extensions.rb, line 43</span>&#x000A;43:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">collect!</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">keys</span>)&#x000A;44:           <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">inject</span>([]) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">result</span>, <span class="ruby-identifier">key</span><span class="ruby-operator">|</span> &#x000A;45:             <span class="ruby-identifier">value</span> = (<span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">key</span>] <span class="ruby-operator">||</span> <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>])&#x000A;46:             <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;No value found for a key #{key}&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">value</span>&#x000A;47:             <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">value</span>&#x000A;48:           <span class="ruby-keyword kw">end</span>&#x000A;49:         <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000007-source'>    <span class="ruby-comment cmt"># File lib/quantity/extensions.rb, line 43</span>&#x000A;43:         <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">collect!</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">keys</span>)&#x000A;44:           <span class="ruby-identifier">keys</span>.<span class="ruby-identifier">flatten</span>.<span class="ruby-identifier">inject</span>([]) <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">result</span>, <span class="ruby-identifier">key</span><span class="ruby-operator">|</span> &#x000A;45:             <span class="ruby-identifier">value</span> = (<span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">key</span>] <span class="ruby-operator">||</span> <span class="ruby-keyword kw">self</span>[<span class="ruby-identifier">key</span>.<span class="ruby-identifier">to_sym</span>])&#x000A;46:             <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;No value found for a key #{key}&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">value</span>&#x000A;47:             <span class="ruby-identifier">result</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">value</span>&#x000A;48:           <span class="ruby-keyword kw">end</span>&#x000A;49:         <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
             </div>

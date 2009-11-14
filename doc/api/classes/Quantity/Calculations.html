@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang='en'>
   <head>
-    <title>: Quantity::Quantifiable [Quantity Framework API Documentation]</title>
+    <title>: Quantity::Calculations [Quantity Framework API Documentation]</title>
     <meta content='text/html; charset=utf8' http-equiv='Content-Type'>
     <link href='../../rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
     <script type='text/javascript'>
@@ -27,7 +27,7 @@
       <div class='header'>
         <h1 class='name'>
           <span class='type'>Module</span>
-          Quantity::Quantifiable
+          Quantity::Calculations
         </h1>
         <ol class='paths'>
           <li>
@@ -37,29 +37,13 @@
       </div>
       <div id='content'>
         <div id='text'>
-          <div id='method-list'>
-            <h2>Methods</h2>
-            <h3>public instance</h3>
-            <ol>
-              <li><a href="#M000007">quantifiable?</a></li>
-            </ol>
-          </div>
           <div id='section'>
-            <div id='methods'>
-              <h2>Public instance methods</h2>
-              <div class='public-instance method' id='method-M000007'>
-                <a name='M000007'>      </a>
-                <div class='synopsis'>
-                  <span class='name'>quantifiable?</span>
-                  <span class='arguments'>(value)</span>
-                </div>
-                <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000007-source'); return false">
-                    [show source]
-                  </a>
-                  <pre id='M000007-source'>   <span class="ruby-comment cmt"># File lib/quantity/base.rb, line 6</span>&#x000A;6:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">quantifiable?</span> (<span class="ruby-identifier">value</span>)&#x000A;7:       <span class="ruby-identifier">value</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">respond_to?</span>(<span class="ruby-identifier">:to_quantity</span>)&#x000A;8:     <span class="ruby-keyword kw">end</span></pre>
-                </div>
-              </div>
+            <div id='class-list'>
+              <h2>Classes and Modules</h2>
+              Module <a href="Calculations/Base.html" class="link">Quantity::Calculations::Base</a><br />
+              Module <a href="Calculations/Mixin.html" class="link">Quantity::Calculations::Mixin</a><br />
+              Class <a href="Calculations/Operand.html" class="link">Quantity::Calculations::Operand</a><br />
+              Class <a href="Calculations/Operation.html" class="link">Quantity::Calculations::Operation</a><br />
             </div>
           </div>
         </div>

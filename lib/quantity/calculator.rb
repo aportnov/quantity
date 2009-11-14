@@ -1,8 +1,6 @@
 module Quantity
 
   class Calculator
-    include Quantifiable
-    
     attr_reader :units, :conversions
     
     def initialize(units = {}, conversions = [])
@@ -30,7 +28,7 @@ module Quantity
     def exp (return_as = nil)
     
       operand = yield self
-      raise "Operand is not Quantifiable" unless quantifiable?(operand)
+      raise "Operand is not Quantifiable" unless ::Quantity::quantifiable?(operand)
       
       
       convert_to(operand.to_quantity(self), to_unit(return_as))
@@ -55,11 +53,11 @@ module Quantity
 
     def add_conversion(params)
       params.each {|source, target|
-        begin
+#       begin
           @conversions << exp { target / source } << exp { source / target }
-        rescue
-          raise "Unit must be defined before used in conversion"
-        end  
+#        rescue
+#         raise "Unit must be defined before used in conversion"
+#        end  
       }      
     end
     
@@ -135,19 +133,14 @@ module Quantity
     def to_unit(return_spec)
       return nil if return_spec.nil?
       
-      if quantifiable?(return_spec)
-        qty = return_spec.to_quantity(self)
-        return qty.unit
-      end
+      return return_spec.to_quantity(self).unit if ::Quantity::quantifiable?(return_spec)
       
       if return_spec.respond_to?(:split)
         return Unit::Composition.new(@parser.to_units(return_spec))        
       end  
       
-      unit = @units[return_spec]      
-      return unit if unit
-      
-      raise "Return Unit Expression Error: Invalid Unit Specification "      
+      raise "Return Unit Expression Error: Invalid Unit Specification " unless unit = @units[return_spec]
+      unit     
     end
     
     def find_conversion (params)

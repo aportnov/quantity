@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang='en'>
   <head>
-    <title>: Quantity::OperationInfo [Quantity Framework API Documentation]</title>
+    <title>: Quantity::Calculations::Operation [Quantity Framework API Documentation]</title>
     <meta content='text/html; charset=utf8' http-equiv='Content-Type'>
-    <link href='../../rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
+    <link href='../../../rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
     <script type='text/javascript'>
       //<![CDATA[
         function popupCode(url) {
@@ -27,11 +27,11 @@
       <div class='header'>
         <h1 class='name'>
           <span class='type'>Class</span>
-          Quantity::OperationInfo
+          Quantity::Calculations::Operation
         </h1>
         <ol class='paths'>
           <li>
-            <a href="../../files/lib/quantity/base_rb.html">lib/quantity/base.rb</a>
+            <a href="../../../files/lib/quantity/base_rb.html">lib/quantity/base.rb</a>
           </li>
         </ol>
         <div class='parent'>
@@ -56,7 +56,7 @@
             <div id='includes'>
               <h2>Included modules</h2>
               <ol>
-                <li><a href="CalculationSupport.html">CalculationSupport</a></li>
+                <li><a href="Base.html">Base</a></li>
               </ol>
             </div>
           </div>
@@ -95,7 +95,7 @@
                   <a class='source-toggle' href='#' onclick="toggleCode('M000039-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000039-source'>    <span class="ruby-comment cmt"># File lib/quantity/base.rb, line 79</span>&#x000A;79:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">first_operand</span>, <span class="ruby-identifier">second_operand</span>, <span class="ruby-identifier">operation</span>)&#x000A;80: &#x000A;81:       <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Operand #{first_operand.to_s} is not Quantifiable&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">quantifiable?</span>(<span class="ruby-identifier">first_operand</span>) &#x000A;82:       <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Operand #{second_operand.to_s} is not Quantifiable&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-identifier">quantifiable?</span>(<span class="ruby-identifier">second_operand</span>)&#x000A;83:   &#x000A;84:       <span class="ruby-ivar">@first_operand</span> = <span class="ruby-identifier">first_operand</span>&#x000A;85:       <span class="ruby-ivar">@second_operand</span> = <span class="ruby-identifier">second_operand</span>&#x000A;86:       <span class="ruby-ivar">@operation</span> = <span class="ruby-identifier">operation</span>&#x000A;87:     <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000039-source'>    <span class="ruby-comment cmt"># File lib/quantity/base.rb, line 72</span>&#x000A;72:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">first_operand</span>, <span class="ruby-identifier">second_operand</span>, <span class="ruby-identifier">operation</span>)&#x000A;73:         [<span class="ruby-identifier">first_operand</span>, <span class="ruby-identifier">second_operand</span>].<span class="ruby-identifier">each</span> <span class="ruby-keyword kw">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">operand</span><span class="ruby-operator">|</span> &#x000A;74:           <span class="ruby-identifier">raise</span> <span class="ruby-node">&quot;Operand #{operand} is not Quantifiable&quot;</span> <span class="ruby-keyword kw">unless</span> <span class="ruby-operator">::</span><span class="ruby-constant">Quantity</span><span class="ruby-operator">::</span><span class="ruby-identifier">quantifiable?</span>(<span class="ruby-identifier">operand</span>) &#x000A;75:         <span class="ruby-keyword kw">end</span>  &#x000A;76:   &#x000A;77:         <span class="ruby-ivar">@first_operand</span>, <span class="ruby-ivar">@second_operand</span>, <span class="ruby-ivar">@operation</span> = <span class="ruby-identifier">first_operand</span>, <span class="ruby-identifier">second_operand</span>, <span class="ruby-identifier">operation</span>&#x000A;78:       <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
               <h2>Public instance methods</h2>
@@ -109,7 +109,7 @@
                   <a class='source-toggle' href='#' onclick="toggleCode('M000040-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000040-source'>    <span class="ruby-comment cmt"># File lib/quantity/base.rb, line 89</span>&#x000A;89:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_quantity</span>(<span class="ruby-identifier">calc</span>)&#x000A;90:       <span class="ruby-identifier">first_operand</span> = <span class="ruby-ivar">@first_operand</span>.<span class="ruby-identifier">to_quantity</span>(<span class="ruby-identifier">calc</span>)&#x000A;91:       <span class="ruby-identifier">second_operand</span> = <span class="ruby-ivar">@second_operand</span>.<span class="ruby-identifier">to_quantity</span>(<span class="ruby-identifier">calc</span>)&#x000A;92: &#x000A;93:       <span class="ruby-keyword kw">return</span> <span class="ruby-identifier">apply_operator</span>(<span class="ruby-identifier">first_operand</span>, <span class="ruby-identifier">second_operand</span>, <span class="ruby-ivar">@operation</span>)&#x000A;94:     <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000040-source'>    <span class="ruby-comment cmt"># File lib/quantity/base.rb, line 80</span>&#x000A;80:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_quantity</span>(<span class="ruby-identifier">calc</span>)&#x000A;81:         <span class="ruby-identifier">first_operand</span>, <span class="ruby-identifier">second_operand</span> = [<span class="ruby-ivar">@first_operand</span>, <span class="ruby-ivar">@second_operand</span>].<span class="ruby-identifier">collect</span>{<span class="ruby-operator">|</span><span class="ruby-identifier">o</span><span class="ruby-operator">|</span> <span class="ruby-identifier">o</span>.<span class="ruby-identifier">to_quantity</span>(<span class="ruby-identifier">calc</span>)} &#x000A;82:         <span class="ruby-identifier">apply_operator</span> <span class="ruby-identifier">first_operand</span>, <span class="ruby-identifier">second_operand</span>, <span class="ruby-ivar">@operation</span>&#x000A;83:       <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
             </div>

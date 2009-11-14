@@ -1,9 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html lang='en'>
   <head>
-    <title>: Quantity::Measurable [Quantity Framework API Documentation]</title>
+    <title>: Quantity::Calculations::Mixin [Quantity Framework API Documentation]</title>
     <meta content='text/html; charset=utf8' http-equiv='Content-Type'>
-    <link href='../../rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
+    <link href='../../../rdoc-style.css' media='screen' rel='stylesheet' type='text/css'>
     <script type='text/javascript'>
       //<![CDATA[
         function popupCode(url) {
@@ -27,11 +27,11 @@
       <div class='header'>
         <h1 class='name'>
           <span class='type'>Module</span>
-          Quantity::Measurable
+          Quantity::Calculations::Mixin
         </h1>
         <ol class='paths'>
           <li>
-            <a href="../../files/lib/quantity/base_rb.html">lib/quantity/base.rb</a>
+            <a href="../../../files/lib/quantity/base_rb.html">lib/quantity/base.rb</a>
           </li>
         </ol>
       </div>
@@ -39,45 +39,45 @@
         <div id='text'>
           <div id='description'>
             <p>
-            DSL (domain specific language) processing module. Mixin for <a
-            href="../Numeric.html">Numeric</a> class.
+            <a href="Mixin.html">Mixin</a> for classes to be able to participate in
+            quantity operations.
             </p>
           </div>
           <div id='method-list'>
             <h2>Methods</h2>
             <h3>public instance</h3>
             <ol>
-              <li><a href="#M000008">method_missing</a></li>
-              <li><a href="#M000009">to_quantity</a></li>
+              <li><a href="#M000034">method_missing</a></li>
+              <li><a href="#M000035">to_quantity</a></li>
             </ol>
           </div>
           <div id='section'>
             <div id='methods'>
               <h2>Public instance methods</h2>
-              <div class='public-instance method' id='method-M000008'>
-                <a name='M000008'>      </a>
+              <div class='public-instance method' id='method-M000034'>
+                <a name='M000034'>      </a>
                 <div class='synopsis'>
                   <span class='name'>method_missing</span>
                   <span class='arguments'>(method_name)</span>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000008-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000034-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000008-source'>     <span class="ruby-comment cmt"># File lib/quantity/base.rb, line 101</span>&#x000A;101:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">method_missing</span> (<span class="ruby-identifier">method_name</span>)&#x000A;102:       <span class="ruby-constant">QuantityInfo</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">method_name</span>)&#x000A;103:     <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000034-source'>    <span class="ruby-comment cmt"># File lib/quantity/base.rb, line 89</span>&#x000A;89:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">method_missing</span> (<span class="ruby-identifier">method_name</span>)&#x000A;90:         <span class="ruby-constant">Operand</span>.<span class="ruby-identifier">new</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-identifier">method_name</span>)&#x000A;91:       <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
-              <div class='public-instance method' id='method-M000009'>
-                <a name='M000009'>      </a>
+              <div class='public-instance method' id='method-M000035'>
+                <a name='M000035'>      </a>
                 <div class='synopsis'>
                   <span class='name'>to_quantity</span>
                   <span class='arguments'>(calc)</span>
                 </div>
                 <div class='source'>
-                  <a class='source-toggle' href='#' onclick="toggleCode('M000009-source'); return false">
+                  <a class='source-toggle' href='#' onclick="toggleCode('M000035-source'); return false">
                     [show source]
                   </a>
-                  <pre id='M000009-source'>     <span class="ruby-comment cmt"># File lib/quantity/base.rb, line 105</span>&#x000A;105:     <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_quantity</span> (<span class="ruby-identifier">calc</span>)&#x000A;106:       <span class="ruby-identifier">calc</span>.<span class="ruby-identifier">quantity</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-keyword kw">nil</span>)&#x000A;107:     <span class="ruby-keyword kw">end</span></pre>
+                  <pre id='M000035-source'>    <span class="ruby-comment cmt"># File lib/quantity/base.rb, line 93</span>&#x000A;93:       <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">to_quantity</span>(<span class="ruby-identifier">calc</span>)&#x000A;94:         <span class="ruby-identifier">calc</span>.<span class="ruby-identifier">quantity</span>(<span class="ruby-keyword kw">self</span>, <span class="ruby-keyword kw">nil</span>)&#x000A;95:       <span class="ruby-keyword kw">end</span></pre>
                 </div>
               </div>
             </div>

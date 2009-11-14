@@ -2,114 +2,105 @@ module Quantity
 
   VERSION = '0.9.4'
 
-  module Quantifiable
-    def quantifiable? (value)
-      value && value.respond_to?(:to_quantity)
-    end
-  end  
-    
-  module CalculationSupport
-    include Quantifiable
-    
-    def method_missing(name, value)
-      if supported_operation? name
-        return perform_operation(value, name)
-      else
-        super.method_missing(name, value)
-      end
-    end
- 
-    def == (other)
-      return false if other == nil
-      return false unless other.kind_of?(self.class)
- 
-      value == other.value && unit == other.unit
-    end
-    
-    def coerce(other)
-      [QuantityInfo.new(other, nil), self]
-    end
-  private   
- 
-    def perform_operation(value, operation)
-      raise "Operand is not Quantifiable" unless quantifiable?(value)
-      
-      if value.respond_to?(:calc)
-        return apply_operator(to_quantity(value.calc), value, operation)      
-      end
-      
-      OperationInfo.new(self, value, operation)
-    end  
-
-    def apply_operator(first_operand, second_operand, operation)
-      raise "Operation #{operation.to_s} is not supported" unless supported_operation? operation    
-
-      first_operand.send(operation, second_operand) 
-    end
-    
-    def supported_operation?(operation)
-      [:+, :-, :*, :/].include? operation 
-    end
-    
+  def self.quantifiable?(*value)
+    [value].flatten.all?{|v| v.respond_to?(:to_quantity)}
   end
-
-
-  class QuantityInfo 
   
-    include CalculationSupport
-    
-    attr_reader :value, :unit_sym
-    
-    def initialize(value, unit_sym)
-      @value = value
-      @unit_sym = unit_sym
-    end
-
-    def to_quantity(calc)
-      calc.quantity(@value, @unit_sym)
-    end  
-
-  end
-
-  class OperationInfo
-    include CalculationSupport
-
-    attr_reader :first_operand, :second_operand, :operation
-    
-    def initialize(first_operand, second_operand, operation)
-
-      raise "Operand #{first_operand.to_s} is not Quantifiable" unless quantifiable?(first_operand) 
-      raise "Operand #{second_operand.to_s} is not Quantifiable" unless quantifiable?(second_operand)
+  module Calculations
   
-      @first_operand = first_operand
-      @second_operand = second_operand
-      @operation = operation
-    end
+    module Base
     
-    def to_quantity(calc)
-      first_operand = @first_operand.to_quantity(calc)
-      second_operand = @second_operand.to_quantity(calc)
+      def method_missing(name, value)
+        if supported_operation? name
+          perform_operation(value, name)
+        else
+          super.method_missing(name, value)
+        end
+      end
+ 
+      def == (other)
+        return false if other == nil
+        return false unless other.kind_of?(self.class)
+        value == other.value && unit == other.unit
+      end
+    
+      def coerce(other)
+        [Operand.new(other, nil), self]
+      end
+    private   
+ 
+      def perform_operation(value, operation)
+        raise "Operand is not Quantifiable" unless ::Quantity::quantifiable?(value, self)
+      
+        value.respond_to?(:calc) ? apply_operator(to_quantity(value.calc), value, operation) : Operation.new(self, value, operation)      
+      end  
 
-      return apply_operator(first_operand, second_operand, @operation)
+      def apply_operator(first_operand, second_operand, operation)
+        raise "Operation #{operation.to_s} is not supported" unless supported_operation? operation    
+
+        first_operand.send(operation, second_operand) 
+      end
+    
+      def supported_operation?(operation)
+        [:+, :-, :*, :/].include? operation 
+      end
+    
+    end
+
+    class Operand 
+  
+      include Base
+    
+      attr_reader :value, :unit_sym
+    
+      def initialize(value, unit_sym)
+        @value = value
+        @unit_sym = unit_sym
+      end
+
+      def to_quantity(calc)
+        calc.quantity(@value, @unit_sym)
+      end  
+
+    end
+
+    class Operation
+      include Base
+
+      attr_reader :first_operand, :second_operand, :operation
+    
+      def initialize(first_operand, second_operand, operation)
+        [first_operand, second_operand].each do |operand| 
+          raise "Operand #{operand} is not Quantifiable" unless ::Quantity::quantifiable?(operand) 
+        end  
+  
+        @first_operand, @second_operand, @operation = first_operand, second_operand, operation
+      end
+    
+      def to_quantity(calc)
+        first_operand, second_operand = [@first_operand, @second_operand].collect{|o| o.to_quantity(calc)} 
+        apply_operator first_operand, second_operand, @operation
+      end  
+
+    end
+
+    # Mixin for classes to be able to participate in quantity operations.		
+    module Mixin
+      def method_missing (method_name)
+        Operand.new(self, method_name)
+      end
+
+      def to_quantity(calc)
+        calc.quantity(self, nil)
+      end
     end  
 
   end
 
-  # DSL (domain specific language) processing module. Mixin for Numeric class.		
-  module Measurable
-    
-    def method_missing (method_name)
-      QuantityInfo.new(self, method_name)
-    end
-    
-    def to_quantity (calc)
-      calc.quantity(self, nil)
-    end
-  end  
 
   class Quantity
 
-    include CalculationSupport
+    include Calculations::Base
     
     attr_reader :calc, :value, :unit
     
@@ -143,7 +134,7 @@ module Quantity
   private
 
     def perform_operation(value, operation)
-      raise "Operand is not Quantifiable" unless quantifiable?(value)
+      raise "Operand is not Quantifiable" unless ::Quantity::quantifiable?(value)
       
       @calc.perform_operation(self, value.to_quantity(@calc), operation)
     end
@@ -154,7 +145,7 @@ end
 
 # Extention to standard Numeric hierarchy to support quantity DSL
 class Numeric
-  include Quantity::Measurable
+  include Quantity::Calculations::Mixin
 end
   
 
