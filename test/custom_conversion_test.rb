@@ -76,7 +76,7 @@ class CustomUnitConversionTest < Test::Unit::TestCase
   
   
   def test_default_configuration_conversions
-    calc = Quantity::config.calc
+    calc = Quantity::calc
     
     assert_nothing_raised(RuntimeError) {
       qty = calc.exp(:mm) {1.cu_in / 1.sq_cm}

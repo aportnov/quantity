@@ -1,0 +1,31 @@
+Quantity Framework
+===================
+
+This is a simple framework allowing one to perform basic quantity math and conversions.
+
+=======================================================================================
+
+Basic usage:
+
+calc = Quantity::calc
+qty = calc.quantity(45, :cm)
+mm = calc.exp(:mm) {qty}
+cm = calc.exp(:cm){2.m - 20.cm}
+m = calc.exp(:m) {25.cm + 15.8.mm + 10.m}
+
+Something a bit more interesting:
+
+calc.exp(1.L / 1.km) {33.mi / 1.gal}.value
+
+=====================================================================================
+
+Look at lib/config/default.rb for full list of conversions and units supported by default. You can also add new units and new conversions to "global" config via Quantity::configure :
+
+Quantity::configure do |config|
+ config.unit :unit => :new_unit
+ .....
+end
+
+or do the same on a given calculator level:
+
+calc.add_unit :unit => :new_unit

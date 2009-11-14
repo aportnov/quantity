@@ -26,11 +26,8 @@ module Quantity
     end
  
     def exp (return_as = nil)
-    
       operand = yield self
       raise "Operand is not Quantifiable" unless ::Quantity::quantifiable?(operand)
-      
-      
       convert_to(operand.to_quantity(self), to_unit(return_as))
     end
     
@@ -52,13 +49,13 @@ module Quantity
     end
 
     def add_conversion(params)
-      params.each {|source, target|
-#       begin
+      params.each do |source, target|
+        begin
           @conversions << exp { target / source } << exp { source / target }
-#        rescue
-#         raise "Unit must be defined before used in conversion"
-#        end  
-      }      
+        rescue
+          raise "Unit must be defined before used in conversion"
+        end  
+      end      
     end
     
   private 

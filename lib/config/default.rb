@@ -1,7 +1,7 @@
 # Default configuration file defines default set of units and conversions
 # to be used by concrete Calculator instances.
 
-Quantity::default do |config|
+Quantity::configure do |config|
 
   # Electrical Units
   config.unit :unit => :A

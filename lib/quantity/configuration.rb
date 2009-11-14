@@ -16,22 +16,22 @@ module Quantity
   
     def calc
       calc = Calculator.new({}.replace(@default.units))
-    
-      @default.conversions.each {|c| 
-        calc.conversions << Quantity.new(calc, :unit => c.unit, :value => c.value)
-      }
-    
+      @default.conversions.each {|c| calc.conversions << Quantity.new(calc, :unit => c.unit, :value => c.value)}
       return calc    
     end
   
   end
 
-  def self.default(&block)
+  def self.configure(&block)
     @config ||= Configuration.new()
     yield @config if block_given? 
   end
   
   def self.config
     @config
+  end
+  
+  def self.calc
+    @config.calc
   end
 end
