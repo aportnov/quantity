@@ -31,11 +31,34 @@
         </div>
         <div class='last-update'>
           Last Update:
-          <span class='datetime'>Fri Nov 06 19:53:06 -0600 2009</span>
+          <span class='datetime'>Sat Nov 14 13:38:15 -0600 2009</span>
         </div>
       </div>
       <div id='content'>
         <div id='text'>
+          <div id='description'>
+            <h2><a href="../classes/Quantity.html">Quantity</a> Framework</h2>
+            <p>
+            This is a simple framework allowing one to perform basic quantity math and
+            conversions.
+            </p>
+            <h2>Basic usage:</h2>
+            <pre>calc = Quantity::calc&#x000A;qty = calc.quantity(45, :cm)&#x000A;mm = calc.exp(:mm) {qty}&#x000A;cm = calc.exp(:cm){2.m - 20.cm}&#x000A;m = calc.exp(:m) {25.cm + 15.8.mm + 10.m}</pre>
+            <h2>Something a bit more interesting:</h2>
+            <pre>calc.exp(1.L / 1.km) {33.mi / 1.gal}.value</pre>
+            <h2>More</h2>
+            <p>
+            Look at <a href="lib/config/default_rb.html">lib/config/default.rb</a> for
+            full list of conversions and units supported by default. You can also add
+            new units and new conversions to &#8220;global&#8221; config via
+            Quantity::configure :
+            </p>
+            <pre>Quantity::configure do |config|&#x000A; config.unit :unit =&gt; :new_unit&#x000A; .....&#x000A;end</pre>
+            <p>
+            or do the same on a given calculator level:
+            </p>
+            <pre>calc.add_unit :unit =&gt; :new_unit</pre>
+          </div>
           <div id='section'>
           </div>
         </div>
